@@ -1,0 +1,50 @@
+.landing {
+  position: relative;
+  height: 50vh;
+  background-color: #efefef;
+}
+
+.landing-inner {
+  padding-top: 150px;
+}
+
+.feature-icons {
+  height: 30vh;
+  background-color: ;
+}
+
+.feature-icons-inner {
+  padding: 50px;
+}
+
+.feature-text {
+  height: 500px;
+  padding-top: 125px;
+  background-color: #efefef;
+}
+
+.feature-image {
+  height: 500px;
+  background-color: black;
+}
+
+.testimonials {
+  height: 550px;
+}
+
+.landing-bottom {
+  height: 300px;
+  background-color: #efefef;
+}
+
+.landing-bottom-inner {
+  padding-top: 50px;
+}
+
+.footer {
+  height: 150px;
+}
+
+.footer-inner {
+  padding-top: 30px;
+}
