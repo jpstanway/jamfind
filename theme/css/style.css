@@ -106,3 +106,9 @@
 .landing-social-links span:hover {
   opacity: 0.8;
 }
+
+/* create account */
+.standard-form {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
