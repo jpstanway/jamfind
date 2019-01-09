@@ -58,58 +58,107 @@
       </div>
     </nav>
 
-    <!-- top dashboard navigation -->
+    <!-- add experience form -->
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <h1 class="pt-5">Welcome John Doe</h1>
-          <p class="lead">Dashboard</p>
+        <div class="col-md-12 text-center pt-5">
+          <h1>Add Experience</h1>
+          <p class="lead">
+            Add any band or project experience that you want to share
+          </p>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">
-          <div class="btn-group btn-group-sm" role="group">
-            <button type="button" class="btn btn-outline-secondary">
-              Edit Profile
+        <div class="col-md-6 m-auto standard-form">
+          <small>* indicates a required field</small>
+          <form class="mt-1">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="exp-type"
+                id="exp-type"
+                placeholder="* Type of experience"
+              />
+              <small class="form-text text-muted"
+                >What type of experience is this? (ex. band, recording session,
+                music you've created, etc.)</small
+              >
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="position"
+                id="position"
+                placeholder="* Role"
+              />
+              <small class="form-text text-muted"
+                >What was your role in the band or project?</small
+              >
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="exp-name"
+                id="exp-name"
+                placeholder="Band name/project title"
+              />
+              <small class="form-text text-muted"
+                >Share the name of the band or project you worked on</small
+              >
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                name="exp-location"
+                id="exp-location"
+                placeholder="Location"
+              />
+              <small class="form-text text-muted"
+                >Where did you get this experience?</small
+              >
+            </div>
+            <div class="form-group">
+              <label for="from-date">From Date</label>
+              <input
+                type="date"
+                class="form-control"
+                name="from-date"
+                id="from-date"
+              />
+            </div>
+            <div class="form-group">
+              <label for="from-date">To Date</label>
+              <input
+                type="date"
+                class="form-control"
+                name="to-date"
+                id="to-date"
+              />
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="current" />
+              <label class="form-check-label" for="current">Current</label>
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                name="description"
+                id="description"
+                rows="3"
+                placeholder="Enter description"
+              ></textarea>
+              <small class="form-text text-muted"
+                >Tell us about the band/project</small
+              >
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Create Profile
             </button>
-            <button type="button" class="btn btn-outline-secondary">
-              Add Experience
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- experience section -->
-      <div class="row mt-5 mb-5">
-        <div class="col-md-12">
-          <h2 class="mb-3">Experience</h2>
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Type</th>
-                <th scope="col">Role</th>
-                <th scope="col">Location</th>
-                <th scope="col">From-To</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Band</td>
-                <td>Bass player</td>
-                <td>Vancouver</td>
-                <td>02-03-2008-04-04-2012</td>
-                <td><button class="btn btn-danger btn-sm">Delete</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- account options -->
-      <div class="row mb-2">
-        <div class="col-md-12">
-          <button type="button" class="btn btn-link">Delete Account</button>
+          </form>
         </div>
       </div>
     </div>
