@@ -1,2 +1,8 @@
 # assets
 /imgs
+
+# dependencies
+/node_modules
+
+# security keys
+/config
