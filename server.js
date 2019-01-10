@@ -6,13 +6,11 @@ const helmet = require("helmet");
 const mongoose = require("mongoose");
 const db = require("./config/keys").MONGO_URI;
 
+const passport = require("passport");
+
 const users = require("./routes/api/users");
 const profiles = require("./routes/api/profiles");
 const posts = require("./routes/api/posts");
-
-const chai = require("chai");
-const chaiHttp = require("chai-http");
-chai.use(chaiHttp);
 
 // set security protocols
 app.use(helmet());
@@ -28,6 +26,8 @@ mongoose
   .catch(err => console.log(err));
 
 // passport setup
+app.use(passport.initialize());
+require("./config/passport")(passport);
 
 // routes
 app.use("/api/users", users);
