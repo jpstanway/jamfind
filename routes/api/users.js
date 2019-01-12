@@ -28,37 +28,45 @@ router.post("/create-account", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  // search db for duplicate user
-  User.findOne({ email: req.body.email }).then(user => {
+  // search db to see if username taken
+  User.findOne({ username: req.body.username }).then(user => {
     if (user) {
-      errors.email = "Email already in use";
+      errors.username = "Username is already taken";
       return res.status(400).json(errors);
     } else {
-      // get gravatar
-      const avatar = gravatar.url(req.body.email, {
-        s: "200", // Size
-        r: "pg", // Rating
-        d: "mm" // Default avatar
-      });
+      // search db for duplicate email
+      User.findOne({ email: req.body.email }).then(user => {
+        if (user) {
+          errors.email = "Email already in use";
+          return res.status(400).json(errors);
+        } else {
+          // get gravatar
+          const avatar = gravatar.url(req.body.email, {
+            s: "200", // Size
+            r: "pg", // Rating
+            d: "mm" // Default avatar
+          });
 
-      // create new user
-      const newUser = new User({
-        username: req.body.username,
-        email: req.body.email,
-        avatar: avatar,
-        password: req.body.password
-      });
+          // create new user
+          const newUser = new User({
+            username: req.body.username,
+            email: req.body.email,
+            avatar: avatar,
+            password: req.body.password
+          });
 
-      // encrypt password + save user
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
-          newUser.password = hash;
-          newUser
-            .save()
-            .then(user => res.json(user))
-            .catch(err => console.log(err));
-        });
+          // encrypt password + save user
+          bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+              if (err) throw err;
+              newUser.password = hash;
+              newUser
+                .save()
+                .then(user => res.json(user))
+                .catch(err => console.log(err));
+            });
+          });
+        }
       });
     }
   });
