@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 // Profile Schema
 const profileSchema = new Schema({
+  userid: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
   name: String,
   instruments: { type: [String], required: true },
   skill: { type: String, required: true },
@@ -33,6 +37,7 @@ const profileSchema = new Schema({
     {
       school: { type: String, required: true },
       degree: { type: String, required: true },
+      program: { type: String, required: true },
       from: { type: Date, required: true },
       to: Date,
       current: { type: Boolean, default: false },

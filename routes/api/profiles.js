@@ -7,6 +7,7 @@ const Profile = require("../../models/Profile");
 
 // load profile validation
 const createProfileValidation = require("../../validation/profile-validation");
+const experienceValidation = require("../../validation/experience-validation");
 
 // @route   GET /api/profiles/test
 // @desc    Testing profile route
@@ -23,7 +24,7 @@ router.get(
     const errors = {};
 
     // search database for user profile
-    Profile.findOne({ id: req.user.id })
+    Profile.findOne({ userid: req.user.id })
       .populate("user", ["username", "avatar"])
       .then(profile => {
         if (!profile) {
@@ -53,6 +54,7 @@ router.post(
     const newProfile = {};
 
     // add required fields
+    newProfile.userid = req.user.id;
     newProfile.skill = req.body.skill;
     newProfile.location = req.body.location;
 
@@ -77,11 +79,11 @@ router.post(
     if (req.body.twitter) newProfile.social.twitter = req.body.twitter;
 
     // search database for existing profile
-    Profile.findOne({ id: req.user.id }).then(profile => {
+    Profile.findOne({ userid: req.user.id }).then(profile => {
       // if profile exists, update
       if (profile) {
         Profile.findOneAndUpdate(
-          { id: req.user.id },
+          { userid: req.user.id },
           { $set: newProfile },
           { new: true }
         ).then(profile => res.json(profile));
@@ -92,5 +94,46 @@ router.post(
     });
   }
 );
+
+// @route   POST /api/profiles/experience
+// @desc    Add to experience
+// @access  Private
+router.post(
+  "/experience",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    // validation
+    const { errors, isValid } = experienceValidation(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    // create experience object
+    const newExperience = {
+      typeofexperience: req.body.typeofexperience,
+      role: req.body.role,
+      projectname: req.body.projectname,
+      location: req.body.location,
+      from: req.body.from,
+      to: req.body.to,
+      current: req.body.current,
+      description: req.body.description
+    };
+
+    // update database
+    Profile.findOneAndUpdate(
+      { userid: req.user.id },
+      { $addToSet: { experience: newExperience } },
+      { new: true }
+    )
+      .then(profile => res.json(profile))
+      .catch(err => console.log(err));
+  }
+);
+
+// @route   POST /api/profiles/education
+// @desc    Add to education
+// @access  Private
 
 module.exports = router;
