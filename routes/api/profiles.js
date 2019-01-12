@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 
-// load profile model
+// load user/profile models
 const Profile = require("../../models/Profile");
+const User = require("../../models/User");
 
 // load profile validation
 const createProfileValidation = require("../../validation/profile-validation");
@@ -14,6 +15,71 @@ const educationValidation = require("../../validation/education-validation");
 // @desc    Testing profile route
 // @access  Public
 router.get("/test", (req, res) => res.json({ message: "profiles works" }));
+
+// @route   GET /api/profiles/user/:username
+// @desc    View a user's profile by username
+// @access  Public
+router.get("/user/:username", (req, res) => {
+  const errors = {};
+
+  // search for user in database
+  User.findOne({ username: req.params.username })
+    .then(user => {
+      if (user) {
+        // if found, find their profile
+        Profile.findOne({ userid: user.id }).then(profile => {
+          if (profile) {
+            res.json(profile);
+          } else {
+            errors.profile = "User does not have a profile";
+            return res.status(404).json(errors);
+          }
+        });
+      } else {
+        errors.username = "User not found";
+        return res.status(404).json(errors);
+      }
+    })
+    .catch(err => console.log(err));
+});
+
+// @route   GET /api/profiles/user/:userid
+// @desc    View a user's profile by userid
+// @access  Public
+router.get("/user/:userid", (req, res) => {
+  const errors = {};
+
+  // search for user profile in database
+  Profile.findOne({ userid: req.params.userid })
+    .then(profile => {
+      if (profile) {
+        res.json(profile);
+      } else {
+        errors.profile = "User has no profile or does not exist";
+        return res.status(404).json(errors);
+      }
+    })
+    .catch(err => console.log(err));
+});
+
+// @route   GET /api/profiles/all
+// @desc    View all profiles
+// @access  Public
+router.get("/all", (req, res) => {
+  const errors = {};
+
+  Profile.find()
+    .populate("user", ["username", "avatar"])
+    .then(profiles => {
+      if (profiles) {
+        res.json(profiles);
+      } else {
+        errors.profiles = "No profiles exist";
+        return res.status(404).json(errors);
+      }
+    })
+    .catch(err => console.log(err));
+});
 
 // @route   GET /api/profiles
 // @desc    Get the current user's profile
