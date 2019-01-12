@@ -8,6 +8,7 @@ const Profile = require("../../models/Profile");
 // load profile validation
 const createProfileValidation = require("../../validation/profile-validation");
 const experienceValidation = require("../../validation/experience-validation");
+const educationValidation = require("../../validation/education-validation");
 
 // @route   GET /api/profiles/test
 // @desc    Testing profile route
@@ -135,5 +136,37 @@ router.post(
 // @route   POST /api/profiles/education
 // @desc    Add to education
 // @access  Private
+router.post(
+  "/education",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    // validation
+    const { errors, isValid } = educationValidation(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    // create new education object
+    const newEducation = {
+      school: req.body.school,
+      degree: req.body.degree,
+      program: req.body.program,
+      from: req.body.from,
+      to: req.body.to,
+      current: req.body.current,
+      description: req.body.description
+    };
+
+    // locate and update profile
+    Profile.findOneAndUpdate(
+      { userid: req.user.id },
+      { $addToSet: { education: newEducation } },
+      { new: true }
+    )
+      .then(profile => res.json(profile))
+      .catch(err => console.log(err));
+  }
+);
 
 module.exports = router;
