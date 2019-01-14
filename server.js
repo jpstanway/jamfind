@@ -32,6 +32,7 @@ require("./config/passport")(passport);
 // routes
 app.use("/api/users", users);
 app.use("/api/profiles", profiles);
+app.use("/api/posts", posts);
 
 // server setup
 const port = process.env.PORT || 5000;
