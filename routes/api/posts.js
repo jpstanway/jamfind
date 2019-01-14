@@ -19,10 +19,21 @@ router.get("/test", (req, res) => {
 // @route   GET /api/posts
 // @desc    Get all current posts
 // @access  Public
+router.get("/", (req, res) => {
+  Post.find()
+    .sort({ date: -1 })
+    .then(posts => res.json(posts))
+    .catch(err => res.status(404).json({ notfound: "No posts found" }));
+});
 
 // @route   GET /api/posts/:postid
 // @desc    Get post by id
 // @access  Public
+router.get("/:postid", (req, res) => {
+  Post.findById({ _id: req.params.postid })
+    .then(post => res.json(post))
+    .catch(err => res.status(404).json({ notfound: "Post not found" }));
+});
 
 // @route   POST /api/posts
 // @desc    Create new post
