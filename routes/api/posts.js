@@ -30,7 +30,7 @@ router.get("/", (req, res) => {
 // @desc    Get post by id
 // @access  Public
 router.get("/:postid", (req, res) => {
-  Post.findById({ _id: req.params.postid })
+  Post.findById(req.params.postid)
     .then(post => res.json(post))
     .catch(err => res.status(404).json({ notfound: "Post not found" }));
 });
@@ -68,7 +68,7 @@ router.post(
   "/likes/:postid",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Post.findById({ _id: req.params.postid })
+    Post.findById(req.params.postid)
       .then(post => {
         // make sure user hasn't already liked the post
         if (
@@ -97,7 +97,7 @@ router.post(
   "/unlikes/:postid",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Post.findById({ _id: req.params.postid })
+    Post.findById(req.params.postid)
       .then(post => {
         // search likes array for user
         if (
@@ -159,9 +159,60 @@ router.post(
 // @route   DELETE /api/posts/:postid
 // @desc    Delete post by id
 // @access  Private
+router.delete(
+  "/:postid",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    // Find the post
+    Post.findById(req.params.postid)
+      .then(post => {
+        // confirm user's post
+        if (post.userid.toString() !== req.user.id) {
+          return res.status(401).json({
+            authorization: "You are not authorized to remove this post"
+          });
+        }
+
+        post
+          .remove()
+          .then(() => res.json({ success: "Successfully deleted post" }));
+      })
+      .catch(err => console.log(err));
+  }
+);
 
 // @route   DELETE /api/posts/comments/:postid/:commentid
 // @desc    Delete comment by id
 // @access  Private
+router.delete(
+  "/comments/:postid/:commentid",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    // Find the post
+    Post.findById(req.params.postid)
+      .then(post => {
+        // find comment
+        const removeCommentIndex = post.comments
+          .map(comment => comment._id.toString())
+          .indexOf(req.params.commentid);
+
+        // check if not correct user
+        if (
+          post.comments[removeCommentIndex].userid.toString() !== req.user.id
+        ) {
+          return res.status(401).json({
+            authorization: "You are not authorized to delete this comment"
+          });
+        }
+
+        // splice out and remove comment
+        post.comments.splice(removeCommentIndex, 1);
+
+        // save post
+        post.save().then(post => res.json(post));
+      })
+      .catch(err => res.json({ notfound: "Post or comment not found" }));
+  }
+);
 
 module.exports = router;
