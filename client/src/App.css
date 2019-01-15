@@ -1,0 +1,125 @@
+.landing {
+  position: relative;
+  height: 50vh;
+  background-color: #efefef;
+  background-image: url("./imgs/bass-guitar.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.landing-inner {
+  padding-top: 150px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+}
+
+.feature-icons {
+  height: 30vh;
+  background-color: ;
+}
+
+.feature-icons-inner {
+  padding: 50px;
+}
+
+.enlarge:hover {
+  transform: scale(1.1);
+}
+
+.feature-text {
+  height: 500px;
+  padding-top: 125px;
+  background-color: #efefef;
+}
+
+.feature-image {
+  height: 500px;
+  background-color: black;
+}
+
+.f-img-1 {
+  background: url("./imgs/guitar-player.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.f-img-2 {
+  background: url("./imgs/mixer.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.f-img-3 {
+  background: url("./imgs/drums.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.testimonials {
+  height: 550px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.card-img-top {
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+  color: blue;
+}
+
+.landing-bottom {
+  position: relative;
+  height: 300px;
+  background-color: #efefef;
+  background: url("./imgs/mics.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.landing-bottom-inner {
+  padding-top: 50px;
+}
+
+.overlay-bottom {
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.footer {
+  height: 150px;
+}
+
+.footer-inner {
+  padding-top: 30px;
+}
+
+.landing-social-links span:hover {
+  opacity: 0.8;
+}
+
+.social-link-bg {
+  color: blue;
+}
+
+/* create account */
+.standard-form {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
