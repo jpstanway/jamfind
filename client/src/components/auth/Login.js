@@ -42,14 +42,14 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center pt-5">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12 text-center pt-5">
             <h1>Login</h1>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6 m-auto standard-form">
+        <div className="row">
+          <div className="col-md-6 m-auto standard-form">
             <form noValidate onSubmit={this.onSubmit}>
               <TextFieldInput
                 type="email"
@@ -69,7 +69,7 @@ class Login extends Component {
                 placeholder="Enter your password"
                 error={errors.password}
               />
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Login
               </button>
             </form>
