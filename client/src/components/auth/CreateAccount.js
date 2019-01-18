@@ -1,7 +1,52 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { createAccount } from "../../actions/authActions";
+import TextFieldInput from "../tools/TextFieldInput";
 
 class CreateAccount extends Component {
+  constructor() {
+    super();
+    this.state = {
+      username: "",
+      email: "",
+      password: "",
+      password2: "",
+      errors: {}
+    };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  // TODO: lifecycle method; if user authenticated kick them back to dashboard
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const newUser = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password,
+      password2: this.state.password2
+    };
+
+    this.props.createAccount(newUser, this.props.history);
+  }
+
   render() {
+    const { errors } = this.state;
+
     return (
       <div className="container">
         <div className="row">
@@ -11,47 +56,43 @@ class CreateAccount extends Component {
         </div>
         <div className="row">
           <div className="col-md-6 m-auto standard-form">
-            <form>
-              <div className="form-group">
-                <label for="username">Username</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="username"
-                  id="username"
-                  placeholder="Your desired username"
-                />
-              </div>
-              <div className="form-group">
-                <label for="email">Email Address</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  name="email"
-                  id="email"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div className="form-group">
-                <label for="password">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  id="password"
-                  placeholder="Enter your password"
-                />
-              </div>
-              <div className="form-group">
-                <label for="password2">Confirm Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  name="password2"
-                  id="password2"
-                  placeholder="Confirm your password"
-                />
-              </div>
+            <form noValidate onSubmit={this.onSubmit}>
+              <TextFieldInput
+                type="text"
+                name="username"
+                value={this.state.username}
+                onChange={this.onChange}
+                label="Username"
+                placeholder="Enter a username"
+                error={errors.username}
+              />
+              <TextFieldInput
+                type="email"
+                name="email"
+                value={this.state.email}
+                onChange={this.onChange}
+                label="E-mail"
+                placeholder="Enter your e-mail"
+                error={errors.email}
+              />
+              <TextFieldInput
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.onChange}
+                label="Password"
+                placeholder="Enter a password"
+                error={errors.password}
+              />
+              <TextFieldInput
+                type="password"
+                name="password2"
+                value={this.state.password2}
+                onChange={this.onChange}
+                label="Confirm Password"
+                placeholder="Confirm your password"
+                error={errors.password2}
+              />
               <button type="submit" className="btn btn-primary">
                 Create Account
               </button>
@@ -63,4 +104,16 @@ class CreateAccount extends Component {
   }
 }
 
-export default CreateAccount;
+CreateAccount.propTypes = {
+  createAccount: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { createAccount }
+)(withRouter(CreateAccount));

@@ -1,7 +1,46 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { loginUser } from "../../actions/authActions";
+import TextFieldInput from "../tools/TextFieldInput";
 
 class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      email: "",
+      password: "",
+      errors: {}
+    };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+
+    const userInfo = {
+      email: this.state.email,
+      password: this.state.password
+    };
+
+    this.props.loginUser(userInfo, this.props.history);
+  }
+
   render() {
+    const { errors } = this.state;
+
     return (
       <div class="container">
         <div class="row">
@@ -11,28 +50,25 @@ class Login extends Component {
         </div>
         <div class="row">
           <div class="col-md-6 m-auto standard-form">
-            <form>
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  name="email"
-                  id="email"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter your email"
-                />
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  name="password"
-                  id="password"
-                  placeholder="Enter your password"
-                />
-              </div>
+            <form noValidate onSubmit={this.onSubmit}>
+              <TextFieldInput
+                type="email"
+                name="email"
+                value={this.state.email}
+                onChange={this.onChange}
+                label="E-mail"
+                placeholder="Enter your email"
+                error={errors.email}
+              />
+              <TextFieldInput
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.onChange}
+                label="Password"
+                placeholder="Enter your password"
+                error={errors.password}
+              />
               <button type="submit" class="btn btn-primary">
                 Login
               </button>
@@ -44,4 +80,16 @@ class Login extends Component {
   }
 }
 
-export default Login;
+Login.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(withRouter(Login));
