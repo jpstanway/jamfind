@@ -19,7 +19,11 @@ class CreateAccount extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  // TODO: lifecycle method; if user authenticated kick them back to dashboard
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
@@ -106,10 +110,12 @@ class CreateAccount extends Component {
 
 CreateAccount.propTypes = {
   createAccount: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   errors: state.errors
 });
 
