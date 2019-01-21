@@ -146,7 +146,7 @@ class EditProfile extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <Link to="/dashboard" className="btn btn-outline-primary">
+            <Link to="/dashboard" className="btn btn-outline-dark">
               Go back
             </Link>
           </div>

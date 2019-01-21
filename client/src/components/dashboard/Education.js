@@ -9,7 +9,7 @@ const Education = props => {
       <td>{edu.program}</td>
       <td>
         {moment(edu.from).format("MM/DD/YYYY")} -{" "}
-        {moment(edu.to).format("MM/DD/YYYY")}
+        {edu.current ? "present" : moment(edu.to).format("MM/DD/YYYY")}
       </td>
       <td>
         <button type="button" className="btn btn-danger">

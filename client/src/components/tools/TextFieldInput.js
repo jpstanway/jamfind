@@ -39,7 +39,7 @@ TextFieldInput.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  disabled: PropTypes.string,
+  disabled: PropTypes.bool,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   error: PropTypes.string,

@@ -39,3 +39,27 @@ export const createNewProfile = (profile, history) => dispatch => {
       });
     });
 };
+
+export const addExperience = (exp, history) => dispatch => {
+  axios
+    .post("/api/profiles/experience", exp)
+    .then(res => history.push("/dashboard"))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+export const addEducation = (edu, history) => dispatch => {
+  axios
+    .post("/api/profiles/education", edu)
+    .then(res => history.push("/dashboard"))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};

@@ -10,7 +10,7 @@ const Experience = props => {
       <td>{exp.location}</td>
       <td>
         {moment(exp.from).format("MM/DD/YYYY")} -{" "}
-        {moment(exp.to).format("MM/DD/YYYY")}
+        {exp.current ? "present" : moment(exp.to).format("MM/DD/YYYY")}
       </td>
       <td>
         <button type="button" className="btn btn-danger">

@@ -18,6 +18,8 @@ import CreateAccount from "./components/auth/CreateAccount";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import EditProfile from "./components/profile/EditProfile";
+import AddExperience from "./components/profile/AddExperience";
+import AddEducation from "./components/profile/AddEducation";
 
 // ** keep user logged in **
 // check for jwt token
@@ -59,6 +61,20 @@ class App extends Component {
                 exact
                 path="/edit-profile"
                 component={EditProfile}
+              />
+            </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/add-experience"
+                component={AddExperience}
+              />
+            </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/add-education"
+                component={AddEducation}
               />
             </Switch>
             <Footer />
