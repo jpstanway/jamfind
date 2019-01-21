@@ -17,7 +17,7 @@ import Footer from "./components/layout/Footer";
 import CreateAccount from "./components/auth/CreateAccount";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
-import CreateProfile from "./components/profile/CreateProfile";
+import EditProfile from "./components/profile/EditProfile";
 
 // ** keep user logged in **
 // check for jwt token
@@ -57,8 +57,8 @@ class App extends Component {
             <Switch>
               <PrivateRoute
                 exact
-                path="/create-profile"
-                component={CreateProfile}
+                path="/edit-profile"
+                component={EditProfile}
               />
             </Switch>
             <Footer />

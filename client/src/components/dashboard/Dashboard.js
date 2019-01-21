@@ -15,16 +15,16 @@ class Dashboard extends Component {
   }
 
   render() {
-    const username = this.props.auth.user.username;
+    const { profile, auth } = this.props;
 
     const noProfile = (
       <div className="container">
         <div className="row">
           <div className="col-md-12 text-center">
-            <h1>Welcome {username}</h1>
+            <h1>Welcome {auth.user.username}</h1>
             <p className="lead">You're almost finished!</p>
             <Link
-              to="/create-profile"
+              to="/edit-profile"
               type="button"
               className="btn btn-secondary btn-lg"
             >
@@ -39,13 +39,13 @@ class Dashboard extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h1>Welcome {username}</h1>
+            <h1>Welcome {auth.user.username}</h1>
             <p className="lead">Dashboard</p>
           </div>
         </div>
         <ProfileActions />
-        <Experience />
-        <Education />
+        <Experience experience={profile.profile.experience} />
+        <Education education={profile.profile.education} />
         <div className="row mb-2">
           <div className="col-md-12">
             <button type="button" className="btn btn-link text-danger">
