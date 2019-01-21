@@ -4,6 +4,7 @@ import PrivateRoute from "./components/tools/PrivateRoute";
 import jwtDecode from "jwt-decode";
 import setUserToken from "./utils/setUserToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
+import { clearCurrentProfile } from "./actions/profileActions";
 
 import "./App.css";
 
@@ -16,6 +17,7 @@ import Footer from "./components/layout/Footer";
 import CreateAccount from "./components/auth/CreateAccount";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import CreateProfile from "./components/profile/CreateProfile";
 
 // ** keep user logged in **
 // check for jwt token
@@ -32,7 +34,8 @@ if (localStorage.jwtToken) {
   if (userInfo.exp < currentTime) {
     // log user out
     store.dispatch(logoutUser());
-    // TODO: clear current profile
+    // clear current profile
+    store.dispatch(clearCurrentProfile());
     // redirect to login page
     window.location.href = "/login";
   }
@@ -50,6 +53,13 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/create-profile"
+                component={CreateProfile}
+              />
             </Switch>
             <Footer />
           </div>

@@ -2,8 +2,9 @@ import React from "react";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const TextFieldInput = ({
+const TextIconInput = ({
   label,
+  icon,
   type,
   name,
   placeholder,
@@ -14,15 +15,19 @@ const TextFieldInput = ({
   info
 }) => {
   return (
-    <div className="form-group">
+    <div className="input-group mb-3">
       {label && <label htmlFor={name}>{label}</label>}
+      <div className="input-group-prepend">
+        <span className="input-group-text" id={name}>
+          <i className={icon} />
+        </span>
+      </div>
       <input
         type={type}
-        className={classnames("form-control form-control-lg", {
+        className={classnames("form-control", {
           "is-invalid": error
         })}
         name={name}
-        id={name}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
@@ -34,16 +39,17 @@ const TextFieldInput = ({
   );
 };
 
-TextFieldInput.propTypes = {
+TextIconInput.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   disabled: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   error: PropTypes.string,
-  info: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+  info: PropTypes.string
 };
 
-export default TextFieldInput;
+export default TextIconInput;

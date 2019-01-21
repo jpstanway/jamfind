@@ -1,6 +1,7 @@
 .landing {
   position: relative;
   height: 50vh;
+  margin-top: -50px;
   background-color: #efefef;
   background-image: url("./imgs/bass-guitar.jpg");
   background-size: cover;
@@ -83,6 +84,7 @@
 .landing-bottom {
   position: relative;
   height: 300px;
+  margin-bottom: -50px;
   background-color: #efefef;
   background: url("./imgs/mics.jpg") no-repeat;
   background-size: cover;

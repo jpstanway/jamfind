@@ -1,33 +1,34 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
   render() {
     return (
-      <footer className="footer bg-light">
+      <footer className="footer bg-light mt-5">
         <div className="footer-inner">
           <nav className="navbar navbar-expand-sm navbar-light">
             <div className="container">
               <div className="left-footer">
                 <ul className="navbar-nav mr-auto">
                   <li className="nav-item">
-                    <a className="nav-link text-nowrap" href="#">
+                    <Link className="nav-link" to="/">
                       About
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link className="nav-link" to="/">
                       Contact
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link className="nav-link" to="/">
                       Terms of Use
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <Link className="nav-link" to="/">
                       Privacy Policy
-                    </a>
+                    </Link>
                   </li>
                 </ul>
                 <small>Copyright &copy; 2019 JamFind</small>
@@ -35,25 +36,25 @@ class Footer extends Component {
 
               <ul className="navbar-nav ml-auto landing-social-links">
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link className="nav-link" to="/">
                     <span className="social-link-bg">
                       <i className="fab fa-facebook fa-2x" />
                     </span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link className="nav-link" to="/">
                     <span className="social-link-bg">
                       <i className="fab fa-twitter-square fa-2x" />
                     </span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link className="nav-link" to="/">
                     <span className="social-link-bg">
                       <i className="fab fa-instagram fa-2x" />
                     </span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
