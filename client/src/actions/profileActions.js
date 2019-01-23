@@ -2,10 +2,12 @@ import axios from "axios";
 import {
   GET_CURRENT_PROFILE,
   CLEAR_CURRENT_PROFILE,
+  IS_LOADING,
   GET_ERRORS
 } from "./types";
 
 export const getCurrentProfile = user => dispatch => {
+  dispatch(profileLoading());
   axios
     .get("/api/profiles", user)
     .then(profile => {
@@ -62,4 +64,10 @@ export const addEducation = (edu, history) => dispatch => {
         payload: err.response.data
       });
     });
+};
+
+export const profileLoading = () => dispatch => {
+  dispatch({
+    type: IS_LOADING
+  });
 };

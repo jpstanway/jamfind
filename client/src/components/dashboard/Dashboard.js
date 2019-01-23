@@ -6,6 +6,7 @@ import { getCurrentProfile } from "../../actions/profileActions";
 import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
+import Loading from "../tools/Loading";
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -16,6 +17,7 @@ class Dashboard extends Component {
 
   render() {
     const { profile, auth } = this.props;
+    let profileDisplay;
 
     const noProfile = (
       <div className="container">
@@ -56,10 +58,14 @@ class Dashboard extends Component {
       </div>
     );
 
-    const profileDisplay =
-      Object.keys(this.props.profile.profile).length > 0
-        ? hasProfile
-        : noProfile;
+    if (!profile.profile || profile.isLoading) {
+      profileDisplay = <Loading />;
+    } else {
+      profileDisplay =
+        Object.keys(this.props.profile.profile).length > 0
+          ? hasProfile
+          : noProfile;
+    }
 
     return <div>{profileDisplay}</div>;
   }
