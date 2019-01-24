@@ -6,7 +6,7 @@ const Loading = () => {
     <div className="container">
       <div className="row">
         <div className="col-md-12 text-center">
-          <img src={loading} />
+          <img src={loading} alt="Loading..." />
         </div>
       </div>
     </div>

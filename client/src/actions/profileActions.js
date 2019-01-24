@@ -42,6 +42,12 @@ export const createNewProfile = (profile, history) => dispatch => {
     });
 };
 
+export const profileLoading = () => dispatch => {
+  dispatch({
+    type: IS_LOADING
+  });
+};
+
 export const addExperience = (exp, history) => dispatch => {
   axios
     .post("/api/profiles/experience", exp)
@@ -66,8 +72,36 @@ export const addEducation = (edu, history) => dispatch => {
     });
 };
 
-export const profileLoading = () => dispatch => {
-  dispatch({
-    type: IS_LOADING
-  });
+export const deleteExperience = id => dispatch => {
+  axios
+    .delete(`/api/profiles/experience/${id}`)
+    .then(profile => {
+      dispatch({
+        type: GET_CURRENT_PROFILE,
+        payload: profile.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+export const deleteEducation = id => dispatch => {
+  axios
+    .delete(`/api/profiles/education/${id}`)
+    .then(profile => {
+      dispatch({
+        type: GET_CURRENT_PROFILE,
+        payload: profile.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
 };
