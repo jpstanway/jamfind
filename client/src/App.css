@@ -10,7 +10,7 @@
 }
 
 .landing-inner {
-  padding-top: 150px;
+  padding-top: 50px;
 }
 
 .overlay {
@@ -23,8 +23,7 @@
 }
 
 .feature-icons {
-  height: 30vh;
-  background-color: ;
+  height: 40vh;
 }
 
 .feature-icons-inner {
@@ -37,7 +36,7 @@
 
 .feature-text {
   height: 500px;
-  padding-top: 125px;
+  padding: 125px 20px 0px 20px;
   background-color: #efefef;
 }
 
@@ -66,6 +65,7 @@
 
 .testimonials {
   height: 550px;
+  padding-top: 50px;
 }
 
 .card {

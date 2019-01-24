@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { getCurrentProfile } from "../../actions/profileActions";
+import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
 import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
@@ -13,6 +13,10 @@ class Dashboard extends Component {
     if (this.props.profile) {
       this.props.getCurrentProfile(this.props.auth.user);
     }
+  }
+
+  onDeleteClick() {
+    this.props.deleteAccount();
   }
 
   render() {
@@ -50,7 +54,11 @@ class Dashboard extends Component {
         <Education education={profile.profile.education} />
         <div className="row mb-2">
           <div className="col-md-12">
-            <button type="button" className="btn btn-link text-danger">
+            <button
+              onClick={this.onDeleteClick.bind(this)}
+              type="button"
+              className="btn btn-link text-danger"
+            >
               Delete Account
             </button>
           </div>
@@ -74,7 +82,8 @@ class Dashboard extends Component {
 Dashboard.propTypes = {
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object,
-  getCurrentProfile: PropTypes.func.isRequired
+  getCurrentProfile: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -84,5 +93,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCurrentProfile }
+  { getCurrentProfile, deleteAccount }
 )(Dashboard);

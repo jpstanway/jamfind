@@ -46,7 +46,7 @@ class EditProfile extends Component {
     }
 
     // pre-populate form if profile exists
-    if (nextProps.profile.profile) {
+    if (Object.keys(nextProps.profile.profile).length > 0) {
       const profile = nextProps.profile.profile;
 
       const instrumentsCSV = profile.instruments.join(",");
