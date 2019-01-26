@@ -17,9 +17,11 @@ import Footer from "./components/layout/Footer";
 import CreateAccount from "./components/auth/CreateAccount";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
-import EditProfile from "./components/profile/EditProfile";
-import AddExperience from "./components/profile/AddExperience";
-import AddEducation from "./components/profile/AddEducation";
+import EditProfile from "./components/profile-actions/EditProfile";
+import AddExperience from "./components/profile-actions/AddExperience";
+import AddEducation from "./components/profile-actions/AddEducation";
+import Profile from "./components/profile/Profile";
+import NotFound from "./components/tools/NotFound";
 
 // ** keep user logged in **
 // check for jwt token
@@ -53,6 +55,8 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/create-account" component={CreateAccount} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/profiles/:username" component={Profile} />
+            <Route exact path="/not-found" component={NotFound} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

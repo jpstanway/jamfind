@@ -120,6 +120,10 @@
   color: blue;
 }
 
+.profile-view-social-link {
+  color: white;
+}
+
 /* create account */
 .standard-form {
   padding-top: 50px;

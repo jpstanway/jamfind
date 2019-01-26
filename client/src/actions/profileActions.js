@@ -125,3 +125,21 @@ export const deleteAccount = () => dispatch => {
       });
   }
 };
+
+export const getProfileByUsername = username => dispatch => {
+  dispatch(profileLoading());
+  axios
+    .get(`/api/profiles/user/${username}`)
+    .then(profile => {
+      dispatch({
+        type: GET_CURRENT_PROFILE,
+        payload: profile.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};

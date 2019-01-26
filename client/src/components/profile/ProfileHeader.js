@@ -1,0 +1,90 @@
+import React, { Component } from "react";
+import isEmpty from "../../validation/is-empty";
+
+class ProfileHeader extends Component {
+  render() {
+    const { profile } = this.props;
+
+    const current = profile.experience.filter(exp => exp.current);
+
+    const instrumentList = profile.instruments.map(instrument => (
+      <li key={instrument} className="list-group-item">
+        <span>
+          <i className="fas fa-arrow-right" />
+        </span>{" "}
+        {instrument}
+      </li>
+    ));
+
+    return (
+      <div className="row mt-3">
+        <div className="col-md-6 bg-info p-5">
+          <div className="card m-auto bg-info">
+            <img
+              src={profile.userid.avatar}
+              className="card-img-top img-thumbnail"
+              alt="..."
+            />
+            <div className="card-body text-light text-center">
+              <h5 className="card-title">{profile.name || profile.username}</h5>
+              {isEmpty(current) ? null : (
+                <p className="card-text">
+                  {current.role} for{" "}
+                  {current.projectname || current.typeofexperience}
+                </p>
+              )}
+              <p className="card-text">{}</p>
+              <small>{profile.location}</small>
+              <ul className="nav m-auto landing-social-links">
+                {isEmpty(profile.social && profile.social.youtube) ? null : (
+                  <li className="nav-item">
+                    <a className="nav-link" href={profile.social.youtube}>
+                      <span className="profile-view-social-link">
+                        <i className="fab fa-youtube fa-2x" />
+                      </span>
+                    </a>
+                  </li>
+                )}
+                {isEmpty(profile.social && profile.social.facebook) ? null : (
+                  <li className="nav-item">
+                    <a className="nav-link" href={profile.social.facebook}>
+                      <span className="profile-view-social-link">
+                        <i className="fab fa-facebook fa-2x" />
+                      </span>
+                    </a>
+                  </li>
+                )}
+                {isEmpty(profile.social && profile.social.twitter) ? null : (
+                  <li className="nav-item">
+                    <a className="nav-link" href={profile.social.twitter}>
+                      <span className="profile-view-social-link">
+                        <i className="fab fa-twitter-square fa-2x" />
+                      </span>
+                    </a>
+                  </li>
+                )}
+                {isEmpty(profile.social && profile.social.instagram) ? null : (
+                  <li className="nav-item">
+                    <a className="nav-link" href={profile.social.instagram}>
+                      <span className="profile-view-social-link">
+                        <i className="fab fa-instagram fa-2x" />
+                      </span>
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="col-md-6 bg-info p-5">
+          <div className="card m-auto bg-info">
+            <h4 className="text-light text-center">Instruments & Skills</h4>
+            <ul className="list-group list-group-flush">{instrumentList}</ul>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default ProfileHeader;

@@ -27,14 +27,16 @@ router.get("/user/:username", (req, res) => {
     .then(user => {
       if (user) {
         // if found, find their profile
-        Profile.findOne({ userid: user.id }).then(profile => {
-          if (profile) {
-            res.json(profile);
-          } else {
-            errors.profile = "User does not have a profile";
-            return res.status(404).json(errors);
-          }
-        });
+        Profile.findOne({ userid: user.id })
+          .populate("userid", ["username", "avatar"])
+          .then(profile => {
+            if (profile) {
+              res.json(profile);
+            } else {
+              errors.profile = "User does not have a profile";
+              return res.status(404).json(errors);
+            }
+          });
       } else {
         errors.username = "User not found";
         return res.status(404).json(errors);
