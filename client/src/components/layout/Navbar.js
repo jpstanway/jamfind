@@ -38,13 +38,20 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className="nav-item">
-          <Link
+          <a
+            href="#main-nav"
             onClick={this.onLogoutClick.bind(this)}
-            to="/login"
             className="nav-link"
           >
+            <img
+              className="rounded-circle"
+              src={auth.user.avatar}
+              alt={auth.user.username}
+              style={{ width: "25px", marginRight: "5px" }}
+              title="You must have a Gravatar connected to your email to display an image"
+            />
             Logout
-          </Link>
+          </a>
         </li>
       </ul>
     );
@@ -52,7 +59,10 @@ class Navbar extends Component {
     const linkDisplay = auth.isAuthenticated ? userLinks : guestLinks;
 
     return (
-      <nav className="navbar navbar-expand-sm navbar-light bg-light mb-5">
+      <nav
+        id="main-nav"
+        className="navbar navbar-expand-sm navbar-light bg-light mb-5"
+      >
         <div className="container">
           <Link to="/" className="navbar-brand">
             JamFind
@@ -77,6 +87,11 @@ class Navbar extends Component {
             <li className="nav-item">
               <Link to="/profiles/all" className="nav-link">
                 Musicians
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/posts/all" className="nav-link">
+                Community
               </Link>
             </li>
           </ul>

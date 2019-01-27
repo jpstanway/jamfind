@@ -4,8 +4,8 @@ import isEmpty from "../../validation/is-empty";
 
 const ProfileEdu = props => {
   const eduList = props.education.map(edu => (
-    <div className="col-md-6">
-      <ul key={edu._id} style={{ listStyleType: "none" }}>
+    <div key={edu._id} className="col-md-6">
+      <ul style={{ listStyleType: "none" }}>
         <li>
           <p>
             <strong>School: </strong>

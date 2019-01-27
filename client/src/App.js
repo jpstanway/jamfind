@@ -21,7 +21,9 @@ import EditProfile from "./components/profile-actions/EditProfile";
 import AddExperience from "./components/profile-actions/AddExperience";
 import AddEducation from "./components/profile-actions/AddEducation";
 import Profile from "./components/profile/Profile";
-import Profiles from "./components/community/Profiles";
+import Profiles from "./components/profile/Profiles";
+import Post from "./components/post/Post";
+import Posts from "./components/post/Posts";
 import NotFound from "./components/tools/NotFound";
 
 // ** keep user logged in **
@@ -37,10 +39,10 @@ if (localStorage.jwtToken) {
   // check for expired token
   const currentTime = Date.now() / 1000;
   if (userInfo.exp < currentTime) {
-    // log user out
-    store.dispatch(logoutUser());
     // clear current profile
     store.dispatch(clearCurrentProfile());
+    // log user out
+    store.dispatch(logoutUser());
     // redirect to login page
     window.location.href = "/login";
   }
@@ -58,6 +60,8 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/profiles/user/:username" component={Profile} />
             <Route exact path="/profiles/all" component={Profiles} />
+            <Route exact path="/posts/post/:postid" component={Post} />
+            <Route exact path="/posts/all" component={Posts} />
             <Route exact path="/not-found" component={NotFound} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />

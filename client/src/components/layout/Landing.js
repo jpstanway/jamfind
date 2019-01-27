@@ -35,7 +35,7 @@ class Landing extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-4">
-                  <div className="card">
+                  <div className="card custom-card">
                     <span className="card-img-top p-2">
                       <i className="fas fa-search fa-5x enlarge" />
                     </span>
@@ -48,7 +48,7 @@ class Landing extends Component {
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="card">
+                  <div className="card custom-card">
                     <span className="card-img-top p-2">
                       <i className="fas fa-microphone fa-5x enlarge" />
                     </span>
@@ -61,7 +61,7 @@ class Landing extends Component {
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="card">
+                  <div className="card custom-card">
                     <span className="card-img-top p-2">
                       <i className="fas fa-bullhorn fa-5x enlarge" />
                     </span>
@@ -141,7 +141,7 @@ class Landing extends Component {
             </div>
             <div className="row">
               <div className="col-md-4">
-                <div className="card">
+                <div className="card custom-card">
                   <img
                     src="https://res.cloudinary.com/mtninja/image/upload/c_scale,h_200,w_200/v1546924700/testimonial-1_joiu2o.jpg"
                     className="card-img-top rounded-circle"
@@ -156,7 +156,7 @@ class Landing extends Component {
                 </div>
               </div>
               <div className="col-md-4">
-                <div className="card">
+                <div className="card custom-card">
                   <img
                     src="https://res.cloudinary.com/mtninja/image/upload/ar_1:1,bo_0px_solid_rgb:ffffff,c_fill,g_auto,h_200,r_max,w_200/v1546924320/testimonial-3_ny31vk.jpg"
                     className="card-img-top rounded-circle"
@@ -171,7 +171,7 @@ class Landing extends Component {
                 </div>
               </div>
               <div className="col-md-4">
-                <div className="card">
+                <div className="card custom-card">
                   <img
                     src="https://res.cloudinary.com/mtninja/image/upload/ar_1:1,bo_0px_solid_rgb:ffffff,c_fill,g_auto,h_200,r_max,w_200/v1546924359/testimonial-2_yajc2g.jpg"
                     className="card-img-top rounded-circle"

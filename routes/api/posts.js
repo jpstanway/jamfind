@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 
-// load posts/profile models
+// load post model
 const Post = require("../../models/Post");
-const Profile = require("../../models/Profile");
 
 // load post validation
 const postValidation = require("../../validation/post-validation");
@@ -47,7 +46,6 @@ router.post(
     if (!isValid) {
       return res.status(400).json(errors);
     }
-
     // create post object
     const newPost = new Post({
       userid: req.user.id,

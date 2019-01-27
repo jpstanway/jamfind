@@ -18,7 +18,7 @@ class Profiles extends Component {
       profileFeed = <Loading />;
     } else {
       profileFeed = profiles.map(profile => (
-        <div className="row mb-5">
+        <div key={profile._id} className="row mb-5">
           <div className="col-md-8 m-auto">
             <div className="card p-2">
               <div className="row">
@@ -41,7 +41,7 @@ class Profiles extends Component {
                 <div className="col-md-4">
                   <ul className="list-group list-group-flush mb-1">
                     {profile.instruments.map(instrument => (
-                      <li className="list-group-item">
+                      <li key={instrument} className="list-group-item">
                         <span>
                           <i className="fas fa-arrow-right" />{" "}
                         </span>

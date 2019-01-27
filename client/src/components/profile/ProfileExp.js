@@ -4,8 +4,8 @@ import isEmpty from "../../validation/is-empty";
 
 const ProfileExp = props => {
   const expList = props.experience.map(exp => (
-    <div className="col-md-6">
-      <ul key={exp._id} style={{ listStyleType: "none" }}>
+    <div key={exp._id} className="col-md-6">
+      <ul style={{ listStyleType: "none" }}>
         <li>
           <p>
             <strong>Type: </strong>
