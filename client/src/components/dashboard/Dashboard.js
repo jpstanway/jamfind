@@ -23,52 +23,52 @@ class Dashboard extends Component {
     const { profile, auth } = this.props;
     let profileDisplay;
 
-    const noProfile = (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12 text-center">
-            <h1>Welcome {auth.user.username}</h1>
-            <p className="lead">You're almost finished!</p>
-            <Link
-              to="/edit-profile"
-              type="button"
-              className="btn btn-secondary btn-lg"
-            >
-              Create A Profile
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-
-    const hasProfile = (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <h1>Welcome {auth.user.username}</h1>
-            <p className="lead">Dashboard</p>
-          </div>
-        </div>
-        <ProfileActions />
-        <Experience experience={profile.profile.experience} />
-        <Education education={profile.profile.education} />
-        <div className="row mb-2">
-          <div className="col-md-12">
-            <button
-              onClick={this.onDeleteClick.bind(this)}
-              type="button"
-              className="btn btn-link text-danger"
-            >
-              Delete Account
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-
-    if (!profile.profile || profile.isLoading) {
+    if (profile.profile === null || profile.isLoading) {
       profileDisplay = <Loading />;
     } else {
+      const noProfile = (
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <h1>Welcome {auth.user.username}</h1>
+              <p className="lead">You're almost finished!</p>
+              <Link
+                to="/edit-profile"
+                type="button"
+                className="btn btn-secondary btn-lg"
+              >
+                Create A Profile
+              </Link>
+            </div>
+          </div>
+        </div>
+      );
+
+      const hasProfile = (
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1>Welcome {auth.user.username}</h1>
+              <p className="lead">Dashboard</p>
+            </div>
+          </div>
+          <ProfileActions />
+          <Experience experience={profile.profile.experience} />
+          <Education education={profile.profile.education} />
+          <div className="row mb-2">
+            <div className="col-md-12">
+              <button
+                onClick={this.onDeleteClick.bind(this)}
+                type="button"
+                className="btn btn-link text-danger"
+              >
+                Delete Account
+              </button>
+            </div>
+          </div>
+        </div>
+      );
+
       profileDisplay =
         Object.keys(this.props.profile.profile).length > 0
           ? hasProfile

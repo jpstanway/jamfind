@@ -4,7 +4,8 @@ import {
   CLEAR_CURRENT_PROFILE,
   IS_LOADING,
   GET_ERRORS,
-  SET_CURRENT_USER
+  SET_CURRENT_USER,
+  GET_ALL_PROFILES
 } from "./types";
 
 export const getCurrentProfile = user => dispatch => {
@@ -138,8 +139,26 @@ export const getProfileByUsername = username => dispatch => {
     })
     .catch(err => {
       dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
+        type: GET_CURRENT_PROFILE,
+        payload: null
+      });
+    });
+};
+
+export const getAllProfiles = () => dispatch => {
+  dispatch(profileLoading());
+  axios
+    .get("/api/profiles/all")
+    .then(profiles => {
+      dispatch({
+        type: GET_ALL_PROFILES,
+        payload: profiles.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ALL_PROFILES,
+        payload: null
       });
     });
 };

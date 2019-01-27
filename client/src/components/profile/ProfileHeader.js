@@ -19,7 +19,7 @@ class ProfileHeader extends Component {
     return (
       <div className="row mt-3">
         <div className="col-md-6 bg-info p-5">
-          <div className="card m-auto bg-info">
+          <div className="card profile-card m-auto bg-info">
             <img
               src={profile.userid.avatar}
               className="card-img-top img-thumbnail"
@@ -77,9 +77,9 @@ class ProfileHeader extends Component {
           </div>
         </div>
         <div className="col-md-6 bg-info p-5">
-          <div className="card m-auto bg-info">
+          <div className="card profile-card m-auto bg-info">
             <h4 className="text-light text-center">Instruments & Skills</h4>
-            <ul className="list-group list-group-flush">{instrumentList}</ul>
+            <ul className="list-group">{instrumentList}</ul>
           </div>
         </div>
       </div>

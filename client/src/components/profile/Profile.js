@@ -18,10 +18,7 @@ class Profile extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (
-      Object.keys(nextProps.profile.profile).length === 0 ||
-      nextProps.profile === null
-    ) {
+    if (nextProps.profile.profile === null && this.props.profile.isLoading) {
       this.props.history.push("/not-found");
     }
   }
@@ -30,7 +27,7 @@ class Profile extends Component {
     const { profile, isLoading } = this.props.profile;
     let content;
 
-    if (Object.keys(profile).length === 0 || isLoading) {
+    if (profile === null || isLoading) {
       content = <Loading />;
     } else {
       content = (
@@ -39,6 +36,7 @@ class Profile extends Component {
           <ProfileInfo bio={profile.bio} />
           <ProfileExp experience={profile.experience} />
           <ProfileEdu education={profile.education} />
+          <hr className="mt-5 mb-5" />
           <ProfileSoundCloud soundcloudusername={profile.soundcloudusername} />
         </div>
       );

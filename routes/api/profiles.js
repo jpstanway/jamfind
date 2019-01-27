@@ -71,7 +71,7 @@ router.get("/all", (req, res) => {
   const errors = {};
 
   Profile.find()
-    .populate("user", ["username", "avatar"])
+    .populate("userid", ["username", "avatar"])
     .then(profiles => {
       if (profiles) {
         res.json(profiles);
@@ -94,7 +94,7 @@ router.get(
 
     // search database for user profile
     Profile.findOne({ userid: req.user.id })
-      .populate("user", ["username", "avatar"])
+      .populate("userid", ["username", "avatar"])
       .then(profile => {
         if (!profile) {
           errors.profile = "No profile for this user exists";

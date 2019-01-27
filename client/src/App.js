@@ -21,6 +21,7 @@ import EditProfile from "./components/profile-actions/EditProfile";
 import AddExperience from "./components/profile-actions/AddExperience";
 import AddEducation from "./components/profile-actions/AddEducation";
 import Profile from "./components/profile/Profile";
+import Profiles from "./components/community/Profiles";
 import NotFound from "./components/tools/NotFound";
 
 // ** keep user logged in **
@@ -55,7 +56,8 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/create-account" component={CreateAccount} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/profiles/:username" component={Profile} />
+            <Route exact path="/profiles/user/:username" component={Profile} />
+            <Route exact path="/profiles/all" component={Profiles} />
             <Route exact path="/not-found" component={NotFound} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
