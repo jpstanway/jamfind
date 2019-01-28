@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
 import { createNewPost } from "../../actions/postActions";
 import TextAreaInput from "../tools/TextAreaInput";
 
@@ -33,7 +32,7 @@ class PostCreate extends Component {
       text: this.state.text
     };
 
-    this.props.createNewPost(newPost, this.props.history);
+    this.props.createNewPost(newPost);
   }
 
   render() {
@@ -78,4 +77,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { createNewPost }
-)(withRouter(PostCreate));
+)(PostCreate);

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 class PostAuth extends Component {
   render() {
+    const { post } = this.props;
+
     return (
       <div className="row">
         <div className="col-md-10 m-auto">
@@ -9,16 +11,14 @@ class PostAuth extends Component {
             <div className="row">
               <div className="col-md-3 text-center">
                 <img
-                  src="https://res.cloudinary.com/mtninja/image/upload/c_scale,w_200/v1546924700/testimonial-1_joiu2o.jpg"
+                  src={post.avatar}
                   className="m-auto img-thumbnail"
-                  alt="..."
+                  alt={post.username}
                 />
-                <h5>John Doe</h5>
-                <p>Vocalist</p>
-                <small>Seattle, WA</small>
+                <h5>{post.username}</h5>
               </div>
               <div className="col-md-7">
-                <p>Post content here...</p>
+                <p>{post.text}</p>
               </div>
             </div>
           </div>
