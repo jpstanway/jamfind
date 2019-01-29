@@ -25,7 +25,7 @@ class Post extends Component {
         <div className="post">
           <PostAuth post={post} />
           <PostReply postid={post._id} />
-          <PostReplies replies={post.comments} />
+          <PostReplies postid={post._id} replies={post.comments} />
         </div>
       );
     }

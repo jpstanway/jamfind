@@ -1,8 +1,19 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { deleteReply } from "../../actions/postActions";
 
 class PostReplies extends Component {
+  onDeleteClick(commentid) {
+    if (
+      window.confirm("Are you sure? This comment will be deleted permanently.")
+    ) {
+      this.props.deleteReply(this.props.postid, commentid);
+    }
+  }
+
   render() {
-    const { replies } = this.props;
+    const { replies, auth } = this.props;
     let replyFeed;
 
     if (replies.length === 0) {
@@ -22,7 +33,24 @@ class PostReplies extends Component {
                   <h5>{reply.username}</h5>
                 </div>
                 <div className="col-md-7">
-                  <p>{reply.text}</p>
+                  <div className="row">
+                    <div className="col-md-12">
+                      <p>{reply.text}</p>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-md-12">
+                      {reply.userid === auth.user.id ? (
+                        <button
+                          onClick={this.onDeleteClick.bind(this, reply._id)}
+                          type="button"
+                          className="btn btn-danger btn-sm"
+                        >
+                          <i className="fas fa-times" />
+                        </button>
+                      ) : null}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -35,4 +63,16 @@ class PostReplies extends Component {
   }
 }
 
-export default PostReplies;
+PostReplies.propTypes = {
+  deleteComment: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { deleteReply }
+)(PostReplies);

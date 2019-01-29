@@ -3,7 +3,12 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Loading from "../tools/Loading";
-import { getAllPosts, likePost, dislikePost } from "../../actions/postActions";
+import {
+  getAllPosts,
+  likePost,
+  dislikePost,
+  deletePost
+} from "../../actions/postActions";
 import classnames from "classnames";
 
 class PostFeed extends Component {
@@ -14,6 +19,14 @@ class PostFeed extends Component {
   }
   componentDidMount() {
     this.props.getAllPosts();
+  }
+
+  onDeleteClick(id) {
+    if (
+      window.confirm("Are you sure? This post will be deleted permanently.")
+    ) {
+      this.props.deletePost(id);
+    }
   }
 
   onLikeClick(id) {
@@ -35,7 +48,7 @@ class PostFeed extends Component {
   }
 
   render() {
-    const { post } = this.props;
+    const { post, auth } = this.props;
     let postFeed;
 
     if (post.posts === null || post.isLoading) {
@@ -82,10 +95,19 @@ class PostFeed extends Component {
                   </button>
                   <Link
                     to={`/posts/post/${post._id}`}
-                    className="btn btn-primary btn-sm"
+                    className="btn btn-primary btn-sm mr-1"
                   >
                     Comment
                   </Link>
+                  {post.userid === auth.user.id ? (
+                    <button
+                      onClick={this.onDeleteClick.bind(this, post._id)}
+                      type="button"
+                      className="btn btn-danger btn-sm"
+                    >
+                      <i className="fas fa-times" />
+                    </button>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -103,6 +125,7 @@ class PostFeed extends Component {
 }
 
 PostFeed.propTypes = {
+  deletePost: PropTypes.func.isRequired,
   getAllPosts: PropTypes.func.isRequired,
   likePost: PropTypes.func.isRequired,
   dislikePost: PropTypes.func.isRequired,
@@ -117,5 +140,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getAllPosts, likePost, dislikePost }
+  { getAllPosts, likePost, dislikePost, deletePost }
 )(PostFeed);

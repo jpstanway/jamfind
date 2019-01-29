@@ -106,3 +106,27 @@ export const dislikePost = postid => dispatch => {
       });
     });
 };
+
+export const deletePost = postid => dispatch => {
+  axios
+    .delete(`/api/posts/${postid}`)
+    .then(res => dispatch(getAllPosts()))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+export const deleteReply = (postid, commentid) => dispatch => {
+  axios
+    .delete(`/api/posts/comments/${postid}/${commentid}`)
+    .then(res => dispatch(getCurrentPost()))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
