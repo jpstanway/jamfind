@@ -42,6 +42,7 @@ export const addNewReply = (text, postid) => dispatch => {
 };
 
 export const getCurrentPost = postid => dispatch => {
+  dispatch(postLoading());
   axios
     .get(`/api/posts/${postid}`)
     .then(post => {
@@ -59,6 +60,7 @@ export const getCurrentPost = postid => dispatch => {
 };
 
 export const getAllPosts = () => dispatch => {
+  dispatch(postLoading());
   axios
     .get("/api/posts")
     .then(posts => {
@@ -79,4 +81,52 @@ export const postLoading = () => dispatch => {
   dispatch({
     type: IS_LOADING
   });
+};
+
+export const likePost = postid => dispatch => {
+  axios
+    .post(`/api/posts/likes/${postid}`)
+    .then(res => dispatch(getAllPosts()))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+export const unlikePost = postid => dispatch => {
+  axios
+    .post(`/api/posts/unlikes/${postid}`)
+    .then(res => dispatch(getAllPosts()))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+export const dislikePost = postid => dispatch => {
+  axios
+    .post(`/api/posts/dislikes/${postid}`)
+    .then(res => dispatch(getAllPosts()))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+export const undislikePost = postid => dispatch => {
+  axios
+    .post(`/api/posts/undislikes/${postid}`)
+    .then(res => dispatch(getAllPosts()))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
 };
