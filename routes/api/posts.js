@@ -73,46 +73,16 @@ router.post(
           post.likes.filter(like => like.userid.toString() === req.user.id)
             .length > 0
         ) {
-          return res
-            .status(400)
-            .json({ duplicatelike: "User already liked this post" });
+          // remove user's like from array
+          const userLikeIndex = post.likes
+            .map(like => like.userid.toString())
+            .indexOf(req.user.id);
+
+          post.likes.splice(userLikeIndex, 1);
+        } else {
+          // add userid to likes array
+          post.likes.unshift({ userid: req.user.id });
         }
-
-        // add userid to likes array
-        post.likes.unshift({ userid: req.user.id });
-
-        // save post
-        post.save().then(post => res.json(post));
-      })
-      .catch(err => console.log(err));
-  }
-);
-
-// @route   POST /api/posts/unlikes/:postid
-// @desc    Unlike a post
-// @access  Private
-router.post(
-  "/unlikes/:postid",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    Post.findById(req.params.postid)
-      .then(post => {
-        // search likes array for user
-        if (
-          post.likes.filter(like => like.userid.toString() === req.user.id)
-            .length === 0
-        ) {
-          return res
-            .status(400)
-            .json({ likenotfound: "You have not liked this post" });
-        }
-
-        // remove user's like from array
-        const userLikeIndex = post.likes
-          .map(like => like.userid.toString())
-          .indexOf(req.user.id);
-
-        post.likes.splice(userLikeIndex, 1);
 
         // save post
         post.save().then(post => res.json(post));
@@ -136,47 +106,16 @@ router.post(
             dislike => dislike.userid.toString() === req.user.id
           ).length > 0
         ) {
-          return res
-            .status(400)
-            .json({ duplicatedislike: "User already disliked this post" });
+          // remove user's dislike from array
+          const userDislikeIndex = post.dislikes
+            .map(dislike => dislike.userid.toString())
+            .indexOf(req.user.id);
+
+          post.dislikes.splice(userDislikeIndex, 1);
+        } else {
+          // add userid to dislikes array
+          post.dislikes.unshift({ userid: req.user.id });
         }
-
-        // add userid to dislikes array
-        post.dislikes.unshift({ userid: req.user.id });
-
-        // save post
-        post.save().then(post => res.json(post));
-      })
-      .catch(err => console.log(err));
-  }
-);
-
-// @route   POST /api/posts/undislikes/:postid
-// @desc    Undislike a post
-// @access  Private
-router.post(
-  "/undislikes/:postid",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    Post.findById(req.params.postid)
-      .then(post => {
-        // search dislikes array for user
-        if (
-          post.dislikes.filter(
-            dislike => dislike.userid.toString() === req.user.id
-          ).length === 0
-        ) {
-          return res
-            .status(400)
-            .json({ dislikenotfound: "You have not liked this post" });
-        }
-
-        // remove user's like from array
-        const userDislikeIndex = post.dislikes
-          .map(dislike => dislike.userid.toString())
-          .indexOf(req.user.id);
-
-        post.dislikes.splice(userDislikeIndex, 1);
 
         // save post
         post.save().then(post => res.json(post));

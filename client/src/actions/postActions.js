@@ -95,33 +95,9 @@ export const likePost = postid => dispatch => {
     });
 };
 
-export const unlikePost = postid => dispatch => {
-  axios
-    .post(`/api/posts/unlikes/${postid}`)
-    .then(res => dispatch(getAllPosts()))
-    .catch(err => {
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      });
-    });
-};
-
 export const dislikePost = postid => dispatch => {
   axios
     .post(`/api/posts/dislikes/${postid}`)
-    .then(res => dispatch(getAllPosts()))
-    .catch(err => {
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      });
-    });
-};
-
-export const undislikePost = postid => dispatch => {
-  axios
-    .post(`/api/posts/undislikes/${postid}`)
     .then(res => dispatch(getAllPosts()))
     .catch(err => {
       dispatch({

@@ -3,13 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Loading from "../tools/Loading";
-import {
-  getAllPosts,
-  likePost,
-  unlikePost,
-  dislikePost,
-  undislikePost
-} from "../../actions/postActions";
+import { getAllPosts, likePost, dislikePost } from "../../actions/postActions";
 import classnames from "classnames";
 
 class PostFeed extends Component {
@@ -111,9 +105,7 @@ class PostFeed extends Component {
 PostFeed.propTypes = {
   getAllPosts: PropTypes.func.isRequired,
   likePost: PropTypes.func.isRequired,
-  unlikePost: PropTypes.func.isRequired,
   dislikePost: PropTypes.func.isRequired,
-  undislikePost: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired
 };
@@ -125,5 +117,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getAllPosts, likePost, unlikePost, dislikePost, undislikePost }
+  { getAllPosts, likePost, dislikePost }
 )(PostFeed);
