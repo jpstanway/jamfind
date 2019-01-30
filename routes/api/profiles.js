@@ -45,25 +45,6 @@ router.get("/user/:username", (req, res) => {
     .catch(err => console.log(err));
 });
 
-// @route   GET /api/profiles/user/:userid
-// @desc    View a user's profile by userid
-// @access  Public
-router.get("/user/:userid", (req, res) => {
-  const errors = {};
-
-  // search for user profile in database
-  Profile.findOne({ userid: req.params.userid })
-    .then(profile => {
-      if (profile) {
-        res.json(profile);
-      } else {
-        errors.profile = "User has no profile or does not exist";
-        return res.status(404).json(errors);
-      }
-    })
-    .catch(err => console.log(err));
-});
-
 // @route   GET /api/profiles/all
 // @desc    View all profiles
 // @access  Public

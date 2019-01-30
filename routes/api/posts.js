@@ -60,7 +60,7 @@ router.post(
 );
 
 // @route   POST /api/posts/likes/:postid
-// @desc    Like a post
+// @desc    Like and unlike a post
 // @access  Private
 router.post(
   "/likes/:postid",
@@ -92,7 +92,7 @@ router.post(
 );
 
 // @route   POST /api/posts/dislikes/:postid
-// @desc    Dislike a post
+// @desc    Dislike and undislike a post
 // @access  Private
 router.post(
   "/dislikes/:postid",

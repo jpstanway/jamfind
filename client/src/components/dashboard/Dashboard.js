@@ -57,6 +57,12 @@ class Dashboard extends Component {
           <Education education={profile.profile.education} />
           <div className="row mb-2">
             <div className="col-md-12">
+              <Link
+                to={`/profiles/user/${auth.user.username}`}
+                className="btn btn-outline-dark"
+              >
+                View Your Profile
+              </Link>
               <button
                 onClick={this.onDeleteClick.bind(this)}
                 type="button"

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { getProfileByUsername } from "../../actions/profileActions";
 import ProfileHeader from "./ProfileHeader";
@@ -32,12 +33,19 @@ class Profile extends Component {
     } else {
       content = (
         <div className="profile">
+          <div className="row">
+            <div className="col-md-12">
+              <Link to="/profiles/all" className="btn btn-outline-dark btn-sm">
+                Go back
+              </Link>
+            </div>
+          </div>
           <ProfileHeader profile={profile} />
           <ProfileInfo bio={profile.bio} />
           <ProfileExp experience={profile.experience} />
           <ProfileEdu education={profile.education} />
           <hr className="mt-5 mb-5" />
-          <ProfileSoundCloud soundcloudusername={profile.soundcloudusername} />
+          <ProfileSoundCloud profile={profile} />
         </div>
       );
     }

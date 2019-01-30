@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { getCurrentPost } from "../../actions/postActions";
 import Loading from "../tools/Loading";
 import PostAuth from "./PostAuth";
@@ -23,6 +24,13 @@ class Post extends Component {
     } else {
       postContent = (
         <div className="post">
+          <div className="row mb-3">
+            <div className="cold-md-12">
+              <Link to="/posts/all" className="btn btn-outline-dark btn-sm">
+                Go back
+              </Link>
+            </div>
+          </div>
           <PostAuth post={post} />
           <PostReply postid={post._id} />
           <PostReplies postid={post._id} replies={post.comments} />
