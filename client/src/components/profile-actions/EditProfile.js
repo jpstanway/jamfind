@@ -146,7 +146,7 @@ class EditProfile extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <Link to="/dashboard" className="btn btn-outline-dark">
+            <Link to="/dashboard" className="btn btn-custom-outline-secondary">
               Go back
             </Link>
           </div>
@@ -275,7 +275,7 @@ class EditProfile extends Component {
               <Link
                 to="/dashboard"
                 type="submit"
-                className="btn btn-primary btn-lg"
+                className="btn btn-custom-primary btn-lg"
                 onClick={this.onSubmit}
               >
                 {conditionalFormText} Profile

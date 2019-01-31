@@ -117,7 +117,7 @@
 }
 
 .social-link-bg {
-  color: blue;
+  color: #efefef;
 }
 
 .profile-view-social-link {
@@ -128,4 +128,58 @@
 .standard-form {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+/* CUSTOM CLASSES */
+.bg-darkwood {
+  background-color: #4a1d07;
+}
+
+.bg-custom-dark {
+  background-color: #181a7d;
+  color: white;
+}
+
+.btn-custom-primary {
+  background-color: #070a96;
+  color: #fff;
+}
+
+.btn-custom-primary:hover {
+  background-color: rgba(7, 10, 150, 0.8);
+  color: white;
+}
+
+.btn-custom-secondary {
+  background-color: #8a8a8a;
+  color: #fff;
+}
+
+.btn-custom-secondary:hover {
+  background-color: rgba(138, 138, 138, 0.8);
+  color: white;
+}
+
+.btn-custom-danger {
+  background-color: #96451d;
+  color: white;
+}
+
+.text-custom-danger {
+  color: #96451d;
+}
+
+.btn-custom-outline-secondary {
+  border: 1px solid #8a8a8a;
+  color: #8a8a8a;
+}
+
+.btn-custom-actions {
+  border: 1px solid #235711;
+  color: #235711;
+}
+
+.btn-custom-actions:hover {
+  background-color: #235711;
+  color: white;
 }

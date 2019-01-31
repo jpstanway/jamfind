@@ -51,7 +51,7 @@ class Profiles extends Component {
                   </ul>
                   <Link
                     to={`/profiles/user/${profile.userid.username}`}
-                    className="btn btn-primary float-right m-1"
+                    className="btn btn-custom-primary float-right m-1"
                   >
                     View Profile
                   </Link>

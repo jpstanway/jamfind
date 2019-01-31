@@ -79,7 +79,7 @@ class Login extends Component {
                 placeholder="Enter your password"
                 error={errors.password}
               />
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-custom-primary">
                 Login
               </button>
             </form>

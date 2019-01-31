@@ -51,7 +51,10 @@ class PostCreate extends Component {
                   onChange={this.onChange}
                   error={this.state.errors.text}
                 />
-                <button type="submit" className="btn btn-primary float-right">
+                <button
+                  type="submit"
+                  className="btn btn-custom-primary float-right"
+                >
                   Create Post
                 </button>
               </form>

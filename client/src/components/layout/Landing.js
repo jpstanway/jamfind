@@ -17,11 +17,11 @@ class Landing extends Component {
                   </p>
                   <Link
                     to="/create-account"
-                    className="btn btn-primary btn-lg mr-1"
+                    className="btn btn-custom-primary btn-lg mr-1"
                   >
                     Create Account
                   </Link>
-                  <Link to="/login" className="btn btn-secondary btn-lg">
+                  <Link to="/login" className="btn btn-custom-secondary btn-lg">
                     Login
                   </Link>
                 </div>
@@ -197,7 +197,7 @@ class Landing extends Component {
                   <p className="lead mb-4">Ready to get started?</p>
                   <Link
                     to="/create-account"
-                    className="btn btn-primary btn-lg mr-1"
+                    className="btn btn-custom-primary btn-lg mr-1"
                   >
                     Create Account
                   </Link>

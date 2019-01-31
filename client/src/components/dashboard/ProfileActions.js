@@ -6,13 +6,13 @@ const ProfileActions = () => {
     <div className="row">
       <div className="col-md-12">
         <div className="btn-group btn-group-sm" role="group">
-          <Link to="/edit-profile" className="btn btn-outline-secondary">
+          <Link to="/edit-profile" className="btn btn-custom-actions">
             Edit Profile
           </Link>
-          <Link to="/add-experience" className="btn btn-outline-secondary">
+          <Link to="/add-experience" className="btn btn-custom-actions">
             Add Experience
           </Link>
-          <Link to="/add-education" className="btn btn-outline-secondary">
+          <Link to="/add-education" className="btn btn-custom-actions">
             Add Education
           </Link>
         </div>

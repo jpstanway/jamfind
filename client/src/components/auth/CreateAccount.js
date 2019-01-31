@@ -97,7 +97,7 @@ class CreateAccount extends Component {
                 placeholder="Confirm your password"
                 error={errors.password2}
               />
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-custom-primary">
                 Create Account
               </button>
             </form>

@@ -28,7 +28,7 @@ class Experience extends Component {
           <button
             onClick={this.onDeleteClick.bind(this, exp._id)}
             type="button"
-            className="btn btn-danger"
+            className="btn btn-custom-danger"
           >
             <i className="fas fa-times" />
           </button>

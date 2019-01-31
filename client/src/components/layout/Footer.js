@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 class Footer extends Component {
   render() {
     return (
-      <footer className="footer bg-light mt-5">
+      <footer className="footer bg-darkwood mt-5">
         <div className="footer-inner">
-          <nav className="navbar navbar-expand-sm navbar-light">
+          <nav className="navbar navbar-expand-sm navbar-dark">
             <div className="container">
               <div className="left-footer">
                 <ul className="navbar-nav mr-auto">
@@ -31,7 +31,9 @@ class Footer extends Component {
                     </Link>
                   </li>
                 </ul>
-                <small>Copyright &copy; 2019 JamFind</small>
+                <small className="text-light">
+                  Copyright &copy; 2019 JamFind
+                </small>
               </div>
 
               <ul className="navbar-nav ml-auto landing-social-links">

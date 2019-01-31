@@ -26,7 +26,10 @@ class Post extends Component {
         <div className="post">
           <div className="row mb-3">
             <div className="cold-md-12">
-              <Link to="/posts/all" className="btn btn-outline-dark btn-sm">
+              <Link
+                to="/posts/all"
+                className="btn btn-custom-outline-secondary btn-sm"
+              >
                 Go back
               </Link>
             </div>

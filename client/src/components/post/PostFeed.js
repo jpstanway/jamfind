@@ -75,7 +75,7 @@ class PostFeed extends Component {
                 <div className="col-md-12">
                   <button
                     onClick={this.onLikeClick.bind(this, post._id)}
-                    className="btn btn-secondary btn-sm mr-1"
+                    className="btn btn-custom-secondary btn-sm mr-1"
                   >
                     <i
                       className={classnames("fas fa-thumbs-up mr-1", {
@@ -85,7 +85,7 @@ class PostFeed extends Component {
                   </button>
                   <button
                     onClick={this.onDislikeClick.bind(this, post._id)}
-                    className="btn btn-secondary btn-sm mr-1"
+                    className="btn btn-custom-secondary btn-sm mr-1"
                   >
                     <i
                       className={classnames("fas fa-thumbs-down", {
@@ -95,7 +95,7 @@ class PostFeed extends Component {
                   </button>
                   <Link
                     to={`/posts/post/${post._id}`}
-                    className="btn btn-primary btn-sm mr-1"
+                    className="btn btn-custom-primary btn-sm mr-1"
                   >
                     Comment
                   </Link>
@@ -103,7 +103,7 @@ class PostFeed extends Component {
                     <button
                       onClick={this.onDeleteClick.bind(this, post._id)}
                       type="button"
-                      className="btn btn-danger btn-sm"
+                      className="btn btn-custom-danger btn-sm"
                     >
                       <i className="fas fa-times" />
                     </button>

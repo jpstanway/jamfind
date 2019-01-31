@@ -59,14 +59,14 @@ class Dashboard extends Component {
             <div className="col-md-12">
               <Link
                 to={`/profiles/user/${auth.user.username}`}
-                className="btn btn-outline-dark"
+                className="btn btn-custom-actions"
               >
                 View Your Profile
               </Link>
               <button
                 onClick={this.onDeleteClick.bind(this)}
                 type="button"
-                className="btn btn-link text-danger"
+                className="btn btn-link text-custom-danger"
               >
                 Delete Account
               </button>

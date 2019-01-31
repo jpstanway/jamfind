@@ -68,7 +68,7 @@ class AddExperience extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <Link to="/dashboard" className="btn btn-outline-dark">
+            <Link to="/dashboard" className="btn btn-custom-outline-secondary">
               Go back
             </Link>
           </div>
@@ -159,7 +159,7 @@ class AddExperience extends Component {
                 error={errors.description}
                 info="Tell us about the band/project"
               />
-              <button type="submit" className="btn btn-primary btn-lg">
+              <button type="submit" className="btn btn-custom-primary btn-lg">
                 Add Experience
               </button>
             </form>

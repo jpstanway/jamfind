@@ -35,7 +35,10 @@ class Profile extends Component {
         <div className="profile">
           <div className="row">
             <div className="col-md-12">
-              <Link to="/profiles/all" className="btn btn-outline-dark btn-sm">
+              <Link
+                to="/profiles/all"
+                className="btn btn-custom-outline-secondary btn-sm"
+              >
                 Go back
               </Link>
             </div>
