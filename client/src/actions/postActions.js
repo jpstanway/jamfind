@@ -3,11 +3,13 @@ import {
   GET_CURRENT_POST,
   GET_ALL_POSTS,
   GET_ERRORS,
+  CLEAR_ERRORS,
   IS_LOADING,
   ADD_NEW_POST
 } from "./types";
 
 export const createNewPost = text => dispatch => {
+  dispatch(clearErrors());
   axios
     .post("/api/posts", text)
     .then(post => {
@@ -25,6 +27,7 @@ export const createNewPost = text => dispatch => {
 };
 
 export const addNewReply = (text, postid) => dispatch => {
+  dispatch(clearErrors());
   axios
     .post(`/api/posts/comments/${postid}`, text)
     .then(post => {
@@ -129,4 +132,10 @@ export const deleteReply = (postid, commentid) => dispatch => {
         payload: err.response.data
       });
     });
+};
+
+export const clearErrors = () => dispatch => {
+  dispatch({
+    type: CLEAR_ERRORS
+  });
 };

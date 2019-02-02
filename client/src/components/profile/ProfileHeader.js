@@ -35,11 +35,11 @@ class ProfileHeader extends Component {
               )}
               <p className="card-text">{}</p>
               <small>{profile.location}</small>
-              <ul className="nav m-auto landing-social-links">
+              <ul className="nav profile-social-links">
                 {isEmpty(profile.social && profile.social.youtube) ? null : (
                   <li className="nav-item">
                     <a className="nav-link" href={profile.social.youtube}>
-                      <span className="profile-view-social-link">
+                      <span className="social-link-bg">
                         <i className="fab fa-youtube fa-2x" />
                       </span>
                     </a>
@@ -48,7 +48,7 @@ class ProfileHeader extends Component {
                 {isEmpty(profile.social && profile.social.facebook) ? null : (
                   <li className="nav-item">
                     <a className="nav-link" href={profile.social.facebook}>
-                      <span className="profile-view-social-link">
+                      <span className="social-link-bg">
                         <i className="fab fa-facebook fa-2x" />
                       </span>
                     </a>
@@ -57,7 +57,7 @@ class ProfileHeader extends Component {
                 {isEmpty(profile.social && profile.social.twitter) ? null : (
                   <li className="nav-item">
                     <a className="nav-link" href={profile.social.twitter}>
-                      <span className="profile-view-social-link">
+                      <span className="social-link-bg">
                         <i className="fab fa-twitter-square fa-2x" />
                       </span>
                     </a>
@@ -66,7 +66,7 @@ class ProfileHeader extends Component {
                 {isEmpty(profile.social && profile.social.instagram) ? null : (
                   <li className="nav-item">
                     <a className="nav-link" href={profile.social.instagram}>
-                      <span className="profile-view-social-link">
+                      <span className="social-link-bg">
                         <i className="fab fa-instagram fa-2x" />
                       </span>
                     </a>

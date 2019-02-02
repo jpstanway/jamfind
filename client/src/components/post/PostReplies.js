@@ -22,7 +22,7 @@ class PostReplies extends Component {
       replyFeed = replies.map(reply => (
         <div className="row">
           <div className="col-md-10 m-auto">
-            <div className="card p-2">
+            <div className="card p-2 mb-3">
               <div className="row">
                 <div className="col-md-3 text-center">
                   <img
@@ -64,7 +64,7 @@ class PostReplies extends Component {
 }
 
 PostReplies.propTypes = {
-  deleteComment: PropTypes.func.isRequired,
+  deleteComment: PropTypes.func,
   auth: PropTypes.object.isRequired
 };
 

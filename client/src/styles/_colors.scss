@@ -1,0 +1,38 @@
+/* variables */
+$main-navigation: #0a0401;
+$profile-bg: #00013d;
+$danger-text: #561d00;
+$action-text: #14330a;
+
+/* mixins */
+@mixin custom-btn($color, $text: white) {
+  background-color: $color;
+  color: $text;
+
+  &:hover,
+  &:active {
+    background-color: lighten($color, 10%);
+    color: $text;
+  }
+}
+
+@mixin custom-btn-outline($color) {
+  border: 1px solid $color;
+  color: $color;
+
+  &:hover,
+  &:active {
+    border: 1px solid lighten($color, 10%);
+    background-color: lighten($color, 10%);
+    color: white;
+  }
+}
+
+@mixin social-links($color) {
+  color: $color;
+
+  &:hover,
+  &:active {
+    color: darken($color, 20%);
+  }
+}

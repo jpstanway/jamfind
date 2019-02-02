@@ -1,6 +1,8 @@
+@import "styles/_colors.scss";
+
 .landing {
   position: relative;
-  height: 50vh;
+  height: 60vh;
   margin-top: -50px;
   background-color: #efefef;
   background-image: url("./imgs/bass-guitar.jpg");
@@ -23,7 +25,7 @@
 }
 
 .feature-icons {
-  height: 40vh;
+  height: 300px;
 }
 
 .feature-icons-inner {
@@ -112,16 +114,17 @@
   padding-top: 30px;
 }
 
-.landing-social-links span:hover {
-  opacity: 0.8;
-}
-
 .social-link-bg {
-  color: #efefef;
+  @include social-links(#efefef);
 }
 
-.profile-view-social-link {
-  color: white;
+.profile-social-links {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-card {
+  height: 450px;
 }
 
 /* create account */
@@ -130,56 +133,50 @@
   padding-bottom: 50px;
 }
 
-/* CUSTOM CLASSES */
+/* COLOR SCHEME */
 .bg-darkwood {
-  background-color: #4a1d07;
+  background-color: $main-navigation;
 }
 
 .bg-custom-dark {
-  background-color: #181a7d;
-  color: white;
+  background-color: $profile-bg;
 }
 
 .btn-custom-primary {
-  background-color: #070a96;
-  color: #fff;
-}
-
-.btn-custom-primary:hover {
-  background-color: rgba(7, 10, 150, 0.8);
-  color: white;
+  @include custom-btn(#040556);
 }
 
 .btn-custom-secondary {
-  background-color: #8a8a8a;
-  color: #fff;
-}
-
-.btn-custom-secondary:hover {
-  background-color: rgba(138, 138, 138, 0.8);
-  color: white;
+  @include custom-btn(#636160);
 }
 
 .btn-custom-danger {
-  background-color: #96451d;
-  color: white;
+  @include custom-btn(#561d00);
 }
 
 .text-custom-danger {
-  color: #96451d;
+  color: $danger-text;
+
+  &:hover,
+  &:active {
+    color: lighten($danger-text, 10%);
+  }
 }
 
 .btn-custom-outline-secondary {
-  border: 1px solid #8a8a8a;
-  color: #8a8a8a;
+  @include custom-btn-outline(#636160);
 }
 
 .btn-custom-actions {
-  border: 1px solid #235711;
-  color: #235711;
+  @include custom-btn-outline(#14330a);
 }
 
-.btn-custom-actions:hover {
-  background-color: #235711;
-  color: white;
+.text-custom-actions {
+  color: $action-text;
+}
+
+/* BOOTSTRAP OVERRIDE CLASSES */
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }

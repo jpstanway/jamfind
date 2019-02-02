@@ -55,7 +55,7 @@ class PostFeed extends Component {
       postFeed = <Loading />;
     } else {
       postFeed = post.posts.map(post => (
-        <div key={post._id} className="card p-2">
+        <div key={post._id} className="card p-2 mb-3">
           <div className="row">
             <div className="col-md-3 text-center">
               <img
@@ -79,7 +79,7 @@ class PostFeed extends Component {
                   >
                     <i
                       className={classnames("fas fa-thumbs-up mr-1", {
-                        "text-info": this.findUserLike(post.likes)
+                        "text-custom-actions": this.findUserLike(post.likes)
                       })}
                     />
                   </button>
@@ -89,7 +89,7 @@ class PostFeed extends Component {
                   >
                     <i
                       className={classnames("fas fa-thumbs-down", {
-                        "text-info": this.findUserLike(post.dislikes)
+                        "text-custom-actions": this.findUserLike(post.dislikes)
                       })}
                     />
                   </button>
