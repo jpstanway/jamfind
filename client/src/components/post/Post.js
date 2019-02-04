@@ -10,16 +10,14 @@ import PostReplies from "./PostReplies";
 
 class Post extends Component {
   componentDidMount() {
-    if (this.props.match.params.postid) {
-      this.props.getCurrentPost(this.props.match.params.postid);
-    }
+    this.props.getCurrentPost(this.props.match.params.postid);
   }
 
   render() {
     const { post, isLoading } = this.props.post;
     let postContent;
 
-    if (post === null || isLoading) {
+    if (post === null || isLoading || Object.keys(post).length === 0) {
       postContent = <Loading />;
     } else {
       postContent = (
@@ -36,7 +34,7 @@ class Post extends Component {
           </div>
           <PostAuth post={post} />
           <PostReply postid={post._id} />
-          <PostReplies postid={post._id} replies={post.comments} />
+          <PostReplies postid={post._id} replies={post.replies} />
         </div>
       );
     }

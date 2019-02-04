@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { createNewPost } from "../../actions/postActions";
+import TextFieldInput from "../tools/TextFieldInput";
 import TextAreaInput from "../tools/TextAreaInput";
 
 class PostCreate extends Component {
   constructor() {
     super();
     this.state = {
+      title: "",
       text: "",
       errors: {}
     };
@@ -29,10 +31,15 @@ class PostCreate extends Component {
     e.preventDefault();
 
     const newPost = {
+      title: this.state.title,
       text: this.state.text
     };
 
     this.props.createNewPost(newPost);
+    this.setState({
+      title: "",
+      text: ""
+    });
   }
 
   render() {
@@ -43,6 +50,14 @@ class PostCreate extends Component {
             <div className="card-header">Create A Post</div>
             <div className="card-body">
               <form onSubmit={this.onSubmit}>
+                <TextFieldInput
+                  type="text"
+                  name="title"
+                  placeholder="Enter a title"
+                  value={this.state.title}
+                  onChange={this.onChange}
+                  error={this.state.errors.title}
+                />
                 <TextAreaInput
                   name="text"
                   placeholder="Your message..."

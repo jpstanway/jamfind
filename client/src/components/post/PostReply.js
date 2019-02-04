@@ -15,6 +15,12 @@ class PostReply extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -27,6 +33,7 @@ class PostReply extends Component {
     };
 
     this.props.addNewReply(newReply, this.props.postid);
+    this.setState({ text: "" });
   }
 
   render() {

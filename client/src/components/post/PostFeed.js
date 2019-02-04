@@ -68,7 +68,7 @@ class PostFeed extends Component {
             <div className="col-md-7">
               <div className="row">
                 <div className="col-md-12">
-                  <p>{post.text}</p>
+                  <h6>{post.title}</h6>
                 </div>
               </div>
               <div className="row">
@@ -97,7 +97,7 @@ class PostFeed extends Component {
                     to={`/posts/post/${post._id}`}
                     className="btn btn-custom-primary btn-sm mr-1"
                   >
-                    Comment
+                    View
                   </Link>
                   {post.userid === auth.user.id ? (
                     <button

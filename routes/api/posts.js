@@ -5,8 +5,9 @@ const passport = require("passport");
 // load post model
 const Post = require("../../models/Post");
 
-// load post validation
+// load post + reply validation
 const postValidation = require("../../validation/post-validation");
+const replyValidation = require("../../validation/reply-validation");
 
 // @route   GET /api/posts/test
 // @desc    Testing post route
@@ -51,6 +52,7 @@ router.post(
       userid: req.user.id,
       username: req.user.username,
       avatar: req.user.avatar,
+      title: req.body.title,
       text: req.body.text
     });
 
@@ -124,21 +126,21 @@ router.post(
   }
 );
 
-// @route   POST /api/posts/comments/:postid
-// @desc    Comment on a post
+// @route   POST /api/posts/replies/:postid
+// @desc    Reply to a post
 // @access  Private
 router.post(
-  "/comments/:postid",
+  "/replies/:postid",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = postValidation(req.body);
+    const { errors, isValid } = replyValidation(req.body);
 
     if (!isValid) {
       return res.status(400).json(errors);
     }
 
-    // create comment object
-    const newComment = {
+    // create reply object
+    const newReply = {
       userid: req.user.id,
       username: req.user.username,
       avatar: req.user.avatar,
@@ -147,8 +149,8 @@ router.post(
 
     Post.findById({ _id: req.params.postid })
       .then(post => {
-        // add comment to comments array
-        post.comments.unshift(newComment);
+        // add reply to replies array
+        post.replies.unshift(newReply);
 
         // save post
         post.save().then(post => res.json(post));
@@ -182,37 +184,35 @@ router.delete(
   }
 );
 
-// @route   DELETE /api/posts/comments/:postid/:commentid
-// @desc    Delete comment by id
+// @route   DELETE /api/posts/replies/:postid/:replyid
+// @desc    Delete reply by id
 // @access  Private
 router.delete(
-  "/comments/:postid/:commentid",
+  "/replies/:postid/:replyid",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     // Find the post
     Post.findById(req.params.postid)
       .then(post => {
-        // find comment
-        const removeCommentIndex = post.comments
-          .map(comment => comment._id.toString())
-          .indexOf(req.params.commentid);
+        // find reply
+        const removeReplyIndex = post.replies
+          .map(reply => reply._id.toString())
+          .indexOf(req.params.replyid);
 
         // check if not correct user
-        if (
-          post.comments[removeCommentIndex].userid.toString() !== req.user.id
-        ) {
+        if (post.replies[removeReplyIndex].userid.toString() !== req.user.id) {
           return res.status(401).json({
-            authorization: "You are not authorized to delete this comment"
+            authorization: "You are not authorized to delete this reply"
           });
         }
 
-        // splice out and remove comment
-        post.comments.splice(removeCommentIndex, 1);
+        // splice out and remove reply
+        post.replies.splice(removeReplyIndex, 1);
 
         // save post
         post.save().then(post => res.json(post));
       })
-      .catch(err => res.json({ notfound: "Post or comment not found" }));
+      .catch(err => res.json({ notfound: "Post or reply not found" }));
   }
 );
 

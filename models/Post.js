@@ -6,6 +6,7 @@ const postSchema = new Schema({
   userid: { type: Schema.Types.ObjectId, ref: "User" },
   username: { type: String, required: true },
   avatar: String,
+  title: { type: String, required: true },
   text: { type: String, required: true },
   likes: [
     {
@@ -17,7 +18,7 @@ const postSchema = new Schema({
       userid: { type: Schema.Types.ObjectId, ref: "User" }
     }
   ],
-  comments: [
+  replies: [
     {
       userid: { type: Schema.Types.ObjectId, ref: "User" },
       username: { type: String, required: true },

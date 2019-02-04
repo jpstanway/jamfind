@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import { deleteReply } from "../../actions/postActions";
 
 class PostReplies extends Component {
-  onDeleteClick(commentid) {
+  onDeleteClick(replyid) {
     if (
-      window.confirm("Are you sure? This comment will be deleted permanently.")
+      window.confirm("Are you sure? This reply will be deleted permanently.")
     ) {
-      this.props.deleteReply(this.props.postid, commentid);
+      this.props.deleteReply(this.props.postid, replyid);
     }
   }
 
@@ -20,7 +20,7 @@ class PostReplies extends Component {
       replyFeed = <h5 className="text-center text-muted">No replies yet</h5>;
     } else {
       replyFeed = replies.map(reply => (
-        <div className="row">
+        <div key={reply._id} className="row">
           <div className="col-md-10 m-auto">
             <div className="card p-2 mb-3">
               <div className="row">
@@ -64,7 +64,7 @@ class PostReplies extends Component {
 }
 
 PostReplies.propTypes = {
-  deleteComment: PropTypes.func,
+  deleteReply: PropTypes.func,
   auth: PropTypes.object.isRequired
 };
 

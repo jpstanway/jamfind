@@ -18,6 +18,7 @@ class PostAuth extends Component {
                 <h5>{post.username}</h5>
               </div>
               <div className="col-md-7">
+                <h5>{post.title}</h5>
                 <p>{post.text}</p>
               </div>
             </div>

@@ -8,10 +8,10 @@ import {
   ADD_NEW_POST
 } from "./types";
 
-export const createNewPost = text => dispatch => {
+export const createNewPost = postData => dispatch => {
   dispatch(clearErrors());
   axios
-    .post("/api/posts", text)
+    .post("/api/posts", postData)
     .then(post => {
       dispatch({
         type: ADD_NEW_POST,
@@ -29,7 +29,7 @@ export const createNewPost = text => dispatch => {
 export const addNewReply = (text, postid) => dispatch => {
   dispatch(clearErrors());
   axios
-    .post(`/api/posts/comments/${postid}`, text)
+    .post(`/api/posts/replies/${postid}`, text)
     .then(post => {
       dispatch({
         type: GET_CURRENT_POST,
@@ -122,10 +122,10 @@ export const deletePost = postid => dispatch => {
     });
 };
 
-export const deleteReply = (postid, commentid) => dispatch => {
+export const deleteReply = (postid, replyid) => dispatch => {
   axios
-    .delete(`/api/posts/comments/${postid}/${commentid}`)
-    .then(res => dispatch(getCurrentPost()))
+    .delete(`/api/posts/replies/${postid}/${replyid}`)
+    .then(res => dispatch(getCurrentPost(postid)))
     .catch(err => {
       dispatch({
         type: GET_ERRORS,
