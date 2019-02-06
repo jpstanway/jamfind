@@ -147,7 +147,7 @@ router.post(
       text: req.body.text
     };
 
-    Post.findById({ _id: req.params.postid })
+    Post.findById(req.params.postid)
       .then(post => {
         // add reply to replies array
         post.replies.unshift(newReply);
@@ -156,6 +156,77 @@ router.post(
         post.save().then(post => res.json(post));
       })
       .catch(err => console.log(err));
+  }
+);
+
+// @route   PUT /api/posts/edit/:postid
+// @desc    Edit a post
+// @access  Private
+router.put(
+  "/edit/:postid",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = replyValidation(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    // find the post in the database
+    Post.findById(req.params.postid)
+      .then(post => {
+        // make sure user is correct
+        if (req.user.id === post.userid.toString()) {
+          // overwrite post text value
+          post.text = req.body.text;
+
+          // save post
+          post.save().then(post => res.json(post));
+        } else {
+          return res.status(401).json({
+            nopermission: "You do not have permission to edit this post"
+          });
+        }
+      })
+      .catch(err => console.log(err));
+  }
+);
+
+// @route   PUT /api/posts/replies/edit/:postid/:replyid
+// @desc    Edit a reply
+// @access  Private
+router.put(
+  "/replies/edit/:postid/:replyid",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = replyValidation(req.body);
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    // Find the post
+    Post.findById(req.params.postid)
+      .then(post => {
+        // find reply
+        const replyToEditIndex = post.replies
+          .map(reply => reply._id.toString())
+          .indexOf(req.params.replyid);
+
+        // check if not correct user
+        if (post.replies[replyToEditIndex].userid.toString() !== req.user.id) {
+          return res.status(401).json({
+            authorization: "You are not authorized to edit this reply"
+          });
+        }
+
+        // change reply text value
+        post.replies[replyToEditIndex].text = req.body.text;
+
+        // save post
+        post.save().then(post => res.json(post));
+      })
+      .catch(err => res.json({ notfound: "Post or reply not found" }));
   }
 );
 
