@@ -64,7 +64,7 @@ class Navbar extends Component {
         className="navbar navbar-expand-sm navbar-dark bg-darkwood mb-5"
       >
         <div className="container">
-          <Link to="/" className="navbar-brand">
+          <Link to="/" className="navbar-brand brand-home">
             JamFind
           </Link>
 

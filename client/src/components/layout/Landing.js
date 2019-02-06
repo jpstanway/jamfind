@@ -102,7 +102,7 @@ class Landing extends Component {
               </div>
               <div className="col-md-6 order-1 order-md-2">
                 <div className="feature-text">
-                  <h2>Collaborate</h2>
+                  <h2>Team Up And Collaborate</h2>
                   <p className="lead">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                     do eiusmod tempor incididunt ut labore et dolore magna
