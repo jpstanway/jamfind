@@ -16,7 +16,7 @@ class Navbar extends Component {
     const { auth } = this.props;
 
     const guestLinks = (
-      <ul className="navbar-nav ml-auto">
+      <ul className="navbar-nav">
         <li className="nav-item">
           <Link to="/create-account" className="nav-link text-nowrap">
             Create Account
@@ -31,7 +31,7 @@ class Navbar extends Component {
     );
 
     const userLinks = (
-      <ul className="navbar-nav ml-auto">
+      <ul className="navbar-nav">
         <li className="nav-item">
           <Link to="/dashboard" className="nav-link">
             Dashboard
@@ -79,23 +79,21 @@ class Navbar extends Component {
           >
             <span className="navbar-toggler-icon" />
           </button>
-          <div
-            className="collapse navbar-collapse"
-            id="navbarSupportedContent"
-          />
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <Link to="/profiles/all" className="nav-link">
-                Musicians
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/posts/all" className="nav-link">
-                Community
-              </Link>
-            </li>
-          </ul>
-          {linkDisplay}
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link to="/profiles/all" className="nav-link">
+                  Musicians
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/posts/all" className="nav-link">
+                  Community
+                </Link>
+              </li>
+            </ul>
+            {linkDisplay}
+          </div>
         </div>
       </nav>
     );

@@ -22,8 +22,8 @@ class ProfileHeader extends Component {
           <div className="card custom-card m-auto bg-custom-dark">
             <img
               src={profile.userid.avatar}
-              className="card-img-top img-thumbnail"
-              alt="..."
+              className="card-img-top img-thumbnail profile-avatar"
+              alt={profile.userid.username}
             />
             <div className="card-body text-light text-center">
               <h5 className="card-title">{profile.name || profile.username}</h5>

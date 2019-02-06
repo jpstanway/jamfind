@@ -60,8 +60,8 @@ class PostFeed extends Component {
             <div className="col-md-3 text-center">
               <img
                 src={post.avatar}
-                className="m-auto img-thumbnail"
-                alt="..."
+                className="m-auto img-thumbnail profile-avatar"
+                alt={post.username}
               />
               <h5>{post.username}</h5>
             </div>

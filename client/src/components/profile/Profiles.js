@@ -22,11 +22,11 @@ class Profiles extends Component {
           <div className="col-md-8 m-auto">
             <div className="card p-2">
               <div className="row">
-                <div className="col-md-3">
+                <div className="col-md-3 text-center">
                   <img
                     src={profile.userid.avatar}
-                    className="card-img-top img-thumbnail"
-                    alt="..."
+                    className="card-img-top img-thumbnail profile-avatar"
+                    alt={profile.userid.username}
                   />
                 </div>
                 <div className="col-md-9">

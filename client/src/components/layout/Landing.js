@@ -96,11 +96,11 @@ class Landing extends Component {
                 <div className="feature-image f-img-1" />
               </div>
             </div>
-            <div className="row no-gutters">
-              <div className="col-md-6">
+            <div className="row no-gutters d-flex">
+              <div className="col-md-6 order-2 order-md-1">
                 <div className="feature-image f-img-2" />
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 order-1 order-md-2">
                 <div className="feature-text">
                   <h2>Collaborate</h2>
                   <p className="lead">
