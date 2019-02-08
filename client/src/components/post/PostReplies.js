@@ -15,7 +15,7 @@ class PostReplies extends Component {
   }
 
   render() {
-    const { auth, post } = this.props;
+    const { auth, post, profileIds } = this.props;
     let replyFeed;
 
     if (post.replies.length === 0) {
@@ -32,7 +32,15 @@ class PostReplies extends Component {
                     className="m-auto img-thumbnail"
                     alt={reply.username}
                   />
-                  <h5>{reply.username}</h5>
+                  <p className="display-5">
+                    {profileIds.indexOf(reply.userid.toString()) > -1 ? (
+                      <Link to={`/profiles/user/${reply.username}`}>
+                        {reply.username}
+                      </Link>
+                    ) : (
+                      reply.username
+                    )}
+                  </p>
                 </div>
                 <div className="col-md-9">
                   <div className="row">

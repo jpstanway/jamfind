@@ -4,7 +4,7 @@ import Moment from "react-moment";
 
 class PostAuth extends Component {
   render() {
-    const { post, auth } = this.props;
+    const { post, auth, profileIds } = this.props;
 
     return (
       <div className="row">
@@ -17,7 +17,15 @@ class PostAuth extends Component {
                   className="m-auto img-thumbnail"
                   alt={post.username}
                 />
-                <h5>{post.username}</h5>
+                <p className="display-5">
+                  {profileIds.indexOf(post.userid.toString()) > -1 ? (
+                    <Link to={`/profiles/user/${post.username}`}>
+                      {post.username}
+                    </Link>
+                  ) : (
+                    post.username
+                  )}
+                </p>
               </div>
               <div className="col-md-9">
                 <div className="row">

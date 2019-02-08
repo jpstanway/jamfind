@@ -9,6 +9,7 @@ import {
   dislikePost,
   deletePost
 } from "../../actions/postActions";
+import { getAllProfiles } from "../../actions/profileActions";
 import classnames from "classnames";
 
 class PostFeed extends Component {
@@ -19,6 +20,7 @@ class PostFeed extends Component {
   }
   componentDidMount() {
     this.props.getAllPosts();
+    this.props.getAllProfiles();
   }
 
   onDeleteClick(id) {
@@ -48,12 +50,17 @@ class PostFeed extends Component {
   }
 
   render() {
-    const { post, auth } = this.props;
+    const { post, auth, profile } = this.props;
     let postFeed;
 
-    if (post.posts === null || post.isLoading) {
+    if (post.posts === null || profile.profiles === null || post.isLoading) {
       postFeed = <Loading />;
     } else {
+      // collect all user ids from profiles
+      const profileIds = profile.profiles.map(profile =>
+        profile.userid._id.toString()
+      );
+
       postFeed = post.posts.map(post => (
         <div key={post._id} className="card p-2 mb-3">
           <div className="row">
@@ -63,7 +70,15 @@ class PostFeed extends Component {
                 className="m-auto img-thumbnail profile-avatar"
                 alt={post.username}
               />
-              <h5>{post.username}</h5>
+              <p className="display-5">
+                {profileIds.indexOf(post.userid.toString()) > -1 ? (
+                  <Link to={`/profiles/user/${post.username}`}>
+                    {post.username}
+                  </Link>
+                ) : (
+                  post.username
+                )}
+              </p>
             </div>
             <div className="col-md-7">
               <div className="row">
@@ -129,16 +144,19 @@ PostFeed.propTypes = {
   getAllPosts: PropTypes.func.isRequired,
   likePost: PropTypes.func.isRequired,
   dislikePost: PropTypes.func.isRequired,
+  getAllProfiles: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  post: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  post: state.post
+  post: state.post,
+  profile: state.profile
 });
 
 export default connect(
   mapStateToProps,
-  { getAllPosts, likePost, dislikePost, deletePost }
+  { getAllPosts, likePost, dislikePost, deletePost, getAllProfiles }
 )(PostFeed);
