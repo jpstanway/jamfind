@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Moment from "react-moment";
 
 class PostAuth extends Component {
   render() {
-    const { post } = this.props;
+    const { post, auth } = this.props;
 
     return (
       <div className="row">
@@ -17,9 +19,42 @@ class PostAuth extends Component {
                 />
                 <h5>{post.username}</h5>
               </div>
-              <div className="col-md-7">
-                <h5>{post.title}</h5>
-                <p>{post.text}</p>
+              <div className="col-md-9">
+                <div className="row">
+                  <div className="col-md-12">
+                    <p>
+                      <small className="float-right text-muted">
+                        {post.date < post.edited_on ? (
+                          <em>
+                            Edited <Moment fromNow>{post.edited_on}</Moment>
+                          </em>
+                        ) : (
+                          <em>
+                            Posted <Moment fromNow>{post.date}</Moment>
+                          </em>
+                        )}
+                      </small>
+                    </p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-12">
+                    <h5>{post.title}</h5>
+                    <p>{post.text}</p>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-md-12">
+                    {post.userid === auth.user.id ? (
+                      <Link
+                        className="btn btn-custom-actions btn-sm"
+                        to={`/posts/edit-post/${post._id}`}
+                      >
+                        Edit
+                      </Link>
+                    ) : null}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

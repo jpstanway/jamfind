@@ -59,7 +59,7 @@ class Dashboard extends Component {
             <div className="col-md-12">
               <Link
                 to={`/profiles/user/${auth.user.username}`}
-                className="btn btn-custom-actions"
+                className="btn btn-custom-outline-actions"
               >
                 View Your Profile
               </Link>

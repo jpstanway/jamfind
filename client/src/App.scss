@@ -171,8 +171,24 @@ h6,
   @include custom-btn(#636160);
 }
 
+.btn-custom-actions {
+  @include custom-btn(#14330a);
+}
+
 .btn-custom-danger {
   @include custom-btn(#561d00);
+}
+
+.btn-custom-outline-secondary {
+  @include custom-btn-outline(#636160);
+}
+
+.btn-custom-outline-actions {
+  @include custom-btn-outline(#14330a);
+}
+
+.text-custom-actions {
+  color: $action-text;
 }
 
 .text-custom-danger {
@@ -182,18 +198,6 @@ h6,
   &:active {
     color: lighten($danger-text, 10%);
   }
-}
-
-.btn-custom-outline-secondary {
-  @include custom-btn-outline(#636160);
-}
-
-.btn-custom-actions {
-  @include custom-btn-outline(#14330a);
-}
-
-.text-custom-actions {
-  color: $action-text;
 }
 
 /* BOOTSTRAP OVERRIDE CLASSES */

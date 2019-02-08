@@ -24,6 +24,8 @@ import Profile from "./components/profile/Profile";
 import Profiles from "./components/profile/Profiles";
 import Post from "./components/post/Post";
 import Posts from "./components/post/Posts";
+import EditPost from "./components/post-actions/EditPost";
+import EditReply from "./components/post-actions/EditReply";
 import NotFound from "./components/tools/NotFound";
 
 // ** keep user logged in **
@@ -85,6 +87,20 @@ class App extends Component {
                 exact
                 path="/add-education"
                 component={AddEducation}
+              />
+            </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/posts/edit-post/:postid"
+                component={EditPost}
+              />
+            </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/posts/edit-reply/:postid/:replyid"
+                component={EditReply}
               />
             </Switch>
             <Footer />

@@ -32,9 +32,9 @@ class Post extends Component {
               </Link>
             </div>
           </div>
-          <PostAuth post={post} />
+          <PostAuth post={post} auth={this.props.auth} />
           <PostReply postid={post._id} />
-          <PostReplies postid={post._id} replies={post.replies} />
+          <PostReplies post={post} auth={this.props.auth} />
         </div>
       );
     }
@@ -45,10 +45,12 @@ class Post extends Component {
 
 Post.propTypes = {
   getCurrentPost: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   post: state.post
 });
 

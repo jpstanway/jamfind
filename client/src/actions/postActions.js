@@ -86,6 +86,32 @@ export const postLoading = () => dispatch => {
   });
 };
 
+export const editPost = (text, postid, history) => dispatch => {
+  dispatch(clearErrors());
+  axios
+    .put(`/api/posts/edit/${postid}`, text)
+    .then(res => history.push(`/posts/post/${postid}`))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+export const editReply = (text, postid, replyid, history) => dispatch => {
+  dispatch(clearErrors());
+  axios
+    .put(`/api/posts/replies/edit/${postid}/${replyid}`, text)
+    .then(res => history.push(`/posts/post/${postid}`))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
 export const likePost = postid => dispatch => {
   axios
     .post(`/api/posts/likes/${postid}`)

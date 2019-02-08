@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import Moment from "react-moment";
 import { deleteReply } from "../../actions/postActions";
 
 class PostReplies extends Component {
@@ -8,18 +10,18 @@ class PostReplies extends Component {
     if (
       window.confirm("Are you sure? This reply will be deleted permanently.")
     ) {
-      this.props.deleteReply(this.props.postid, replyid);
+      this.props.deleteReply(this.props.post._id, replyid);
     }
   }
 
   render() {
-    const { replies, auth } = this.props;
+    const { auth, post } = this.props;
     let replyFeed;
 
-    if (replies.length === 0) {
+    if (post.replies.length === 0) {
       replyFeed = <h5 className="text-center text-muted">No replies yet</h5>;
     } else {
-      replyFeed = replies.map(reply => (
+      replyFeed = post.replies.map(reply => (
         <div key={reply._id} className="row">
           <div className="col-md-10 m-auto">
             <div className="card p-2 mb-3">
@@ -32,15 +34,38 @@ class PostReplies extends Component {
                   />
                   <h5>{reply.username}</h5>
                 </div>
-                <div className="col-md-7">
+                <div className="col-md-9">
+                  <div className="row">
+                    <div className="col-md-12">
+                      <p>
+                        <small className="float-right text-muted">
+                          {reply.date < reply.edited_on ? (
+                            <em>
+                              Edited <Moment fromNow>{reply.edited_on}</Moment>
+                            </em>
+                          ) : (
+                            <em>
+                              Posted <Moment fromNow>{reply.date}</Moment>
+                            </em>
+                          )}
+                        </small>
+                      </p>
+                    </div>
+                  </div>
                   <div className="row">
                     <div className="col-md-12">
                       <p>{reply.text}</p>
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-md-12">
-                      {reply.userid === auth.user.id ? (
+                    {reply.userid === auth.user.id ? (
+                      <div className="col-md-12">
+                        <Link
+                          className="btn btn-custom-actions btn-sm mr-1"
+                          to={`/posts/edit-reply/${post._id}/${reply._id}`}
+                        >
+                          Edit
+                        </Link>
                         <button
                           onClick={this.onDeleteClick.bind(this, reply._id)}
                           type="button"
@@ -48,8 +73,8 @@ class PostReplies extends Component {
                         >
                           <i className="fas fa-times" />
                         </button>
-                      ) : null}
-                    </div>
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               </div>
@@ -64,15 +89,10 @@ class PostReplies extends Component {
 }
 
 PostReplies.propTypes = {
-  deleteReply: PropTypes.func,
-  auth: PropTypes.object.isRequired
+  deleteReply: PropTypes.func
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
-});
-
 export default connect(
-  mapStateToProps,
+  null,
   { deleteReply }
 )(PostReplies);

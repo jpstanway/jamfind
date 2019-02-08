@@ -177,8 +177,9 @@ router.put(
       .then(post => {
         // make sure user is correct
         if (req.user.id === post.userid.toString()) {
-          // overwrite post text value
+          // overwrite post text value and update date
           post.text = req.body.text;
+          post.edited_on = Date.now();
 
           // save post
           post.save().then(post => res.json(post));
@@ -220,8 +221,9 @@ router.put(
           });
         }
 
-        // change reply text value
+        // change reply text value and update date
         post.replies[replyToEditIndex].text = req.body.text;
+        post.replies[replyToEditIndex].edited_on = Date.now();
 
         // save post
         post.save().then(post => res.json(post));
