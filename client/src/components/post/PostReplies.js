@@ -66,7 +66,7 @@ class PostReplies extends Component {
                     </div>
                   </div>
                   <div className="row">
-                    {reply.userid === auth.user.id ? (
+                    {reply.userid === auth.user.id || auth.user.admin ? (
                       <div className="col-md-12">
                         <Link
                           className="btn btn-custom-actions btn-sm mr-1"

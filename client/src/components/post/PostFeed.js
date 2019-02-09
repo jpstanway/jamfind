@@ -122,7 +122,7 @@ class PostFeed extends Component {
                   >
                     View
                   </Link>
-                  {post.userid === auth.user.id ? (
+                  {post.userid === auth.user.id || auth.user.admin ? (
                     <button
                       onClick={this.onDeleteClick.bind(this, post._id)}
                       type="button"
