@@ -63,6 +63,12 @@ class Dashboard extends Component {
               >
                 View Your Profile
               </Link>
+              <Link
+                to="/change-password"
+                className="btn btn-link text-custom-danger"
+              >
+                Change Password
+              </Link>
               <button
                 onClick={this.onDeleteClick.bind(this)}
                 type="button"

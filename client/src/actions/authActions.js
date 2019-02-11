@@ -33,7 +33,6 @@ export const loginUser = user => dispatch => {
       dispatch(setCurrentUser(userInfo));
     })
     .catch(err => {
-      console.log(err.response);
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
@@ -49,6 +48,19 @@ export const logoutUser = () => dispatch => {
   setUserToken(false);
   // set current user to empty object
   dispatch(setCurrentUser({}));
+};
+
+// change password
+export const changePassword = (pwData, history) => dispatch => {
+  axios
+    .put("/api/users/change-password", pwData)
+    .then(res => history.push("/dashboard"))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
 };
 
 // set current user

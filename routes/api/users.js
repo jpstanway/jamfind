@@ -9,6 +9,7 @@ const passport = require("passport");
 // load validation scripts
 const createAccountValidation = require("../../validation/account-validation");
 const loginValidation = require("../../validation/login-validation");
+const changePasswordValidation = require("../../validation/change-password-validation");
 
 // load User model
 const User = require("../../models/User");
@@ -115,6 +116,49 @@ router.post("/login", (req, res) => {
     }
   });
 });
+
+// @route   POST /api/users/change-password
+// @desc    Change user's password
+// @access  Private
+router.put(
+  "/change-password",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = changePasswordValidation(req.body);
+
+    // check validation
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
+    // get user and compare current password
+    User.findById(req.user.id).then(user => {
+      bcrypt.compare(req.body.password, user.password).then(isMatch => {
+        if (isMatch) {
+          // encrypt and save new password
+          bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(req.body.newPassword, salt, (err, hash) => {
+              if (err) throw err;
+
+              // overwrite current password with new password
+              user.password = hash;
+
+              // save user
+              user
+                .save()
+                .then(user =>
+                  res.json({ success: "Password successfully changed" })
+                );
+            });
+          });
+        } else {
+          errors.password = "Current password is incorrect";
+          return res.status(400).json(errors);
+        }
+      });
+    });
+  }
+);
 
 // @route   GET /api/users/current
 // @desc    Return current user
