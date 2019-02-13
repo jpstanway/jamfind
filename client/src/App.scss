@@ -148,6 +148,10 @@ h6,
   max-width: 150px;
 }
 
+.dashboard {
+  margin-top: -25px;
+}
+
 /* create account */
 .standard-form {
   padding-top: 50px;
@@ -198,6 +202,11 @@ h6,
   &:active {
     color: lighten($danger-text, 10%);
   }
+}
+
+.alert-custom-success {
+  background-color: lighten($profile-bg, 80%);
+  color: $profile-bg;
 }
 
 /* BOOTSTRAP OVERRIDE CLASSES */

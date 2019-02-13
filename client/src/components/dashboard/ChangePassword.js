@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import TextFieldInput from "../tools/TextFieldInput";
 import { changePassword } from "../../actions/authActions";
 
@@ -45,6 +45,16 @@ class ChangePassword extends Component {
 
     return (
       <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <Link
+              to="/dashboard"
+              className="btn btn-custom-outline-secondary btn-sm"
+            >
+              Go back
+            </Link>
+          </div>
+        </div>
         <div className="row">
           <div className="col-md-12 text-center pt-5">
             <h1>Change Password</h1>

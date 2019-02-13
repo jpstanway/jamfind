@@ -5,7 +5,8 @@ import {
   IS_LOADING,
   GET_ERRORS,
   SET_CURRENT_USER,
-  GET_ALL_PROFILES
+  GET_ALL_PROFILES,
+  GET_ALERTS
 } from "./types";
 
 export const getCurrentProfile = user => dispatch => {
@@ -35,7 +36,13 @@ export const clearCurrentProfile = () => dispatch => {
 export const createNewProfile = (profile, history) => dispatch => {
   axios
     .post("/api/profiles", profile)
-    .then(res => history.push("/dashboard"))
+    .then(res => {
+      dispatch({
+        type: GET_ALERTS,
+        payload: res.data
+      });
+      history.push("/dashboard");
+    })
     .catch(err => {
       dispatch({
         type: GET_ERRORS,

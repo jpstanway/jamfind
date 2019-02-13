@@ -95,6 +95,7 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = createProfileValidation(req.body);
+    const alerts = {};
 
     if (!isValid) {
       return res.status(400).json(errors);
@@ -136,7 +137,10 @@ router.post(
           { userid: req.user.id },
           { $set: newProfile },
           { new: true }
-        ).then(profile => res.json(profile));
+        ).then(profile => {
+          alerts.dashboard = "Profile successfully updated!";
+          res.json(alerts);
+        });
       } else {
         // if no profile exists, create a new one
         new Profile(newProfile).save().then(profile => res.json(profile));

@@ -46,7 +46,10 @@ class EditProfile extends Component {
     }
 
     // pre-populate form if profile exists
-    if (Object.keys(nextProps.profile.profile).length > 0) {
+    if (
+      nextProps.profile.profile &&
+      Object.keys(nextProps.profile.profile).length > 0
+    ) {
       const profile = nextProps.profile.profile;
 
       const instrumentsCSV = profile.instruments.join(",");
@@ -59,10 +62,18 @@ class EditProfile extends Component {
         ? ""
         : profile.soundcloudusername;
       profile.bio = isEmpty(profile.bio) ? "" : profile.bio;
-      profile.youtube = isEmpty(profile.youtube) ? "" : profile.youtube;
-      profile.facebook = isEmpty(profile.facebook) ? "" : profile.facebook;
-      profile.instagram = isEmpty(profile.instagram) ? "" : profile.instagram;
-      profile.twitter = isEmpty(profile.twitter) ? "" : profile.twitter;
+      profile.social.youtube = isEmpty(profile.social.youtube)
+        ? ""
+        : profile.social.youtube;
+      profile.social.facebook = isEmpty(profile.social.facebook)
+        ? ""
+        : profile.social.facebook;
+      profile.social.instagram = isEmpty(profile.social.instagram)
+        ? ""
+        : profile.social.instagram;
+      profile.social.twitter = isEmpty(profile.social.twitter)
+        ? ""
+        : profile.social.twitter;
 
       // set state with profile values
       this.setState({
@@ -74,10 +85,10 @@ class EditProfile extends Component {
         website: profile.website,
         soundcloudusername: profile.soundcloudusername,
         bio: profile.bio,
-        youtube: profile.youtube,
-        facebook: profile.facebook,
-        instagram: profile.instagram,
-        twitter: profile.twitter
+        youtube: profile.social.youtube,
+        facebook: profile.social.facebook,
+        instagram: profile.social.instagram,
+        twitter: profile.social.twitter
       });
     }
   }
@@ -112,7 +123,7 @@ class EditProfile extends Component {
     const { profile } = this.props;
     let conditionalFormText;
 
-    if (Object.keys(profile.profile).length > 0) {
+    if (profile.profile && Object.keys(profile.profile).length > 0) {
       conditionalFormText = "Edit";
     } else {
       conditionalFormText = "Create";
@@ -146,7 +157,10 @@ class EditProfile extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <Link to="/dashboard" className="btn btn-custom-outline-secondary">
+            <Link
+              to="/dashboard"
+              className="btn btn-custom-outline-secondary btn-sm"
+            >
               Go back
             </Link>
           </div>
@@ -160,7 +174,7 @@ class EditProfile extends Component {
         <div className="row">
           <div className="col-md-6 m-auto standard-form">
             <small>* indicates a required field</small>
-            <form className="mt-1">
+            <form className="mt-1" onSubmit={this.onSubmit}>
               <TextFieldInput
                 type="text"
                 name="name"
@@ -272,14 +286,9 @@ class EditProfile extends Component {
                 onChange={this.onChange}
                 error={errors.twitter}
               />
-              <Link
-                to="/dashboard"
-                type="submit"
-                className="btn btn-custom-primary btn-lg"
-                onClick={this.onSubmit}
-              >
+              <button type="submit" className="btn btn-custom-primary btn-lg">
                 {conditionalFormText} Profile
-              </Link>
+              </button>
             </form>
           </div>
         </div>

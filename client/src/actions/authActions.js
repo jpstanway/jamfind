@@ -1,7 +1,12 @@
 import axios from "axios";
 import setUserToken from "../utils/setUserToken";
 import jwtDecode from "jwt-decode";
-import { GET_ERRORS, SET_CURRENT_USER } from "./types";
+import {
+  GET_ERRORS,
+  SET_CURRENT_USER,
+  GET_ALERTS,
+  CLEAR_ALERTS
+} from "./types";
 
 // create new user
 export const createAccount = (user, history) => dispatch => {
@@ -54,13 +59,25 @@ export const logoutUser = () => dispatch => {
 export const changePassword = (pwData, history) => dispatch => {
   axios
     .put("/api/users/change-password", pwData)
-    .then(res => history.push("/dashboard"))
+    .then(alert => {
+      dispatch({
+        type: GET_ALERTS,
+        payload: alert.data
+      });
+      history.push("/dashboard");
+    })
     .catch(err => {
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
       });
     });
+};
+
+export const clearAlerts = () => dispatch => {
+  dispatch({
+    type: CLEAR_ALERTS
+  });
 };
 
 // set current user

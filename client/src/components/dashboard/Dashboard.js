@@ -3,16 +3,35 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
+import { clearAlerts } from "../../actions/authActions";
 import ProfileActions from "./ProfileActions";
 import Experience from "./Experience";
 import Education from "./Education";
 import Loading from "../tools/Loading";
+import Alert from "../tools/Alert";
 
 class Dashboard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      alerts: {}
+    };
+  }
+
   componentDidMount() {
     if (this.props.profile) {
       this.props.getCurrentProfile(this.props.auth.user);
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.alerts) {
+      this.setState({ alerts: nextProps.alerts });
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.clearAlerts();
   }
 
   onDeleteClick() {
@@ -21,6 +40,7 @@ class Dashboard extends Component {
 
   render() {
     const { profile, auth } = this.props;
+    const { alerts } = this.state;
     let profileDisplay;
 
     if (profile.profile === null || profile.isLoading) {
@@ -45,7 +65,8 @@ class Dashboard extends Component {
       );
 
       const hasProfile = (
-        <div className="container">
+        <div className="container dashboard">
+          <Alert alert={alerts.dashboard} />
           <div className="row">
             <div className="col-md-12">
               <h1>Welcome {auth.user.username}</h1>
@@ -94,16 +115,18 @@ class Dashboard extends Component {
 Dashboard.propTypes = {
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object,
+  alerts: PropTypes.object.isRequired,
   getCurrentProfile: PropTypes.func.isRequired,
   deleteAccount: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  profile: state.profile
+  profile: state.profile,
+  alerts: state.alerts
 });
 
 export default connect(
   mapStateToProps,
-  { getCurrentProfile, deleteAccount }
+  { getCurrentProfile, deleteAccount, clearAlerts }
 )(Dashboard);

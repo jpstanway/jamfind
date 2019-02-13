@@ -125,6 +125,7 @@ router.put(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = changePasswordValidation(req.body);
+    const alerts = {};
 
     // check validation
     if (!isValid) {
@@ -144,11 +145,10 @@ router.put(
               user.password = hash;
 
               // save user
-              user
-                .save()
-                .then(user =>
-                  res.json({ success: "Password successfully changed" })
-                );
+              user.save().then(user => {
+                alerts.dashboard = "Password successfully changed!";
+                res.json(alerts);
+              });
             });
           });
         } else {

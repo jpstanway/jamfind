@@ -67,7 +67,10 @@ class AddEducation extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <Link to="/dashboard" className="btn btn-custom-outline-secondary">
+            <Link
+              to="/dashboard"
+              className="btn btn-custom-outline-secondary btn-sm"
+            >
               Go back
             </Link>
           </div>
