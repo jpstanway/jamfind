@@ -36,10 +36,6 @@ class PostCreate extends Component {
     };
 
     this.props.createNewPost(newPost);
-    this.setState({
-      title: "",
-      text: ""
-    });
   }
 
   render() {

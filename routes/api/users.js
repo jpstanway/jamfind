@@ -19,6 +19,34 @@ const User = require("../../models/User");
 // @access  Public
 router.get("/test", (req, res) => res.json({ success: "users works" }));
 
+// @route   GET /api/users/current
+// @desc    Return current user
+// @access  Private
+router.get(
+  "/current",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.json({
+      id: req.user.id,
+      username: req.user.username,
+      email: req.user.email
+    });
+  }
+);
+
+// @route   GET /api/users/inbox
+// @desc    User's message inbox
+// @access  Private
+router.get(
+  "/inbox",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findById(req.user.id)
+      .then(user => res.json(user.messages))
+      .catch(err => console.log(err));
+  }
+);
+
 // @route   POST /api/users/create-account
 // @desc    Create new user account
 // @access  Public
@@ -160,18 +188,31 @@ router.put(
   }
 );
 
-// @route   GET /api/users/current
-// @desc    Return current user
+// @route   POST /api/users/private-message
+// @desc    Send message to user
 // @access  Private
-router.get(
-  "/current",
+router.post(
+  "/private-message",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    res.json({
-      id: req.user.id,
+    const alerts = {};
+
+    // create new message object
+    const newMessage = {
       username: req.user.username,
-      email: req.user.email
-    });
+      message: req.body.message
+    };
+
+    User.findOne({ username: req.body.username })
+      .then(user => {
+        user.messages.unshift(newMessage);
+
+        user.save().then(user => {
+          alerts.inbox = `Message sent to ${user.username}`;
+          res.json(alerts);
+        });
+      })
+      .catch(err => console.log(err));
   }
 );
 
