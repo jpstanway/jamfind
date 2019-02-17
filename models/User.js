@@ -10,7 +10,15 @@ const userSchema = new Schema({
   messages: [
     {
       username: { type: String, required: true },
-      message: { type: String, required: true }
+      message: { type: String, required: true },
+      replies: [
+        {
+          username: { type: String, required: true },
+          message: { type: String, required: true },
+          date: { type: Date, default: Date.now }
+        }
+      ],
+      date: { type: Date, default: Date.now }
     }
   ],
   admin: { type: Boolean, default: false },

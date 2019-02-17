@@ -10,6 +10,7 @@ const passport = require("passport");
 const createAccountValidation = require("../../validation/account-validation");
 const loginValidation = require("../../validation/login-validation");
 const changePasswordValidation = require("../../validation/change-password-validation");
+const privateMessageValidation = require("../../validation/private-message-validation");
 
 // load User model
 const User = require("../../models/User");
@@ -44,6 +45,24 @@ router.get(
     User.findById(req.user.id)
       .then(user => res.json(user.messages))
       .catch(err => console.log(err));
+  }
+);
+
+// @route   GET /api/users/inbox/:messageid
+// @desc    Get full conversation
+// @access  Private
+router.get(
+  "/inbox/:messageid",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    // get user's inbox
+    User.findById(req.user.id).then(user => {
+      // get message by id
+      const message = user.messages.filter(
+        message => message._id.toString() === req.params.messageid
+      );
+      res.json(message[0]);
+    });
   }
 );
 
@@ -126,7 +145,8 @@ router.post("/login", (req, res) => {
             id: user.id,
             username: user.username,
             avatar: user.avatar,
-            admin: user.admin
+            admin: user.admin,
+            messages: user.messages
           };
 
           jwt.sign(payload, keys.SECRET, { expiresIn: 10800 }, (err, token) => {
@@ -195,7 +215,12 @@ router.post(
   "/private-message",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
+    const { errors, isValid } = privateMessageValidation(req.body);
     const alerts = {};
+
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
 
     // create new message object
     const newMessage = {
@@ -212,7 +237,10 @@ router.post(
           res.json(alerts);
         });
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        errors.username = "User not found";
+        res.status(404).json(errors);
+      });
   }
 );
 

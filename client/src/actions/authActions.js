@@ -5,7 +5,8 @@ import {
   GET_ERRORS,
   SET_CURRENT_USER,
   GET_ALERTS,
-  CLEAR_ALERTS
+  CLEAR_ALERTS,
+  GET_MESSAGE
 } from "./types";
 
 // create new user
@@ -74,10 +75,47 @@ export const changePassword = (pwData, history) => dispatch => {
     });
 };
 
+// clear alerts
 export const clearAlerts = () => dispatch => {
   dispatch({
     type: CLEAR_ALERTS
   });
+};
+
+// send private message
+export const sendPrivateMessage = msgData => dispatch => {
+  axios
+    .post("/api/users/private-message", msgData)
+    .then(alert => {
+      dispatch({
+        type: GET_ALERTS,
+        payload: alert.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+// view message
+export const getMessage = msgId => dispatch => {
+  axios
+    .get(`/api/users/inbox/${msgId}`)
+    .then(msg => {
+      dispatch({
+        type: GET_MESSAGE,
+        payload: msg.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_MESSAGE,
+        payload: null
+      });
+    });
 };
 
 // set current user

@@ -38,6 +38,11 @@ class Navbar extends Component {
           </Link>
         </li>
         <li className="nav-item">
+          <Link to="/inbox" className="nav-link">
+            Inbox
+          </Link>
+        </li>
+        <li className="nav-item">
           <a
             href="#main-nav"
             onClick={this.onLogoutClick.bind(this)}
