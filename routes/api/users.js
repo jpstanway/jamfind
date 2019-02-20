@@ -11,9 +11,11 @@ const createAccountValidation = require("../../validation/account-validation");
 const loginValidation = require("../../validation/login-validation");
 const changePasswordValidation = require("../../validation/change-password-validation");
 const privateMessageValidation = require("../../validation/private-message-validation");
+const replyValidation = require("../../validation/reply-validation");
 
-// load User model
+// load User and Inbox model
 const User = require("../../models/User");
+const Inbox = require("../../models/Inbox");
 
 // @route   GET /api/users/test
 // @desc    Test users route
@@ -27,42 +29,11 @@ router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    res.json({
-      id: req.user.id,
-      username: req.user.username,
-      email: req.user.email
-    });
-  }
-);
-
-// @route   GET /api/users/inbox
-// @desc    User's message inbox
-// @access  Private
-router.get(
-  "/inbox",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
     User.findById(req.user.id)
-      .then(user => res.json(user.messages))
+      .then(user => {
+        res.json(user);
+      })
       .catch(err => console.log(err));
-  }
-);
-
-// @route   GET /api/users/inbox/:messageid
-// @desc    Get full conversation
-// @access  Private
-router.get(
-  "/inbox/:messageid",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    // get user's inbox
-    User.findById(req.user.id).then(user => {
-      // get message by id
-      const message = user.messages.filter(
-        message => message._id.toString() === req.params.messageid
-      );
-      res.json(message[0]);
-    });
   }
 );
 
@@ -110,7 +81,14 @@ router.post("/create-account", (req, res) => {
               newUser.password = hash;
               newUser
                 .save()
-                .then(user => res.json(user))
+                .then(user => {
+                  // also create user's inbox
+                  const newInbox = new Inbox({
+                    userid: user._id
+                  });
+
+                  newInbox.save().then(inbox => res.json(user));
+                })
                 .catch(err => console.log(err));
             });
           });
@@ -205,42 +183,6 @@ router.put(
         }
       });
     });
-  }
-);
-
-// @route   POST /api/users/private-message
-// @desc    Send message to user
-// @access  Private
-router.post(
-  "/private-message",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const { errors, isValid } = privateMessageValidation(req.body);
-    const alerts = {};
-
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
-
-    // create new message object
-    const newMessage = {
-      username: req.user.username,
-      message: req.body.message
-    };
-
-    User.findOne({ username: req.body.username })
-      .then(user => {
-        user.messages.unshift(newMessage);
-
-        user.save().then(user => {
-          alerts.inbox = `Message sent to ${user.username}`;
-          res.json(alerts);
-        });
-      })
-      .catch(err => {
-        errors.username = "User not found";
-        res.status(404).json(errors);
-      });
   }
 );
 

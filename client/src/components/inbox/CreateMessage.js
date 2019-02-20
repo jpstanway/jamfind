@@ -33,6 +33,9 @@ class CreateMessage extends Component {
     };
 
     this.props.sendPrivateMessage(newMessage);
+
+    // refresh current user
+    this.props.refreshUser();
   }
 
   render() {
@@ -54,7 +57,7 @@ class CreateMessage extends Component {
                   error={errors.username}
                 />
                 <TextAreaInput
-                  name="text"
+                  name="message"
                   placeholder="Your message..."
                   rows="3"
                   value={message}

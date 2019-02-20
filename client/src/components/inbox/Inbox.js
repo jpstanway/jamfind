@@ -3,8 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import CreateMessage from "./CreateMessage";
 import MessageFeed from "./MessageFeed";
-import Alert from "../tools/Alert";
-import { sendPrivateMessage } from "../../actions/authActions";
+import { sendPrivateMessage, refreshUser } from "../../actions/authActions";
 
 class Inbox extends Component {
   render() {
@@ -15,6 +14,7 @@ class Inbox extends Component {
         <CreateMessage
           errors={errors}
           sendPrivateMessage={sendPrivateMessage}
+          refreshUser={refreshUser}
         />
         <MessageFeed messages={auth.user.messages} />
       </div>
@@ -24,18 +24,17 @@ class Inbox extends Component {
 
 Inbox.propTypes = {
   sendPrivateMessage: PropTypes.func.isRequired,
+  refreshUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired,
-  alerts: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  errors: state.errors,
-  alerts: state.alerts
+  errors: state.errors
 });
 
 export default connect(
   mapStateToProps,
-  { sendPrivateMessage }
+  { sendPrivateMessage, refreshUser }
 )(Inbox);

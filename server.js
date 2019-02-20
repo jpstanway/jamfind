@@ -11,6 +11,7 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const profiles = require("./routes/api/profiles");
 const posts = require("./routes/api/posts");
+const inboxes = require("./routes/api/inboxes");
 
 // set security protocols
 app.use(helmet());
@@ -33,6 +34,7 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/profiles", profiles);
 app.use("/api/posts", posts);
+app.use("/api/inboxes", inboxes);
 
 // server setup
 const port = process.env.PORT || 5000;

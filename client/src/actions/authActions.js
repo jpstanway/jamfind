@@ -118,6 +118,16 @@ export const getMessage = msgId => dispatch => {
     });
 };
 
+// refresh user (for inbox)
+export const refreshUser = () => {
+  axios
+    .get("/api/users/current")
+    .then(user => {
+      setCurrentUser(user.data);
+    })
+    .catch(err => setCurrentUser({}));
+};
+
 // set current user
 export const setCurrentUser = userInfo => {
   return {

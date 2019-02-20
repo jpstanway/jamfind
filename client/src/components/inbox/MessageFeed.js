@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import isEmpty from "../../validation/is-empty";
 
 export default class MessageFeed extends Component {
   render() {
     const { messages } = this.props;
     let messageFeed = messages.map(message => (
-      <div className="card">
+      <div key={message._id} className="card">
         <div className="card-body">
           <div className="row">
             <div className="col-md-12">
@@ -27,6 +28,12 @@ export default class MessageFeed extends Component {
         </div>
       </div>
     ));
+
+    messageFeed = isEmpty(messageFeed) ? (
+      <h3 className="text-center text-muted">You have no messages</h3>
+    ) : (
+      messageFeed
+    );
 
     return (
       <div className="row">
