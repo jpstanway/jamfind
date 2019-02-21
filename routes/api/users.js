@@ -84,7 +84,8 @@ router.post("/create-account", (req, res) => {
                 .then(user => {
                   // also create user's inbox
                   const newInbox = new Inbox({
-                    userid: user._id
+                    userid: user._id,
+                    username: user.username
                   });
 
                   newInbox.save().then(inbox => res.json(user));

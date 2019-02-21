@@ -10,98 +10,80 @@ const Inbox = require("../../models/Inbox");
 // @access  Public
 router.get("/test", (req, res) => res.json({ success: "inbox works" }));
 
-// @route   GET /api/users/inbox
-// @desc    User's message inbox
+// @route   GET /api/inboxes
+// @desc    Current user's inbox
 // @access  Private
 router.get(
-  "/inbox",
+  "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    User.findById(req.user.id)
-      .then(user => res.json(user.messages))
+    // search for current user's inbox
+    Inbox.findOne({ userid: req.user.id })
+      .then(inbox => res.json(inbox))
       .catch(err => console.log(err));
   }
 );
 
-// @route   GET /api/users/inbox/:messageid
-// @desc    Get full conversation
-// @access  Private
-router.get(
-  "/inbox/:messageid",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    // get user's inbox
-    User.findById(req.user.id).then(user => {
-      // get message by id
-      const message = user.messages.filter(
-        message => message._id.toString() === req.params.messageid
-      );
-      res.json(message[0]);
-    });
-  }
-);
-
-// @route   POST /api/users/private-message
-// @desc    Send message to user
+// @route   POST /api/inboxes/conversations
+// @desc    Send message / create new conversation
 // @access  Private
 router.post(
-  "/private-message",
+  "/conversations",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    const { errors, isValid } = privateMessageValidation(req.body);
-    const alerts = {};
-
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
-
-    // create new message object
+    // create new message
     const newMessage = {
       username: req.user.username,
       message: req.body.message
     };
 
-    User.findOne({ username: req.body.username })
-      .then(user => {
-        user.messages.unshift(newMessage);
-
-        user.save().then(user => {
-          // save it to sending user's inbox as well
-          User.findOne({ username: req.user.username }).then(sender => {
-            sender.messages.unshift(newMessage);
-
-            sender.save().then(sender => {
-              alerts.inbox = `Message sent to ${user.username}`;
-              res.json(alerts);
+    // get user's inbox
+    Inbox.findOne({ username: req.user.username })
+      .then(senderInbox => {
+        // get recipient's inbox
+        Inbox.findOne({ username: req.body.username }).then(receiverInbox => {
+          // get index of existing conversations
+          function getConversationIndex(inbox) {
+            const existing = inbox.conversations.filter(conversation => {
+              return (
+                conversation.users.indexOf(req.user.username) > -1 &&
+                conversation.users.indexOf(req.body.username) > -1
+              );
             });
+            const index = inbox.conversations
+              .map(conversation => conversation._id)
+              .indexOf(existing[0]._id);
+            return index;
+          }
+
+          const senderIndex = getConversationIndex(senderInbox);
+          const receiverIndex = getConversationIndex(receiverInbox);
+
+          if (senderIndex === -1 && receiverIndex === -1) {
+            // if no conversation exists, create a new one
+            const newConversation = {
+              users: [req.user.username, req.body.username],
+              messages: [newMessage]
+            };
+
+            // add conversation to both inboxes
+            senderInbox.conversations.unshift(newConversation);
+            receiverInbox.conversations.unshift(newConversation);
+          } else {
+            // add message to both conversations
+            senderInbox.conversations[senderIndex].messages.unshift(newMessage);
+            receiverInbox.conversations[receiverIndex].messages.unshift(
+              newMessage
+            );
+          }
+
+          // save both inboxes
+          receiverInbox.save().then(receiverInbox => {
+            senderInbox.save().then(senderInbox => res.json(senderInbox));
           });
         });
       })
-      .catch(err => {
-        errors.username = "User not found";
-        res.status(404).json(errors);
-      });
-  }
-);
-
-// @route   POST /api/users/private-reply
-// @desc    Reply to a private message
-// @access  Private
-router.post(
-  "/private-reply",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const { errors, isValid } = replyValidation(req.body);
-
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
-
-    // create new reply object
-    const newReply = {
-      username: req.user.username,
-      text: req.body.text
-    };
+      .catch(err => console.log(err));
   }
 );
 

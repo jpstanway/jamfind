@@ -7,6 +7,7 @@ const inboxSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   },
+  username: { type: String, required: true },
   conversations: [
     {
       users: { type: [String], required: true },
