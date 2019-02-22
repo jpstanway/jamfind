@@ -2,39 +2,42 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import CreateMessage from "./CreateMessage";
-import MessageFeed from "./MessageFeed";
-import { sendPrivateMessage, refreshUser } from "../../actions/authActions";
+import ConversationFeed from "./ConversationFeed";
+import { getUserInbox, sendPrivateMessage } from "../../actions/inboxActions";
 
 class Inbox extends Component {
+  componentDidMount() {
+    this.props.getUserInbox();
+  }
+
   render() {
-    const { errors, auth, sendPrivateMessage } = this.props;
+    const { errors, inbox, sendPrivateMessage } = this.props;
 
     return (
       <div className="container">
         <CreateMessage
           errors={errors}
           sendPrivateMessage={sendPrivateMessage}
-          refreshUser={refreshUser}
         />
-        <MessageFeed messages={auth.user.messages} />
+        <ConversationFeed inbox={inbox} />
       </div>
     );
   }
 }
 
 Inbox.propTypes = {
+  getUserInbox: PropTypes.func.isRequired,
   sendPrivateMessage: PropTypes.func.isRequired,
-  refreshUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
+  inbox: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth,
+  inbox: state.inbox,
   errors: state.errors
 });
 
 export default connect(
   mapStateToProps,
-  { sendPrivateMessage, refreshUser }
+  { getUserInbox, sendPrivateMessage }
 )(Inbox);

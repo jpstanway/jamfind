@@ -10,8 +10,6 @@ const passport = require("passport");
 const createAccountValidation = require("../../validation/account-validation");
 const loginValidation = require("../../validation/login-validation");
 const changePasswordValidation = require("../../validation/change-password-validation");
-const privateMessageValidation = require("../../validation/private-message-validation");
-const replyValidation = require("../../validation/reply-validation");
 
 // load User and Inbox model
 const User = require("../../models/User");

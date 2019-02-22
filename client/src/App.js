@@ -28,7 +28,7 @@ import Posts from "./components/post/Posts";
 import EditPost from "./components/post-actions/EditPost";
 import EditReply from "./components/post-actions/EditReply";
 import Inbox from "./components/inbox/Inbox";
-import Message from "./components/inbox/Message";
+import Conversation from "./components/inbox/Conversation";
 import NotFound from "./components/tools/NotFound";
 
 // ** keep user logged in **
@@ -119,8 +119,8 @@ class App extends Component {
             <Switch>
               <PrivateRoute
                 exact
-                path="/inbox/:messageid"
-                component={Message}
+                path="/inbox/:conversationid"
+                component={Conversation}
               />
             </Switch>
             <Footer />

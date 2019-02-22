@@ -31,11 +31,7 @@ class CreateMessage extends Component {
       username: this.state.username,
       message: this.state.message
     };
-
     this.props.sendPrivateMessage(newMessage);
-
-    // refresh current user
-    this.props.refreshUser();
   }
 
   render() {

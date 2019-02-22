@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import TextAreaInput from "../tools/TextAreaInput";
 import Loading from "../tools/Loading";
-import { getMessage } from "../../actions/authActions";
 
-class Message extends Component {
+class Conversation extends Component {
   constructor() {
     super();
     this.state = {
@@ -16,10 +15,6 @@ class Message extends Component {
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.getMessage(this.props.match.params.messageid);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -126,8 +121,7 @@ class Message extends Component {
   }
 }
 
-Message.propTypes = {
-  getMessage: PropTypes.func.isRequired,
+Conversation.propTypes = {
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
@@ -139,5 +133,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getMessage }
-)(Message);
+  {}
+)(Conversation);
