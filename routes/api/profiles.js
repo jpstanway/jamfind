@@ -5,6 +5,7 @@ const passport = require("passport");
 // load user/profile models
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
+const Inbox = require("../../models/Inbox");
 
 // load profile validation
 const createProfileValidation = require("../../validation/profile-validation");
@@ -277,9 +278,21 @@ router.delete(
   "/",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    Profile.findOneAndRemove({ userid: req.user.id }).then(() => {
+    let success = {};
+
+    // find and delete profile (if applicable)
+    Profile.findOneAndRemove({ userid: req.user.id })
+      .then(() => {
+        success.profile = true;
+      })
+      .catch(err => console.log(err));
+
+    // find and delete user and inbox
+    Inbox.findOneAndRemove({ userid: req.user.id }).then(() => {
       User.findOneAndRemove({ _id: req.user.id }).then(() => {
-        res.json({ success: true });
+        success.inbox = true;
+        success.user = true;
+        res.json(success);
       });
     });
   }

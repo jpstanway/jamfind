@@ -48,8 +48,8 @@ class Dashboard extends Component {
     } else {
       const noProfile = (
         <div className="container">
-          <div className="row">
-            <div className="col-md-12 text-center">
+          <div className="row text-center">
+            <div className="col-md-12 ">
               <h1>Welcome {auth.user.username}</h1>
               <p className="lead">You're almost finished!</p>
               <Link
@@ -59,6 +59,21 @@ class Dashboard extends Component {
               >
                 Create A Profile
               </Link>
+            </div>
+            <div className="col-md-12 mt-3">
+              <Link
+                to="/change-password"
+                className="btn btn-link text-custom-danger"
+              >
+                Change Password
+              </Link>
+              <button
+                onClick={this.onDeleteClick.bind(this)}
+                type="button"
+                className="btn btn-link text-custom-danger"
+              >
+                Delete Account
+              </button>
             </div>
           </div>
         </div>
