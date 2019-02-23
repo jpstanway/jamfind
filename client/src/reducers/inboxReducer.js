@@ -1,4 +1,4 @@
-import { GET_INBOX, GET_CONVERSATION } from "../actions/types";
+import { GET_INBOX, GET_CONVERSATION, IS_LOADING } from "../actions/types";
 
 const initialState = {
   conversation: null,
@@ -19,6 +19,11 @@ export default function(state = initialState, action) {
         ...state,
         conversation: action.payload,
         isLoading: false
+      };
+    case IS_LOADING:
+      return {
+        ...state,
+        isLoading: true
       };
     default:
       return state;

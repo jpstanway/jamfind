@@ -43,6 +43,37 @@ export const sendPrivateMessage = messageData => dispatch => {
     });
 };
 
+export const addToConversation = (messageData, conversationid) => dispatch => {
+  dispatch(clearErrors());
+  axios
+    .post("/api/inboxes/conversations", messageData)
+    .then(conversation => dispatch(getConversation(conversationid)))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+export const getConversation = conversationid => dispatch => {
+  dispatch(inboxLoading());
+  axios
+    .get(`/api/inboxes/conversations/${conversationid}`)
+    .then(conversation => {
+      dispatch({
+        type: GET_CONVERSATION,
+        payload: conversation.data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_CONVERSATION,
+        payload: null
+      });
+    });
+};
+
 export const inboxLoading = () => dispatch => {
   dispatch({
     type: IS_LOADING

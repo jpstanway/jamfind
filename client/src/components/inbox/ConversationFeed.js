@@ -27,7 +27,7 @@ class ConversationFeed extends Component {
                       {conversation.messages[0].message}
                     </p>
                     <Link
-                      to={`/inbox/conversations/${conversation._id}`}
+                      to={`/inbox/${conversation._id}`}
                       className="btn btn-link text-custom-actions btn-sm float-right"
                     >
                       View Conversation <i className="fas fa-angle-right" />
