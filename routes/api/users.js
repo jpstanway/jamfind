@@ -161,6 +161,13 @@ router.put(
     User.findById(req.user.id).then(user => {
       bcrypt.compare(req.body.password, user.password).then(isMatch => {
         if (isMatch) {
+          // check if new password is the same as the old
+          if (req.body.password === req.body.newPassword) {
+            errors.newPassword =
+              "New password must be different than current password";
+            return res.status(400).json(errors);
+          }
+
           // encrypt and save new password
           bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(req.body.newPassword, salt, (err, hash) => {
