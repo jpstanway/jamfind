@@ -37,31 +37,43 @@ class PostReply extends Component {
   }
 
   render() {
-    return (
-      <div className="row mt-3 mb-3">
-        <div className="col-md-10 m-auto">
-          <div className="card">
-            <div className="card-header">Have something to say?</div>
-            <div className="card-body">
-              <form onSubmit={this.onSubmit}>
-                <TextAreaInput
-                  name="text"
-                  placeholder="Your message..."
-                  rows="3"
-                  value={this.state.text}
-                  onChange={this.onChange}
-                  error={this.state.errors.text}
-                />
-                <button
-                  type="submit"
-                  className="btn btn-custom-primary float-right"
-                >
-                  Reply
-                </button>
-              </form>
-            </div>
+    const { text, errors } = this.state;
+    const { isAuthenticated } = this.props.auth;
+    let authActions;
+
+    if (isAuthenticated) {
+      authActions = (
+        <div className="card">
+          <div className="card-header">Have something to say?</div>
+          <div className="card-body">
+            <form onSubmit={this.onSubmit}>
+              <TextAreaInput
+                name="text"
+                placeholder="Your message..."
+                rows="3"
+                value={text}
+                onChange={this.onChange}
+                error={errors.text}
+              />
+              <button
+                type="submit"
+                className="btn btn-custom-primary float-right"
+              >
+                Reply
+              </button>
+            </form>
           </div>
         </div>
+      );
+    } else {
+      authActions = (
+        <p className="text-muted text-center">You must be logged in to reply</p>
+      );
+    }
+
+    return (
+      <div className="row mt-3 mb-3">
+        <div className="col-md-10 m-auto">{authActions}</div>
       </div>
     );
   }
@@ -69,10 +81,12 @@ class PostReply extends Component {
 
 PostReply.propTypes = {
   addNewReply: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   errors: state.errors
 });
 

@@ -39,39 +39,51 @@ class PostCreate extends Component {
   }
 
   render() {
-    return (
-      <div className="row mb-3">
-        <div className="col-md-10 m-auto">
-          <div className="card">
-            <div className="card-header">Create A Post</div>
-            <div className="card-body">
-              <form onSubmit={this.onSubmit}>
-                <TextFieldInput
-                  type="text"
-                  name="title"
-                  placeholder="Enter a title"
-                  value={this.state.title}
-                  onChange={this.onChange}
-                  error={this.state.errors.title}
-                />
-                <TextAreaInput
-                  name="text"
-                  placeholder="Your message..."
-                  rows="3"
-                  value={this.state.text}
-                  onChange={this.onChange}
-                  error={this.state.errors.text}
-                />
-                <button
-                  type="submit"
-                  className="btn btn-custom-primary float-right"
-                >
-                  Create Post
-                </button>
-              </form>
-            </div>
+    const { title, text, errors } = this.state;
+    const { isAuthenticated } = this.props.auth;
+    let authActions;
+
+    if (isAuthenticated) {
+      authActions = (
+        <div className="card">
+          <div className="card-header">Create A Post</div>
+          <div className="card-body">
+            <form onSubmit={this.onSubmit}>
+              <TextFieldInput
+                type="text"
+                name="title"
+                placeholder="Enter a title"
+                value={title}
+                onChange={this.onChange}
+                error={errors.title}
+              />
+              <TextAreaInput
+                name="text"
+                placeholder="Your message..."
+                rows="3"
+                value={text}
+                onChange={this.onChange}
+                error={errors.text}
+              />
+              <button
+                type="submit"
+                className="btn btn-custom-primary float-right"
+              >
+                Create Post
+              </button>
+            </form>
           </div>
         </div>
+      );
+    } else {
+      authActions = (
+        <p className="text-muted text-center">You must be logged in to post</p>
+      );
+    }
+
+    return (
+      <div className="row mb-3">
+        <div className="col-md-10 m-auto">{authActions}</div>
       </div>
     );
   }

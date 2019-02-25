@@ -113,6 +113,10 @@ router.post(
     // add skill(s) field
     if (typeof req.body.instruments !== "undefined") {
       newProfile.instruments = req.body.instruments.split(",");
+      if (newProfile.instruments.length > 5) {
+        errors.instruments = "Instruments/skills may not exceed 5 items";
+        return res.status(400).json(errors);
+      }
     }
 
     // add optional fields

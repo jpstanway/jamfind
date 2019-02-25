@@ -88,34 +88,39 @@ class PostFeed extends Component {
               </div>
               <div className="row">
                 <div className="col-md-12">
-                  <span className="d-inline-flex flex-column text-center">
-                    <button
-                      onClick={this.onLikeClick.bind(this, post._id)}
-                      className="btn btn-custom-secondary btn-sm mr-1"
-                    >
-                      <i
-                        className={classnames("fas fa-thumbs-up mr-1", {
-                          "text-custom-actions": this.findUserLike(post.likes)
-                        })}
-                      />
-                    </button>
-                    <small>{post.likes.length}</small>
-                  </span>
-                  <span className="d-inline-flex flex-column text-center">
-                    <button
-                      onClick={this.onDislikeClick.bind(this, post._id)}
-                      className="btn btn-custom-secondary btn-sm mr-1"
-                    >
-                      <i
-                        className={classnames("fas fa-thumbs-down", {
-                          "text-custom-actions": this.findUserLike(
-                            post.dislikes
-                          )
-                        })}
-                      />
-                    </button>
-                    <small>{post.dislikes.length}</small>
-                  </span>
+                  {auth.isAuthenticated ? (
+                    <span className="d-inline-flex flex-column text-center">
+                      <button
+                        onClick={this.onLikeClick.bind(this, post._id)}
+                        className="btn btn-custom-secondary btn-sm mr-1"
+                      >
+                        <i
+                          className={classnames("fas fa-thumbs-up mr-1", {
+                            "text-custom-actions": this.findUserLike(post.likes)
+                          })}
+                        />
+                      </button>
+                      <small>{post.likes.length}</small>
+                    </span>
+                  ) : null}
+                  {auth.isAuthenticated ? (
+                    <span className="d-inline-flex flex-column text-center">
+                      <button
+                        onClick={this.onDislikeClick.bind(this, post._id)}
+                        className="btn btn-custom-secondary btn-sm mr-1"
+                      >
+                        <i
+                          className={classnames("fas fa-thumbs-down", {
+                            "text-custom-actions": this.findUserLike(
+                              post.dislikes
+                            )
+                          })}
+                        />
+                      </button>
+                      <small>{post.dislikes.length}</small>
+                    </span>
+                  ) : null}
+
                   <Link
                     to={`/posts/post/${post._id}`}
                     className="btn btn-custom-primary btn-sm mr-1"

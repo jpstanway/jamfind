@@ -39,8 +39,11 @@ const TextIconInput = ({
   );
 };
 
+TextIconInput.defaultProps = {
+  type: "text"
+};
+
 TextIconInput.propTypes = {
-  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,

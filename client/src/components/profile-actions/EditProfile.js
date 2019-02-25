@@ -10,6 +10,7 @@ import {
   getCurrentProfile,
   createNewProfile
 } from "../../actions/profileActions";
+import { clearErrors } from "../../actions/postActions";
 import isEmpty from "../../validation/is-empty";
 
 class EditProfile extends Component {
@@ -62,16 +63,17 @@ class EditProfile extends Component {
         ? ""
         : profile.soundcloudusername;
       profile.bio = isEmpty(profile.bio) ? "" : profile.bio;
-      profile.social.youtube = isEmpty(profile.social.youtube)
+      profile.social = isEmpty(profile.social) ? {} : profile.social;
+      profile.youtube = isEmpty(profile.social.youtube)
         ? ""
         : profile.social.youtube;
-      profile.social.facebook = isEmpty(profile.social.facebook)
+      profile.facebook = isEmpty(profile.social.facebook)
         ? ""
         : profile.social.facebook;
-      profile.social.instagram = isEmpty(profile.social.instagram)
+      profile.instagram = isEmpty(profile.social.instagram)
         ? ""
         : profile.social.instagram;
-      profile.social.twitter = isEmpty(profile.social.twitter)
+      profile.twitter = isEmpty(profile.social.twitter)
         ? ""
         : profile.social.twitter;
 
@@ -91,6 +93,10 @@ class EditProfile extends Component {
         twitter: profile.social.twitter
       });
     }
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   onChange(e) {
@@ -133,7 +139,7 @@ class EditProfile extends Component {
       <span>
         <strong>Start with your primary instrument or skill</strong> and
         separate any additional skills using commas (ex. Vocals,Harmonica,Pro
-        Tools)
+        Tools) <em>max. 5</em>
       </span>
     );
 
@@ -300,6 +306,7 @@ class EditProfile extends Component {
 EditProfile.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
   createNewProfile: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
@@ -313,5 +320,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getCurrentProfile, createNewProfile }
+  { getCurrentProfile, createNewProfile, clearErrors }
 )(withRouter(EditProfile));
