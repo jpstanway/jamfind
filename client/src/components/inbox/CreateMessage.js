@@ -14,10 +14,20 @@ class CreateMessage extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.username) {
+      this.setState({ username: this.props.username });
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
+  }
+
+  componentWillUnmount() {
+    this.props.prepopulateUser(null);
   }
 
   onChange(e) {

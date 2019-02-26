@@ -142,6 +142,12 @@ class PostFeed extends Component {
           </div>
         </div>
       ));
+
+      if (postFeed.length === 0) {
+        postFeed = (
+          <h3 className="text-muted text-center">There are no current posts</h3>
+        );
+      }
     }
 
     return (

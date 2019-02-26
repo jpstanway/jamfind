@@ -69,6 +69,12 @@ class Profiles extends Component {
           </div>
         </div>
       ));
+
+      if (profileFeed.length === 0) {
+        profileFeed = (
+          <h3 className="text-muted text-center">There are no profiles</h3>
+        );
+      }
     }
 
     return (

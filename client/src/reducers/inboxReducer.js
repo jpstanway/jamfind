@@ -1,9 +1,15 @@
-import { GET_INBOX, GET_CONVERSATION, IS_LOADING } from "../actions/types";
+import {
+  GET_INBOX,
+  GET_CONVERSATION,
+  PREPOPULATE_USER,
+  IS_LOADING
+} from "../actions/types";
 
 const initialState = {
   conversation: null,
   conversations: null,
-  isLoading: false
+  isLoading: false,
+  prepopulate: null
 };
 
 export default function(state = initialState, action) {
@@ -19,6 +25,11 @@ export default function(state = initialState, action) {
         ...state,
         conversation: action.payload,
         isLoading: false
+      };
+    case PREPOPULATE_USER:
+      return {
+        ...state,
+        prepopulate: action.payload
       };
     case IS_LOADING:
       return {

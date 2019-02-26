@@ -4,7 +4,8 @@ import {
   GET_CONVERSATION,
   GET_ERRORS,
   CLEAR_ERRORS,
-  IS_LOADING
+  IS_LOADING,
+  PREPOPULATE_USER
 } from "./types";
 
 export const getUserInbox = () => dispatch => {
@@ -72,6 +73,13 @@ export const getConversation = conversationid => dispatch => {
         payload: null
       });
     });
+};
+
+export const prepopulateUser = username => dispatch => {
+  dispatch({
+    type: PREPOPULATE_USER,
+    payload: username
+  });
 };
 
 export const inboxLoading = () => dispatch => {

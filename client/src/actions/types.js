@@ -11,4 +11,5 @@ export const ADD_NEW_POST = "ADD_NEW_POST";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
 export const GET_INBOX = "GET_INBOX";
 export const GET_CONVERSATION = "GET_CONVERSATION";
+export const PREPOPULATE_USER = "PREPOPULATE_USER";
 export const IS_LOADING = "IS_LOADING";

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import { getProfileByUsername } from "../../actions/profileActions";
+import { prepopulateUser } from "../../actions/inboxActions";
 import ProfileHeader from "./ProfileHeader";
 import ProfileInfo from "./ProfileInfo";
 import ProfileExp from "./ProfileExp";
@@ -26,6 +27,7 @@ class Profile extends Component {
 
   render() {
     const { profile, isLoading } = this.props.profile;
+    const { auth, prepopulateUser } = this.props;
     let content;
 
     if (profile === null || isLoading) {
@@ -43,7 +45,11 @@ class Profile extends Component {
               </Link>
             </div>
           </div>
-          <ProfileHeader profile={profile} />
+          <ProfileHeader
+            profile={profile}
+            auth={auth}
+            prepopulateUser={prepopulateUser}
+          />
           <ProfileInfo bio={profile.bio} />
           <ProfileExp experience={profile.experience} />
           <ProfileEdu education={profile.education} />
@@ -59,14 +65,17 @@ class Profile extends Component {
 
 Profile.propTypes = {
   getProfileByUsername: PropTypes.func.isRequired,
+  prepopulateUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   profile: state.profile
 });
 
 export default connect(
   mapStateToProps,
-  { getProfileByUsername }
+  { getProfileByUsername, prepopulateUser }
 )(withRouter(Profile));
