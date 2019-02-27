@@ -91,7 +91,7 @@ router.post(
             const senderIndex = getConversationIndex(senderInbox);
             const receiverIndex = getConversationIndex(receiverInbox);
 
-            if (!senderIndex && !receiverIndex) {
+            if (senderIndex === false && receiverIndex === false) {
               // if no conversation exists, create a new one
               const newConversation = {
                 users: [req.user.username, req.body.username],

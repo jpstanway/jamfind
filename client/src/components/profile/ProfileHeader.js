@@ -22,7 +22,8 @@ class ProfileHeader extends Component {
     ));
 
     const privateMessage =
-      profile.userid.username === auth.user.username ? null : (
+      profile.userid.username === auth.user.username ||
+      !auth.isAuthenticated ? null : (
         <div className="col-md-12 text-center">
           <Link
             to="/inbox"

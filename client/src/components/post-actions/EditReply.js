@@ -27,7 +27,7 @@ class EditReply extends Component {
     }
 
     // prepopulate textarea with current reply text
-    if (nextProps.post.post !== null) {
+    if (nextProps.post.post !== null && this.state.text === "") {
       const reply = nextProps.post.post.replies.filter(
         reply => reply._id === this.props.match.params.replyid
       );

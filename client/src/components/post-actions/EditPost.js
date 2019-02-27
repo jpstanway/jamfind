@@ -27,7 +27,7 @@ class EditPost extends Component {
     }
 
     // prepopulate textarea with current post text
-    if (nextProps.post.post !== null) {
+    if (nextProps.post.post !== null && this.state.text === "") {
       const post = nextProps.post.post;
       this.setState({ text: post.text });
     }
