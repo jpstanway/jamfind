@@ -28,6 +28,12 @@ class Conversation extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.inbox !== this.props.inbox) {
+      this.setState({ message: "" });
+    }
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }

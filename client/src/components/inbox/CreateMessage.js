@@ -26,6 +26,15 @@ class CreateMessage extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.inbox !== this.props.inbox) {
+      this.setState({
+        username: "",
+        message: ""
+      });
+    }
+  }
+
   componentWillUnmount() {
     this.props.prepopulateUser(null);
   }

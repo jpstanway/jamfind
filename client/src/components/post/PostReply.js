@@ -21,6 +21,12 @@ class PostReply extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.post !== this.props.post) {
+      this.setState({ text: "" });
+    }
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -32,8 +38,7 @@ class PostReply extends Component {
       text: this.state.text
     };
 
-    this.props.addNewReply(newReply, this.props.postid);
-    this.setState({ text: "" });
+    this.props.addNewReply(newReply, this.props.post._id);
   }
 
   render() {

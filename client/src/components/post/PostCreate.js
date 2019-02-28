@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { createNewPost } from "../../actions/postActions";
+import { createNewPost, getAllPosts } from "../../actions/postActions";
 import TextFieldInput from "../tools/TextFieldInput";
 import TextAreaInput from "../tools/TextAreaInput";
 
@@ -17,9 +17,22 @@ class PostCreate extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getAllPosts();
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.post !== this.props.post) {
+      this.setState({
+        title: "",
+        text: ""
+      });
     }
   }
 
@@ -29,10 +42,11 @@ class PostCreate extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    const { title, text } = this.state;
 
     const newPost = {
-      title: this.state.title,
-      text: this.state.text
+      title: title,
+      text: text
     };
 
     this.props.createNewPost(newPost);
@@ -91,16 +105,19 @@ class PostCreate extends Component {
 
 PostCreate.propTypes = {
   createNewPost: PropTypes.func.isRequired,
+  getAllPosts: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
+  post: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
+  post: state.post,
   errors: state.errors
 });
 
 export default connect(
   mapStateToProps,
-  { createNewPost }
+  { createNewPost, getAllPosts }
 )(PostCreate);

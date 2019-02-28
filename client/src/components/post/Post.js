@@ -51,7 +51,7 @@ class Post extends Component {
             profile={profile}
             profileIds={profileIds}
           />
-          <PostReply postid={post._id} />
+          <PostReply post={post} />
           <PostReplies
             post={post}
             auth={auth}

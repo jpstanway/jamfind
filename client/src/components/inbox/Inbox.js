@@ -21,6 +21,7 @@ class Inbox extends Component {
       <div className="container">
         <CreateMessage
           errors={errors}
+          inbox={inbox}
           username={inbox.prepopulate}
           prepopulateUser={prepopulateUser}
           sendPrivateMessage={sendPrivateMessage}
