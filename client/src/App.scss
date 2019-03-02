@@ -214,3 +214,8 @@ h6,
   outline: none !important;
   box-shadow: none !important;
 }
+
+.form-control:focus {
+  border-color: lighten($main-navigation, 30%);
+  box-shadow: none;
+}

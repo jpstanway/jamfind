@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import CreateMessage from "./CreateMessage";
 import ConversationFeed from "./ConversationFeed";
+import Loading from "../tools/Loading";
 import {
   getUserInbox,
   sendPrivateMessage,
@@ -16,19 +17,26 @@ class Inbox extends Component {
 
   render() {
     const { errors, inbox, sendPrivateMessage, prepopulateUser } = this.props;
+    let inboxContent;
 
-    return (
-      <div className="container">
-        <CreateMessage
-          errors={errors}
-          inbox={inbox}
-          username={inbox.prepopulate}
-          prepopulateUser={prepopulateUser}
-          sendPrivateMessage={sendPrivateMessage}
-        />
-        <ConversationFeed inbox={inbox} />
-      </div>
-    );
+    if (inbox === null || inbox.isLoading) {
+      inboxContent = <Loading />;
+    } else {
+      inboxContent = (
+        <div className="inbox">
+          <CreateMessage
+            errors={errors}
+            inbox={inbox}
+            username={inbox.prepopulate}
+            prepopulateUser={prepopulateUser}
+            sendPrivateMessage={sendPrivateMessage}
+          />
+          <ConversationFeed inbox={inbox} />
+        </div>
+      );
+    }
+
+    return <div className="container">{inboxContent}</div>;
   }
 }
 
