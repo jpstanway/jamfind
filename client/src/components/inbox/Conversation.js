@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import Marked from "marked";
+import DOMPurify from "dompurify";
 import TextAreaInput from "../tools/TextAreaInput";
 import Loading from "../tools/Loading";
 import { getConversation, addToConversation } from "../../actions/inboxActions";
@@ -75,26 +77,35 @@ class Conversation extends Component {
               </Link>
             </div>
           </div>
-          {conversation.messages.map(message => (
-            <div key={message._id} className="row">
-              <div className="col-md-10 m-auto">
-                <div className="card mb-3">
-                  <div className="card-body">
-                    <div className="row">
-                      <div className="col-md-12">
-                        <small className="text-muted float-right">
-                          Sent <Moment fromNow>{message.date}</Moment>
-                        </small>
-                        <p>
-                          <strong>{message.username}</strong> {message.message}
-                        </p>
+          {conversation.messages.map(message => {
+            const cleanText = DOMPurify.sanitize(message.message);
+
+            return (
+              <div key={message._id} className="row">
+                <div className="col-md-10 m-auto">
+                  <div className="card mb-3">
+                    <div className="card-body">
+                      <div className="row">
+                        <div className="col-md-12">
+                          <small className="text-muted float-right">
+                            Sent <Moment fromNow>{message.date}</Moment>
+                          </small>
+                          <p>
+                            <strong>{message.username}</strong>{" "}
+                            <span
+                              dangerouslySetInnerHTML={{
+                                __html: Marked(cleanText)
+                              }}
+                            />
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
           <div className="row mt-3 mb-3">
             <div className="col-md-10 m-auto">
               <div className="card">

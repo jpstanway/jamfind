@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
+import Marked from "marked";
+import DOMPurify from "dompurify";
+
+Marked.setOptions({
+  breaks: true
+});
 
 class PostAuth extends Component {
   render() {
     const { post, auth, profileIds } = this.props;
+    const cleanText = DOMPurify.sanitize(post.text);
 
     return (
       <div className="row">
@@ -48,7 +55,9 @@ class PostAuth extends Component {
                 <div className="row">
                   <div className="col-md-12">
                     <h5>{post.title}</h5>
-                    <p>{post.text}</p>
+                    <p
+                      dangerouslySetInnerHTML={{ __html: Marked(cleanText) }}
+                    />
                   </div>
                 </div>
                 <div className="row">
