@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 
 class Footer extends Component {
   render() {
+    const date = new Date();
+
     return (
       <footer className="footer bg-darkwood mt-5">
         <div className="footer-inner">
@@ -32,7 +34,7 @@ class Footer extends Component {
                   </li>
                 </ul>
                 <small className="text-light">
-                  Copyright &copy; 2019 JamFind
+                  Copyright &copy; {date.getFullYear()} JamFind
                 </small>
               </div>
 
