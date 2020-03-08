@@ -9,8 +9,8 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      email: "",
-      password: "",
+      email: "test@test.com",
+      password: "123456",
       errors: {}
     };
     this.onChange = this.onChange.bind(this);
@@ -101,7 +101,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(
-  mapStateToProps,
-  { loginUser }
-)(withRouter(Login));
+export default connect(mapStateToProps, { loginUser })(withRouter(Login));

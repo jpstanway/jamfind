@@ -87,10 +87,10 @@ class EditProfile extends Component {
         website: profile.website,
         soundcloudusername: profile.soundcloudusername,
         bio: profile.bio,
-        youtube: profile.social.youtube,
-        facebook: profile.social.facebook,
-        instagram: profile.social.instagram,
-        twitter: profile.social.twitter
+        youtube: profile.youtube,
+        facebook: profile.facebook,
+        instagram: profile.instagram,
+        twitter: profile.twitter
       });
     }
   }
@@ -318,7 +318,8 @@ const mapStateToProps = state => ({
   errors: state.errors
 });
 
-export default connect(
-  mapStateToProps,
-  { getCurrentProfile, createNewProfile, clearErrors }
-)(withRouter(EditProfile));
+export default connect(mapStateToProps, {
+  getCurrentProfile,
+  createNewProfile,
+  clearErrors
+})(withRouter(EditProfile));
