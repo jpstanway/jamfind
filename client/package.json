@@ -20,6 +20,7 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "cypress": "^4.4.1",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2"
   },
@@ -27,7 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "cypress open"
   },
   "proxy": "http://localhost:5000",
   "eslintConfig": {

@@ -25,12 +25,12 @@ router.get("/user/:username", (req, res) => {
 
   // search for user in database
   User.findOne({ username: req.params.username })
-    .then(user => {
+    .then((user) => {
       if (user) {
         // if found, find their profile
         Profile.findOne({ userid: user.id })
           .populate("userid", ["username", "avatar"])
-          .then(profile => {
+          .then((profile) => {
             if (profile) {
               res.json(profile);
             } else {
@@ -43,7 +43,7 @@ router.get("/user/:username", (req, res) => {
         return res.status(404).json(errors);
       }
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 });
 
 // @route   GET /api/profiles/all
@@ -54,7 +54,7 @@ router.get("/all", (req, res) => {
 
   Profile.find()
     .populate("userid", ["username", "avatar"])
-    .then(profiles => {
+    .then((profiles) => {
       if (profiles) {
         res.json(profiles);
       } else {
@@ -62,7 +62,7 @@ router.get("/all", (req, res) => {
         return res.status(404).json(errors);
       }
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 });
 
 // @route   GET /api/profiles
@@ -77,14 +77,14 @@ router.get(
     // search database for user profile
     Profile.findOne({ userid: req.user.id })
       .populate("userid", ["username", "avatar"])
-      .then(profile => {
+      .then((profile) => {
         if (!profile) {
           errors.profile = "No profile for this user exists";
           return res.status(404).json(errors);
         }
         res.json(profile);
       })
-      .catch(err => res.status(404).json(err));
+      .catch((err) => res.status(404).json(err));
   }
 );
 
@@ -120,35 +120,36 @@ router.post(
     }
 
     // add optional fields
-    if (req.body.name) newProfile.name = req.body.name;
-    if (req.body.training) newProfile.training = req.body.training;
-    if (req.body.website) newProfile.website = req.body.website;
-    if (req.body.soundcloudusername)
-      newProfile.soundcloudusername = req.body.soundcloudusername;
-    if (req.body.bio) newProfile.bio = req.body.bio;
+    newProfile.name = req.body.name ? req.body.name : "";
+    newProfile.training = req.body.training ? req.body.training : "";
+    newProfile.website = req.body.website ? req.body.website : "";
+    newProfile.soundcloudusername = req.body.soundcloudusername
+      ? req.body.soundcloudusername
+      : "";
+    newProfile.bio = req.body.bio ? req.body.bio : "";
 
     // add social media fields
     newProfile.social = {};
-    if (req.body.youtube) newProfile.social.youtube = req.body.youtube;
-    if (req.body.facebook) newProfile.social.facebook = req.body.facebook;
-    if (req.body.instagram) newProfile.social.instagram = req.body.instagram;
-    if (req.body.twitter) newProfile.social.twitter = req.body.twitter;
+    newProfile.social.youtube = req.body.youtube ? req.body.youtube : "";
+    newProfile.social.facebook = req.body.facebook ? req.body.facebook : "";
+    newProfile.social.instagram = req.body.instagram ? req.body.instagram : "";
+    newProfile.social.twitter = req.body.twitter ? req.body.twitter : "";
 
     // search database for existing profile
-    Profile.findOne({ userid: req.user.id }).then(profile => {
+    Profile.findOne({ userid: req.user.id }).then((profile) => {
       // if profile exists, update
       if (profile) {
         Profile.findOneAndUpdate(
           { userid: req.user.id },
           { $set: newProfile },
           { new: true }
-        ).then(profile => {
+        ).then((profile) => {
           alerts.dashboard = "Profile successfully updated!";
           res.json(alerts);
         });
       } else {
         // if no profile exists, create a new one
-        new Profile(newProfile).save().then(profile => res.json(profile));
+        new Profile(newProfile).save().then((profile) => res.json(profile));
       }
     });
   }
@@ -177,7 +178,7 @@ router.post(
       from: req.body.from,
       to: req.body.to,
       current: req.body.current,
-      description: req.body.description
+      description: req.body.description,
     };
 
     // update database
@@ -186,8 +187,8 @@ router.post(
       { $addToSet: { experience: newExperience } },
       { new: true }
     )
-      .then(profile => res.json(profile))
-      .catch(err => console.log(err));
+      .then((profile) => res.json(profile))
+      .catch((err) => console.log(err));
   }
 );
 
@@ -213,7 +214,7 @@ router.post(
       from: req.body.from,
       to: req.body.to,
       current: req.body.current,
-      description: req.body.description
+      description: req.body.description,
     };
 
     // locate and update profile
@@ -222,8 +223,8 @@ router.post(
       { $addToSet: { education: newEducation } },
       { new: true }
     )
-      .then(profile => res.json(profile))
-      .catch(err => console.log(err));
+      .then((profile) => res.json(profile))
+      .catch((err) => console.log(err));
   }
 );
 
@@ -235,19 +236,19 @@ router.delete(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Profile.findOne({ userid: req.user.id })
-      .then(profile => {
+      .then((profile) => {
         // get index of experience to delete
         const removeExpIndex = profile.experience
-          .map(exp => exp._id)
+          .map((exp) => exp._id)
           .indexOf(req.params.expid);
 
         // use splice to remove selected experience from array
         profile.experience.splice(removeExpIndex, 1);
 
         // save experience array
-        profile.save().then(profile => res.json(profile));
+        profile.save().then((profile) => res.json(profile));
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 );
 
@@ -259,19 +260,19 @@ router.delete(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Profile.findOne({ userid: req.user.id })
-      .then(profile => {
+      .then((profile) => {
         // get index of education to delete
         const removeEduIndex = profile.education
-          .map(edu => edu._id)
+          .map((edu) => edu._id)
           .indexOf(req.params.eduid);
 
         // remove selected education using splice
         profile.education.splice(removeEduIndex, 1);
 
         // save profile
-        profile.save().then(profile => res.json(profile));
+        profile.save().then((profile) => res.json(profile));
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 );
 
@@ -289,7 +290,7 @@ router.delete(
       .then(() => {
         success.profile = true;
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
 
     // find and delete user and inbox
     Inbox.findOneAndRemove({ userid: req.user.id }).then(() => {
