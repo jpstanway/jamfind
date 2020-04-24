@@ -8,7 +8,7 @@ class CreateMessage extends Component {
     this.state = {
       username: "",
       message: "",
-      errors: {}
+      errors: {},
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -30,7 +30,7 @@ class CreateMessage extends Component {
     if (prevProps.inbox !== this.props.inbox) {
       this.setState({
         username: "",
-        message: ""
+        message: "",
       });
     }
   }
@@ -48,7 +48,7 @@ class CreateMessage extends Component {
 
     const newMessage = {
       username: this.state.username,
-      message: this.state.message
+      message: this.state.message,
     };
     this.props.sendPrivateMessage(newMessage);
   }

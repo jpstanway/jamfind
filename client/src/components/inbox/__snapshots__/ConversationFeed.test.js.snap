@@ -1,0 +1,1332 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders inbox conversation feed 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ConversationFeed
+    inbox={
+      Object {
+        "conversations": Object {
+          "conversations": Array [
+            Object {
+              "_id": 1,
+              "date": 2020,
+              "messages": Array [
+                Object {
+                  "message": "hello",
+                  "username": "Bob",
+                },
+              ],
+            },
+          ],
+        },
+        "isLoading": false,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="row"
+        >
+          <div
+            className="col-md-10 m-auto"
+          >
+            <div
+              className="card mb-3"
+            >
+              <div
+                className="card-body"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-md-12"
+                  >
+                    <small
+                      className="text-muted float-right"
+                    >
+                      Sent 
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        fromNow={true}
+                        interval={60000}
+                        onChange={[Function]}
+                        titleFormat=""
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                        withTitle={false}
+                      >
+                        2020
+                      </t>
+                    </small>
+                    <p>
+                      <strong>
+                        Bob
+                      </strong>
+                       
+                      <span
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>hello</p>
+",
+                          }
+                        }
+                      />
+                    </p>
+                    <Link
+                      className="btn btn-link text-custom-actions btn-sm float-right"
+                      replace={false}
+                      to="/inbox/1"
+                    >
+                      View Conversation 
+                      <i
+                        className="fas fa-angle-right"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>,
+      ],
+      "className": "container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="col-md-10 m-auto"
+          >
+            <div
+              className="card mb-3"
+            >
+              <div
+                className="card-body"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-md-12"
+                  >
+                    <small
+                      className="text-muted float-right"
+                    >
+                      Sent 
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        fromNow={true}
+                        interval={60000}
+                        onChange={[Function]}
+                        titleFormat=""
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                        withTitle={false}
+                      >
+                        2020
+                      </t>
+                    </small>
+                    <p>
+                      <strong>
+                        Bob
+                      </strong>
+                       
+                      <span
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>hello</p>
+",
+                          }
+                        }
+                      />
+                    </p>
+                    <Link
+                      className="btn btn-link text-custom-actions btn-sm float-right"
+                      replace={false}
+                      to="/inbox/1"
+                    >
+                      View Conversation 
+                      <i
+                        className="fas fa-angle-right"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>,
+          "className": "row",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="card mb-3"
+            >
+              <div
+                className="card-body"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-md-12"
+                  >
+                    <small
+                      className="text-muted float-right"
+                    >
+                      Sent 
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        fromNow={true}
+                        interval={60000}
+                        onChange={[Function]}
+                        titleFormat=""
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                        withTitle={false}
+                      >
+                        2020
+                      </t>
+                    </small>
+                    <p>
+                      <strong>
+                        Bob
+                      </strong>
+                       
+                      <span
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>hello</p>
+",
+                          }
+                        }
+                      />
+                    </p>
+                    <Link
+                      className="btn btn-link text-custom-actions btn-sm float-right"
+                      replace={false}
+                      to="/inbox/1"
+                    >
+                      View Conversation 
+                      <i
+                        className="fas fa-angle-right"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>,
+            "className": "col-md-10 m-auto",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="card-body"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-md-12"
+                  >
+                    <small
+                      className="text-muted float-right"
+                    >
+                      Sent 
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        fromNow={true}
+                        interval={60000}
+                        onChange={[Function]}
+                        titleFormat=""
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                        withTitle={false}
+                      >
+                        2020
+                      </t>
+                    </small>
+                    <p>
+                      <strong>
+                        Bob
+                      </strong>
+                       
+                      <span
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>hello</p>
+",
+                          }
+                        }
+                      />
+                    </p>
+                    <Link
+                      className="btn btn-link text-custom-actions btn-sm float-right"
+                      replace={false}
+                      to="/inbox/1"
+                    >
+                      View Conversation 
+                      <i
+                        className="fas fa-angle-right"
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>,
+              "className": "card mb-3",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  className="row"
+                >
+                  <div
+                    className="col-md-12"
+                  >
+                    <small
+                      className="text-muted float-right"
+                    >
+                      Sent 
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        fromNow={true}
+                        interval={60000}
+                        onChange={[Function]}
+                        titleFormat=""
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                        withTitle={false}
+                      >
+                        2020
+                      </t>
+                    </small>
+                    <p>
+                      <strong>
+                        Bob
+                      </strong>
+                       
+                      <span
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>hello</p>
+",
+                          }
+                        }
+                      />
+                    </p>
+                    <Link
+                      className="btn btn-link text-custom-actions btn-sm float-right"
+                      replace={false}
+                      to="/inbox/1"
+                    >
+                      View Conversation 
+                      <i
+                        className="fas fa-angle-right"
+                      />
+                    </Link>
+                  </div>
+                </div>,
+                "className": "card-body",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="col-md-12"
+                  >
+                    <small
+                      className="text-muted float-right"
+                    >
+                      Sent 
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        fromNow={true}
+                        interval={60000}
+                        onChange={[Function]}
+                        titleFormat=""
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                        withTitle={false}
+                      >
+                        2020
+                      </t>
+                    </small>
+                    <p>
+                      <strong>
+                        Bob
+                      </strong>
+                       
+                      <span
+                        dangerouslySetInnerHTML={
+                          Object {
+                            "__html": "<p>hello</p>
+",
+                          }
+                        }
+                      />
+                    </p>
+                    <Link
+                      className="btn btn-link text-custom-actions btn-sm float-right"
+                      replace={false}
+                      to="/inbox/1"
+                    >
+                      View Conversation 
+                      <i
+                        className="fas fa-angle-right"
+                      />
+                    </Link>
+                  </div>,
+                  "className": "row",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <small
+                        className="text-muted float-right"
+                      >
+                        Sent 
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          fromNow={true}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2020
+                        </t>
+                      </small>,
+                      <p>
+                        <strong>
+                          Bob
+                        </strong>
+                         
+                        <span
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>hello</p>
+",
+                            }
+                          }
+                        />
+                      </p>,
+                      <Link
+                        className="btn btn-link text-custom-actions btn-sm float-right"
+                        replace={false}
+                        to="/inbox/1"
+                      >
+                        View Conversation 
+                        <i
+                          className="fas fa-angle-right"
+                        />
+                      </Link>,
+                    ],
+                    "className": "col-md-12",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          "Sent ",
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            fromNow={true}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2020
+                          </t>,
+                        ],
+                        "className": "text-muted float-right",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "Sent ",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "class",
+                          "props": Object {
+                            "ago": false,
+                            "calendar": false,
+                            "children": 2020,
+                            "decimal": false,
+                            "element": "time",
+                            "filter": [Function],
+                            "fromNow": true,
+                            "interval": 60000,
+                            "onChange": [Function],
+                            "titleFormat": "",
+                            "toNow": false,
+                            "unit": null,
+                            "unix": false,
+                            "utc": false,
+                            "withTitle": false,
+                          },
+                          "ref": null,
+                          "rendered": 2020,
+                          "type": [Function],
+                        },
+                      ],
+                      "type": "small",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <strong>
+                            Bob
+                          </strong>,
+                          " ",
+                          <span
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "<p>hello</p>
+",
+                              }
+                            }
+                          />,
+                        ],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Bob",
+                          },
+                          "ref": null,
+                          "rendered": "Bob",
+                          "type": "strong",
+                        },
+                        " ",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "dangerouslySetInnerHTML": Object {
+                              "__html": "<p>hello</p>
+",
+                            },
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "span",
+                        },
+                      ],
+                      "type": "p",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "children": Array [
+                          "View Conversation ",
+                          <i
+                            className="fas fa-angle-right"
+                          />,
+                        ],
+                        "className": "btn btn-link text-custom-actions btn-sm float-right",
+                        "replace": false,
+                        "to": "/inbox/1",
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        "View Conversation ",
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "className": "fas fa-angle-right",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "i",
+                        },
+                      ],
+                      "type": [Function],
+                    },
+                  ],
+                  "type": "div",
+                },
+                "type": "div",
+              },
+              "type": "div",
+            },
+            "type": "div",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="row"
+          >
+            <div
+              className="col-md-10 m-auto"
+            >
+              <div
+                className="card mb-3"
+              >
+                <div
+                  className="card-body"
+                >
+                  <div
+                    className="row"
+                  >
+                    <div
+                      className="col-md-12"
+                    >
+                      <small
+                        className="text-muted float-right"
+                      >
+                        Sent 
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          fromNow={true}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2020
+                        </t>
+                      </small>
+                      <p>
+                        <strong>
+                          Bob
+                        </strong>
+                         
+                        <span
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>hello</p>
+",
+                            }
+                          }
+                        />
+                      </p>
+                      <Link
+                        className="btn btn-link text-custom-actions btn-sm float-right"
+                        replace={false}
+                        to="/inbox/1"
+                      >
+                        View Conversation 
+                        <i
+                          className="fas fa-angle-right"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>,
+        ],
+        "className": "container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "1",
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="col-md-10 m-auto"
+            >
+              <div
+                className="card mb-3"
+              >
+                <div
+                  className="card-body"
+                >
+                  <div
+                    className="row"
+                  >
+                    <div
+                      className="col-md-12"
+                    >
+                      <small
+                        className="text-muted float-right"
+                      >
+                        Sent 
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          fromNow={true}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2020
+                        </t>
+                      </small>
+                      <p>
+                        <strong>
+                          Bob
+                        </strong>
+                         
+                        <span
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>hello</p>
+",
+                            }
+                          }
+                        />
+                      </p>
+                      <Link
+                        className="btn btn-link text-custom-actions btn-sm float-right"
+                        replace={false}
+                        to="/inbox/1"
+                      >
+                        View Conversation 
+                        <i
+                          className="fas fa-angle-right"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>,
+            "className": "row",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="card mb-3"
+              >
+                <div
+                  className="card-body"
+                >
+                  <div
+                    className="row"
+                  >
+                    <div
+                      className="col-md-12"
+                    >
+                      <small
+                        className="text-muted float-right"
+                      >
+                        Sent 
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          fromNow={true}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2020
+                        </t>
+                      </small>
+                      <p>
+                        <strong>
+                          Bob
+                        </strong>
+                         
+                        <span
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>hello</p>
+",
+                            }
+                          }
+                        />
+                      </p>
+                      <Link
+                        className="btn btn-link text-custom-actions btn-sm float-right"
+                        replace={false}
+                        to="/inbox/1"
+                      >
+                        View Conversation 
+                        <i
+                          className="fas fa-angle-right"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>,
+              "className": "col-md-10 m-auto",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  className="card-body"
+                >
+                  <div
+                    className="row"
+                  >
+                    <div
+                      className="col-md-12"
+                    >
+                      <small
+                        className="text-muted float-right"
+                      >
+                        Sent 
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          fromNow={true}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2020
+                        </t>
+                      </small>
+                      <p>
+                        <strong>
+                          Bob
+                        </strong>
+                         
+                        <span
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>hello</p>
+",
+                            }
+                          }
+                        />
+                      </p>
+                      <Link
+                        className="btn btn-link text-custom-actions btn-sm float-right"
+                        replace={false}
+                        to="/inbox/1"
+                      >
+                        View Conversation 
+                        <i
+                          className="fas fa-angle-right"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                </div>,
+                "className": "card mb-3",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <div
+                    className="row"
+                  >
+                    <div
+                      className="col-md-12"
+                    >
+                      <small
+                        className="text-muted float-right"
+                      >
+                        Sent 
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          fromNow={true}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2020
+                        </t>
+                      </small>
+                      <p>
+                        <strong>
+                          Bob
+                        </strong>
+                         
+                        <span
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>hello</p>
+",
+                            }
+                          }
+                        />
+                      </p>
+                      <Link
+                        className="btn btn-link text-custom-actions btn-sm float-right"
+                        replace={false}
+                        to="/inbox/1"
+                      >
+                        View Conversation 
+                        <i
+                          className="fas fa-angle-right"
+                        />
+                      </Link>
+                    </div>
+                  </div>,
+                  "className": "card-body",
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <div
+                      className="col-md-12"
+                    >
+                      <small
+                        className="text-muted float-right"
+                      >
+                        Sent 
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          fromNow={true}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2020
+                        </t>
+                      </small>
+                      <p>
+                        <strong>
+                          Bob
+                        </strong>
+                         
+                        <span
+                          dangerouslySetInnerHTML={
+                            Object {
+                              "__html": "<p>hello</p>
+",
+                            }
+                          }
+                        />
+                      </p>
+                      <Link
+                        className="btn btn-link text-custom-actions btn-sm float-right"
+                        replace={false}
+                        to="/inbox/1"
+                      >
+                        View Conversation 
+                        <i
+                          className="fas fa-angle-right"
+                        />
+                      </Link>
+                    </div>,
+                    "className": "row",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <small
+                          className="text-muted float-right"
+                        >
+                          Sent 
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            fromNow={true}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2020
+                          </t>
+                        </small>,
+                        <p>
+                          <strong>
+                            Bob
+                          </strong>
+                           
+                          <span
+                            dangerouslySetInnerHTML={
+                              Object {
+                                "__html": "<p>hello</p>
+",
+                              }
+                            }
+                          />
+                        </p>,
+                        <Link
+                          className="btn btn-link text-custom-actions btn-sm float-right"
+                          replace={false}
+                          to="/inbox/1"
+                        >
+                          View Conversation 
+                          <i
+                            className="fas fa-angle-right"
+                          />
+                        </Link>,
+                      ],
+                      "className": "col-md-12",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            "Sent ",
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              fromNow={true}
+                              interval={60000}
+                              onChange={[Function]}
+                              titleFormat=""
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                              withTitle={false}
+                            >
+                              2020
+                            </t>,
+                          ],
+                          "className": "text-muted float-right",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "Sent ",
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "class",
+                            "props": Object {
+                              "ago": false,
+                              "calendar": false,
+                              "children": 2020,
+                              "decimal": false,
+                              "element": "time",
+                              "filter": [Function],
+                              "fromNow": true,
+                              "interval": 60000,
+                              "onChange": [Function],
+                              "titleFormat": "",
+                              "toNow": false,
+                              "unit": null,
+                              "unix": false,
+                              "utc": false,
+                              "withTitle": false,
+                            },
+                            "ref": null,
+                            "rendered": 2020,
+                            "type": [Function],
+                          },
+                        ],
+                        "type": "small",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": Array [
+                            <strong>
+                              Bob
+                            </strong>,
+                            " ",
+                            <span
+                              dangerouslySetInnerHTML={
+                                Object {
+                                  "__html": "<p>hello</p>
+",
+                                }
+                              }
+                            />,
+                          ],
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "Bob",
+                            },
+                            "ref": null,
+                            "rendered": "Bob",
+                            "type": "strong",
+                          },
+                          " ",
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "dangerouslySetInnerHTML": Object {
+                                "__html": "<p>hello</p>
+",
+                              },
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "span",
+                          },
+                        ],
+                        "type": "p",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "children": Array [
+                            "View Conversation ",
+                            <i
+                              className="fas fa-angle-right"
+                            />,
+                          ],
+                          "className": "btn btn-link text-custom-actions btn-sm float-right",
+                          "replace": false,
+                          "to": "/inbox/1",
+                        },
+                        "ref": null,
+                        "rendered": Array [
+                          "View Conversation ",
+                          Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "className": "fas fa-angle-right",
+                            },
+                            "ref": null,
+                            "rendered": null,
+                            "type": "i",
+                          },
+                        ],
+                        "type": [Function],
+                      },
+                    ],
+                    "type": "div",
+                  },
+                  "type": "div",
+                },
+                "type": "div",
+              },
+              "type": "div",
+            },
+            "type": "div",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    Symbol(enzyme.__providerValues__): undefined,
+  },
+  Symbol(enzyme.__providerValues__): Map {},
+  Symbol(enzyme.__childContext__): null,
+}
+`;

@@ -1,0 +1,496 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders soundcloud component of profile 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ProfileSoundCloud
+    profile={
+      Object {
+        "soundcloudusername": "Bob",
+        "userid": Object {
+          "username": "Bob",
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="col-md-12"
+      >
+        <div
+          className="card"
+        >
+          <div
+            className="card-header"
+          >
+            <i
+              className="fab fa-soundcloud fa-2x"
+            />
+             
+            Bob
+             on SoundCloud
+          </div>
+          <div
+            className="card-body"
+          >
+            <p>
+              <strong>
+                Username: 
+              </strong>
+              Bob
+            </p>
+            <p
+              className="text-muted"
+            >
+              SoundCloud integration coming soon.
+            </p>
+          </div>
+        </div>
+      </div>,
+      "className": "row mb-5",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="card"
+        >
+          <div
+            className="card-header"
+          >
+            <i
+              className="fab fa-soundcloud fa-2x"
+            />
+             
+            Bob
+             on SoundCloud
+          </div>
+          <div
+            className="card-body"
+          >
+            <p>
+              <strong>
+                Username: 
+              </strong>
+              Bob
+            </p>
+            <p
+              className="text-muted"
+            >
+              SoundCloud integration coming soon.
+            </p>
+          </div>
+        </div>,
+        "className": "col-md-12",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="card-header"
+            >
+              <i
+                className="fab fa-soundcloud fa-2x"
+              />
+               
+              Bob
+               on SoundCloud
+            </div>,
+            <div
+              className="card-body"
+            >
+              <p>
+                <strong>
+                  Username: 
+                </strong>
+                Bob
+              </p>
+              <p
+                className="text-muted"
+              >
+                SoundCloud integration coming soon.
+              </p>
+            </div>,
+          ],
+          "className": "card",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <i
+                  className="fab fa-soundcloud fa-2x"
+                />,
+                " ",
+                "Bob",
+                " on SoundCloud",
+              ],
+              "className": "card-header",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "fab fa-soundcloud fa-2x",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "i",
+              },
+              " ",
+              "Bob",
+              " on SoundCloud",
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p>
+                  <strong>
+                    Username: 
+                  </strong>
+                  Bob
+                </p>,
+                <p
+                  className="text-muted"
+                >
+                  SoundCloud integration coming soon.
+                </p>,
+              ],
+              "className": "card-body",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <strong>
+                      Username: 
+                    </strong>,
+                    "Bob",
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Username: ",
+                    },
+                    "ref": null,
+                    "rendered": "Username: ",
+                    "type": "strong",
+                  },
+                  "Bob",
+                ],
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "SoundCloud integration coming soon.",
+                  "className": "text-muted",
+                },
+                "ref": null,
+                "rendered": "SoundCloud integration coming soon.",
+                "type": "p",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="col-md-12"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-header"
+            >
+              <i
+                className="fab fa-soundcloud fa-2x"
+              />
+               
+              Bob
+               on SoundCloud
+            </div>
+            <div
+              className="card-body"
+            >
+              <p>
+                <strong>
+                  Username: 
+                </strong>
+                Bob
+              </p>
+              <p
+                className="text-muted"
+              >
+                SoundCloud integration coming soon.
+              </p>
+            </div>
+          </div>
+        </div>,
+        "className": "row mb-5",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="card"
+          >
+            <div
+              className="card-header"
+            >
+              <i
+                className="fab fa-soundcloud fa-2x"
+              />
+               
+              Bob
+               on SoundCloud
+            </div>
+            <div
+              className="card-body"
+            >
+              <p>
+                <strong>
+                  Username: 
+                </strong>
+                Bob
+              </p>
+              <p
+                className="text-muted"
+              >
+                SoundCloud integration coming soon.
+              </p>
+            </div>
+          </div>,
+          "className": "col-md-12",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="card-header"
+              >
+                <i
+                  className="fab fa-soundcloud fa-2x"
+                />
+                 
+                Bob
+                 on SoundCloud
+              </div>,
+              <div
+                className="card-body"
+              >
+                <p>
+                  <strong>
+                    Username: 
+                  </strong>
+                  Bob
+                </p>
+                <p
+                  className="text-muted"
+                >
+                  SoundCloud integration coming soon.
+                </p>
+              </div>,
+            ],
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <i
+                    className="fab fa-soundcloud fa-2x"
+                  />,
+                  " ",
+                  "Bob",
+                  " on SoundCloud",
+                ],
+                "className": "card-header",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fab fa-soundcloud fa-2x",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                " ",
+                "Bob",
+                " on SoundCloud",
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <p>
+                    <strong>
+                      Username: 
+                    </strong>
+                    Bob
+                  </p>,
+                  <p
+                    className="text-muted"
+                  >
+                    SoundCloud integration coming soon.
+                  </p>,
+                ],
+                "className": "card-body",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <strong>
+                        Username: 
+                      </strong>,
+                      "Bob",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Username: ",
+                      },
+                      "ref": null,
+                      "rendered": "Username: ",
+                      "type": "strong",
+                    },
+                    "Bob",
+                  ],
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "SoundCloud integration coming soon.",
+                    "className": "text-muted",
+                  },
+                  "ref": null,
+                  "rendered": "SoundCloud integration coming soon.",
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    Symbol(enzyme.__providerValues__): undefined,
+  },
+  Symbol(enzyme.__providerValues__): Map {},
+}
+`;

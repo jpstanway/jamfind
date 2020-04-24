@@ -1,0 +1,2542 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ProfileExp
+    experience={
+      Array [
+        Object {
+          "_id": 1,
+          "description": "best slayer tribute band ever",
+          "from": 2002,
+          "location": "Canada",
+          "projectname": "Slayer tribute",
+          "role": "drummer",
+          "to": 2003,
+          "typeofexperience": "band",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="col-md-12"
+      >
+        <h4>
+          Experience
+        </h4>
+        <div
+          className="card"
+        >
+          <div
+            className="card-body"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-md-6"
+              >
+                <ul
+                  style={
+                    Object {
+                      "listStyleType": "none",
+                    }
+                  }
+                >
+                  <li>
+                    <p>
+                      <strong>
+                        Type: 
+                      </strong>
+                      band
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <strong>
+                        Role: 
+                      </strong>
+                      drummer
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <strong>
+                        Name: 
+                      </strong>
+                      Slayer tribute
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <strong>
+                        Location: 
+                      </strong>
+                      Canada
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <strong>
+                        From: 
+                      </strong>
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="YYYY/MM/DD"
+                        fromNow={false}
+                        interval={60000}
+                        onChange={[Function]}
+                        titleFormat=""
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                        withTitle={false}
+                      >
+                        2002
+                      </t>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <strong>
+                        To: 
+                      </strong>
+                      <t
+                        ago={false}
+                        calendar={false}
+                        decimal={false}
+                        element="time"
+                        filter={[Function]}
+                        format="YYYY/MM/DD"
+                        fromNow={false}
+                        interval={60000}
+                        onChange={[Function]}
+                        titleFormat=""
+                        toNow={false}
+                        unit={null}
+                        unix={false}
+                        utc={false}
+                        withTitle={false}
+                      >
+                        2003
+                      </t>
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      best slayer tribute band ever
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>,
+      "className": "row mt-3",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h4>
+            Experience
+          </h4>,
+          <div
+            className="card"
+          >
+            <div
+              className="card-body"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <ul
+                    style={
+                      Object {
+                        "listStyleType": "none",
+                      }
+                    }
+                  >
+                    <li>
+                      <p>
+                        <strong>
+                          Type: 
+                        </strong>
+                        band
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Role: 
+                        </strong>
+                        drummer
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Name: 
+                        </strong>
+                        Slayer tribute
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Location: 
+                        </strong>
+                        Canada
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          From: 
+                        </strong>
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="YYYY/MM/DD"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2002
+                        </t>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          To: 
+                        </strong>
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="YYYY/MM/DD"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2003
+                        </t>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        best slayer tribute band ever
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>,
+        ],
+        "className": "col-md-12",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Experience",
+          },
+          "ref": null,
+          "rendered": "Experience",
+          "type": "h4",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <div
+              className="card-body"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <ul
+                    style={
+                      Object {
+                        "listStyleType": "none",
+                      }
+                    }
+                  >
+                    <li>
+                      <p>
+                        <strong>
+                          Type: 
+                        </strong>
+                        band
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Role: 
+                        </strong>
+                        drummer
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Name: 
+                        </strong>
+                        Slayer tribute
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Location: 
+                        </strong>
+                        Canada
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          From: 
+                        </strong>
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="YYYY/MM/DD"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2002
+                        </t>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          To: 
+                        </strong>
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="YYYY/MM/DD"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2003
+                        </t>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        best slayer tribute band ever
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>,
+            "className": "card",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="row"
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <ul
+                    style={
+                      Object {
+                        "listStyleType": "none",
+                      }
+                    }
+                  >
+                    <li>
+                      <p>
+                        <strong>
+                          Type: 
+                        </strong>
+                        band
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Role: 
+                        </strong>
+                        drummer
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Name: 
+                        </strong>
+                        Slayer tribute
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Location: 
+                        </strong>
+                        Canada
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          From: 
+                        </strong>
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="YYYY/MM/DD"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2002
+                        </t>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          To: 
+                        </strong>
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="YYYY/MM/DD"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2003
+                        </t>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        best slayer tribute band ever
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>,
+              "className": "card-body",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <div
+                    className="col-md-6"
+                  >
+                    <ul
+                      style={
+                        Object {
+                          "listStyleType": "none",
+                        }
+                      }
+                    >
+                      <li>
+                        <p>
+                          <strong>
+                            Type: 
+                          </strong>
+                          band
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Role: 
+                          </strong>
+                          drummer
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Name: 
+                          </strong>
+                          Slayer tribute
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Location: 
+                          </strong>
+                          Canada
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            From: 
+                          </strong>
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            format="YYYY/MM/DD"
+                            fromNow={false}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2002
+                          </t>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            To: 
+                          </strong>
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            format="YYYY/MM/DD"
+                            fromNow={false}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2003
+                          </t>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          best slayer tribute band ever
+                        </p>
+                      </li>
+                    </ul>
+                  </div>,
+                ],
+                "className": "row",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "1",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <ul
+                      style={
+                        Object {
+                          "listStyleType": "none",
+                        }
+                      }
+                    >
+                      <li>
+                        <p>
+                          <strong>
+                            Type: 
+                          </strong>
+                          band
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Role: 
+                          </strong>
+                          drummer
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Name: 
+                          </strong>
+                          Slayer tribute
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Location: 
+                          </strong>
+                          Canada
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            From: 
+                          </strong>
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            format="YYYY/MM/DD"
+                            fromNow={false}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2002
+                          </t>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            To: 
+                          </strong>
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            format="YYYY/MM/DD"
+                            fromNow={false}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2003
+                          </t>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          best slayer tribute band ever
+                        </p>
+                      </li>
+                    </ul>,
+                    "className": "col-md-6",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <li>
+                          <p>
+                            <strong>
+                              Type: 
+                            </strong>
+                            band
+                          </p>
+                        </li>,
+                        <li>
+                          <p>
+                            <strong>
+                              Role: 
+                            </strong>
+                            drummer
+                          </p>
+                        </li>,
+                        <li>
+                          <p>
+                            <strong>
+                              Name: 
+                            </strong>
+                            Slayer tribute
+                          </p>
+                        </li>,
+                        <li>
+                          <p>
+                            <strong>
+                              Location: 
+                            </strong>
+                            Canada
+                          </p>
+                        </li>,
+                        <li>
+                          <p>
+                            <strong>
+                              From: 
+                            </strong>
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="YYYY/MM/DD"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              titleFormat=""
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                              withTitle={false}
+                            >
+                              2002
+                            </t>
+                          </p>
+                        </li>,
+                        <li>
+                          <p>
+                            <strong>
+                              To: 
+                            </strong>
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="YYYY/MM/DD"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              titleFormat=""
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                              withTitle={false}
+                            >
+                              2003
+                            </t>
+                          </p>
+                        </li>,
+                        <li>
+                          <p>
+                            best slayer tribute band ever
+                          </p>
+                        </li>,
+                      ],
+                      "style": Object {
+                        "listStyleType": "none",
+                      },
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <p>
+                            <strong>
+                              Type: 
+                            </strong>
+                            band
+                          </p>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <strong>
+                                Type: 
+                              </strong>,
+                              "band",
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "Type: ",
+                              },
+                              "ref": null,
+                              "rendered": "Type: ",
+                              "type": "strong",
+                            },
+                            "band",
+                          ],
+                          "type": "p",
+                        },
+                        "type": "li",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <p>
+                            <strong>
+                              Role: 
+                            </strong>
+                            drummer
+                          </p>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <strong>
+                                Role: 
+                              </strong>,
+                              "drummer",
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "Role: ",
+                              },
+                              "ref": null,
+                              "rendered": "Role: ",
+                              "type": "strong",
+                            },
+                            "drummer",
+                          ],
+                          "type": "p",
+                        },
+                        "type": "li",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <p>
+                            <strong>
+                              Name: 
+                            </strong>
+                            Slayer tribute
+                          </p>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <strong>
+                                Name: 
+                              </strong>,
+                              "Slayer tribute",
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "Name: ",
+                              },
+                              "ref": null,
+                              "rendered": "Name: ",
+                              "type": "strong",
+                            },
+                            "Slayer tribute",
+                          ],
+                          "type": "p",
+                        },
+                        "type": "li",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <p>
+                            <strong>
+                              Location: 
+                            </strong>
+                            Canada
+                          </p>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <strong>
+                                Location: 
+                              </strong>,
+                              "Canada",
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "Location: ",
+                              },
+                              "ref": null,
+                              "rendered": "Location: ",
+                              "type": "strong",
+                            },
+                            "Canada",
+                          ],
+                          "type": "p",
+                        },
+                        "type": "li",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <p>
+                            <strong>
+                              From: 
+                            </strong>
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="YYYY/MM/DD"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              titleFormat=""
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                              withTitle={false}
+                            >
+                              2002
+                            </t>
+                          </p>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <strong>
+                                From: 
+                              </strong>,
+                              <t
+                                ago={false}
+                                calendar={false}
+                                decimal={false}
+                                element="time"
+                                filter={[Function]}
+                                format="YYYY/MM/DD"
+                                fromNow={false}
+                                interval={60000}
+                                onChange={[Function]}
+                                titleFormat=""
+                                toNow={false}
+                                unit={null}
+                                unix={false}
+                                utc={false}
+                                withTitle={false}
+                              >
+                                2002
+                              </t>,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "From: ",
+                              },
+                              "ref": null,
+                              "rendered": "From: ",
+                              "type": "strong",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "class",
+                              "props": Object {
+                                "ago": false,
+                                "calendar": false,
+                                "children": 2002,
+                                "decimal": false,
+                                "element": "time",
+                                "filter": [Function],
+                                "format": "YYYY/MM/DD",
+                                "fromNow": false,
+                                "interval": 60000,
+                                "onChange": [Function],
+                                "titleFormat": "",
+                                "toNow": false,
+                                "unit": null,
+                                "unix": false,
+                                "utc": false,
+                                "withTitle": false,
+                              },
+                              "ref": null,
+                              "rendered": 2002,
+                              "type": [Function],
+                            },
+                          ],
+                          "type": "p",
+                        },
+                        "type": "li",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <p>
+                            <strong>
+                              To: 
+                            </strong>
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="YYYY/MM/DD"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              titleFormat=""
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                              withTitle={false}
+                            >
+                              2003
+                            </t>
+                          </p>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": Array [
+                              <strong>
+                                To: 
+                              </strong>,
+                              <t
+                                ago={false}
+                                calendar={false}
+                                decimal={false}
+                                element="time"
+                                filter={[Function]}
+                                format="YYYY/MM/DD"
+                                fromNow={false}
+                                interval={60000}
+                                onChange={[Function]}
+                                titleFormat=""
+                                toNow={false}
+                                unit={null}
+                                unix={false}
+                                utc={false}
+                                withTitle={false}
+                              >
+                                2003
+                              </t>,
+                            ],
+                          },
+                          "ref": null,
+                          "rendered": Array [
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "host",
+                              "props": Object {
+                                "children": "To: ",
+                              },
+                              "ref": null,
+                              "rendered": "To: ",
+                              "type": "strong",
+                            },
+                            Object {
+                              "instance": null,
+                              "key": undefined,
+                              "nodeType": "class",
+                              "props": Object {
+                                "ago": false,
+                                "calendar": false,
+                                "children": 2003,
+                                "decimal": false,
+                                "element": "time",
+                                "filter": [Function],
+                                "format": "YYYY/MM/DD",
+                                "fromNow": false,
+                                "interval": 60000,
+                                "onChange": [Function],
+                                "titleFormat": "",
+                                "toNow": false,
+                                "unit": null,
+                                "unix": false,
+                                "utc": false,
+                                "withTitle": false,
+                              },
+                              "ref": null,
+                              "rendered": 2003,
+                              "type": [Function],
+                            },
+                          ],
+                          "type": "p",
+                        },
+                        "type": "li",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": <p>
+                            best slayer tribute band ever
+                          </p>,
+                        },
+                        "ref": null,
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "best slayer tribute band ever",
+                          },
+                          "ref": null,
+                          "rendered": "best slayer tribute band ever",
+                          "type": "p",
+                        },
+                        "type": "li",
+                      },
+                    ],
+                    "type": "ul",
+                  },
+                  "type": "div",
+                },
+              ],
+              "type": "div",
+            },
+            "type": "div",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="col-md-12"
+        >
+          <h4>
+            Experience
+          </h4>
+          <div
+            className="card"
+          >
+            <div
+              className="card-body"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-md-6"
+                >
+                  <ul
+                    style={
+                      Object {
+                        "listStyleType": "none",
+                      }
+                    }
+                  >
+                    <li>
+                      <p>
+                        <strong>
+                          Type: 
+                        </strong>
+                        band
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Role: 
+                        </strong>
+                        drummer
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Name: 
+                        </strong>
+                        Slayer tribute
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          Location: 
+                        </strong>
+                        Canada
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          From: 
+                        </strong>
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="YYYY/MM/DD"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2002
+                        </t>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <strong>
+                          To: 
+                        </strong>
+                        <t
+                          ago={false}
+                          calendar={false}
+                          decimal={false}
+                          element="time"
+                          filter={[Function]}
+                          format="YYYY/MM/DD"
+                          fromNow={false}
+                          interval={60000}
+                          onChange={[Function]}
+                          titleFormat=""
+                          toNow={false}
+                          unit={null}
+                          unix={false}
+                          utc={false}
+                          withTitle={false}
+                        >
+                          2003
+                        </t>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        best slayer tribute band ever
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>,
+        "className": "row mt-3",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h4>
+              Experience
+            </h4>,
+            <div
+              className="card"
+            >
+              <div
+                className="card-body"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-md-6"
+                  >
+                    <ul
+                      style={
+                        Object {
+                          "listStyleType": "none",
+                        }
+                      }
+                    >
+                      <li>
+                        <p>
+                          <strong>
+                            Type: 
+                          </strong>
+                          band
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Role: 
+                          </strong>
+                          drummer
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Name: 
+                          </strong>
+                          Slayer tribute
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Location: 
+                          </strong>
+                          Canada
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            From: 
+                          </strong>
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            format="YYYY/MM/DD"
+                            fromNow={false}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2002
+                          </t>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            To: 
+                          </strong>
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            format="YYYY/MM/DD"
+                            fromNow={false}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2003
+                          </t>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          best slayer tribute band ever
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>,
+          ],
+          "className": "col-md-12",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Experience",
+            },
+            "ref": null,
+            "rendered": "Experience",
+            "type": "h4",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <div
+                className="card-body"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-md-6"
+                  >
+                    <ul
+                      style={
+                        Object {
+                          "listStyleType": "none",
+                        }
+                      }
+                    >
+                      <li>
+                        <p>
+                          <strong>
+                            Type: 
+                          </strong>
+                          band
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Role: 
+                          </strong>
+                          drummer
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Name: 
+                          </strong>
+                          Slayer tribute
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Location: 
+                          </strong>
+                          Canada
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            From: 
+                          </strong>
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            format="YYYY/MM/DD"
+                            fromNow={false}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2002
+                          </t>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            To: 
+                          </strong>
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            format="YYYY/MM/DD"
+                            fromNow={false}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2003
+                          </t>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          best slayer tribute band ever
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>,
+              "className": "card",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <div
+                  className="row"
+                >
+                  <div
+                    className="col-md-6"
+                  >
+                    <ul
+                      style={
+                        Object {
+                          "listStyleType": "none",
+                        }
+                      }
+                    >
+                      <li>
+                        <p>
+                          <strong>
+                            Type: 
+                          </strong>
+                          band
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Role: 
+                          </strong>
+                          drummer
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Name: 
+                          </strong>
+                          Slayer tribute
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            Location: 
+                          </strong>
+                          Canada
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            From: 
+                          </strong>
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            format="YYYY/MM/DD"
+                            fromNow={false}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2002
+                          </t>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          <strong>
+                            To: 
+                          </strong>
+                          <t
+                            ago={false}
+                            calendar={false}
+                            decimal={false}
+                            element="time"
+                            filter={[Function]}
+                            format="YYYY/MM/DD"
+                            fromNow={false}
+                            interval={60000}
+                            onChange={[Function]}
+                            titleFormat=""
+                            toNow={false}
+                            unit={null}
+                            unix={false}
+                            utc={false}
+                            withTitle={false}
+                          >
+                            2003
+                          </t>
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          best slayer tribute band ever
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </div>,
+                "className": "card-body",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <div
+                      className="col-md-6"
+                    >
+                      <ul
+                        style={
+                          Object {
+                            "listStyleType": "none",
+                          }
+                        }
+                      >
+                        <li>
+                          <p>
+                            <strong>
+                              Type: 
+                            </strong>
+                            band
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>
+                              Role: 
+                            </strong>
+                            drummer
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>
+                              Name: 
+                            </strong>
+                            Slayer tribute
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>
+                              Location: 
+                            </strong>
+                            Canada
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>
+                              From: 
+                            </strong>
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="YYYY/MM/DD"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              titleFormat=""
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                              withTitle={false}
+                            >
+                              2002
+                            </t>
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>
+                              To: 
+                            </strong>
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="YYYY/MM/DD"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              titleFormat=""
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                              withTitle={false}
+                            >
+                              2003
+                            </t>
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            best slayer tribute band ever
+                          </p>
+                        </li>
+                      </ul>
+                    </div>,
+                  ],
+                  "className": "row",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": "1",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <ul
+                        style={
+                          Object {
+                            "listStyleType": "none",
+                          }
+                        }
+                      >
+                        <li>
+                          <p>
+                            <strong>
+                              Type: 
+                            </strong>
+                            band
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>
+                              Role: 
+                            </strong>
+                            drummer
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>
+                              Name: 
+                            </strong>
+                            Slayer tribute
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>
+                              Location: 
+                            </strong>
+                            Canada
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>
+                              From: 
+                            </strong>
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="YYYY/MM/DD"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              titleFormat=""
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                              withTitle={false}
+                            >
+                              2002
+                            </t>
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            <strong>
+                              To: 
+                            </strong>
+                            <t
+                              ago={false}
+                              calendar={false}
+                              decimal={false}
+                              element="time"
+                              filter={[Function]}
+                              format="YYYY/MM/DD"
+                              fromNow={false}
+                              interval={60000}
+                              onChange={[Function]}
+                              titleFormat=""
+                              toNow={false}
+                              unit={null}
+                              unix={false}
+                              utc={false}
+                              withTitle={false}
+                            >
+                              2003
+                            </t>
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            best slayer tribute band ever
+                          </p>
+                        </li>
+                      </ul>,
+                      "className": "col-md-6",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <li>
+                            <p>
+                              <strong>
+                                Type: 
+                              </strong>
+                              band
+                            </p>
+                          </li>,
+                          <li>
+                            <p>
+                              <strong>
+                                Role: 
+                              </strong>
+                              drummer
+                            </p>
+                          </li>,
+                          <li>
+                            <p>
+                              <strong>
+                                Name: 
+                              </strong>
+                              Slayer tribute
+                            </p>
+                          </li>,
+                          <li>
+                            <p>
+                              <strong>
+                                Location: 
+                              </strong>
+                              Canada
+                            </p>
+                          </li>,
+                          <li>
+                            <p>
+                              <strong>
+                                From: 
+                              </strong>
+                              <t
+                                ago={false}
+                                calendar={false}
+                                decimal={false}
+                                element="time"
+                                filter={[Function]}
+                                format="YYYY/MM/DD"
+                                fromNow={false}
+                                interval={60000}
+                                onChange={[Function]}
+                                titleFormat=""
+                                toNow={false}
+                                unit={null}
+                                unix={false}
+                                utc={false}
+                                withTitle={false}
+                              >
+                                2002
+                              </t>
+                            </p>
+                          </li>,
+                          <li>
+                            <p>
+                              <strong>
+                                To: 
+                              </strong>
+                              <t
+                                ago={false}
+                                calendar={false}
+                                decimal={false}
+                                element="time"
+                                filter={[Function]}
+                                format="YYYY/MM/DD"
+                                fromNow={false}
+                                interval={60000}
+                                onChange={[Function]}
+                                titleFormat=""
+                                toNow={false}
+                                unit={null}
+                                unix={false}
+                                utc={false}
+                                withTitle={false}
+                              >
+                                2003
+                              </t>
+                            </p>
+                          </li>,
+                          <li>
+                            <p>
+                              best slayer tribute band ever
+                            </p>
+                          </li>,
+                        ],
+                        "style": Object {
+                          "listStyleType": "none",
+                        },
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <p>
+                              <strong>
+                                Type: 
+                              </strong>
+                              band
+                            </p>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": Array [
+                                <strong>
+                                  Type: 
+                                </strong>,
+                                "band",
+                              ],
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "children": "Type: ",
+                                },
+                                "ref": null,
+                                "rendered": "Type: ",
+                                "type": "strong",
+                              },
+                              "band",
+                            ],
+                            "type": "p",
+                          },
+                          "type": "li",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <p>
+                              <strong>
+                                Role: 
+                              </strong>
+                              drummer
+                            </p>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": Array [
+                                <strong>
+                                  Role: 
+                                </strong>,
+                                "drummer",
+                              ],
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "children": "Role: ",
+                                },
+                                "ref": null,
+                                "rendered": "Role: ",
+                                "type": "strong",
+                              },
+                              "drummer",
+                            ],
+                            "type": "p",
+                          },
+                          "type": "li",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <p>
+                              <strong>
+                                Name: 
+                              </strong>
+                              Slayer tribute
+                            </p>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": Array [
+                                <strong>
+                                  Name: 
+                                </strong>,
+                                "Slayer tribute",
+                              ],
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "children": "Name: ",
+                                },
+                                "ref": null,
+                                "rendered": "Name: ",
+                                "type": "strong",
+                              },
+                              "Slayer tribute",
+                            ],
+                            "type": "p",
+                          },
+                          "type": "li",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <p>
+                              <strong>
+                                Location: 
+                              </strong>
+                              Canada
+                            </p>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": Array [
+                                <strong>
+                                  Location: 
+                                </strong>,
+                                "Canada",
+                              ],
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "children": "Location: ",
+                                },
+                                "ref": null,
+                                "rendered": "Location: ",
+                                "type": "strong",
+                              },
+                              "Canada",
+                            ],
+                            "type": "p",
+                          },
+                          "type": "li",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <p>
+                              <strong>
+                                From: 
+                              </strong>
+                              <t
+                                ago={false}
+                                calendar={false}
+                                decimal={false}
+                                element="time"
+                                filter={[Function]}
+                                format="YYYY/MM/DD"
+                                fromNow={false}
+                                interval={60000}
+                                onChange={[Function]}
+                                titleFormat=""
+                                toNow={false}
+                                unit={null}
+                                unix={false}
+                                utc={false}
+                                withTitle={false}
+                              >
+                                2002
+                              </t>
+                            </p>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": Array [
+                                <strong>
+                                  From: 
+                                </strong>,
+                                <t
+                                  ago={false}
+                                  calendar={false}
+                                  decimal={false}
+                                  element="time"
+                                  filter={[Function]}
+                                  format="YYYY/MM/DD"
+                                  fromNow={false}
+                                  interval={60000}
+                                  onChange={[Function]}
+                                  titleFormat=""
+                                  toNow={false}
+                                  unit={null}
+                                  unix={false}
+                                  utc={false}
+                                  withTitle={false}
+                                >
+                                  2002
+                                </t>,
+                              ],
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "children": "From: ",
+                                },
+                                "ref": null,
+                                "rendered": "From: ",
+                                "type": "strong",
+                              },
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "class",
+                                "props": Object {
+                                  "ago": false,
+                                  "calendar": false,
+                                  "children": 2002,
+                                  "decimal": false,
+                                  "element": "time",
+                                  "filter": [Function],
+                                  "format": "YYYY/MM/DD",
+                                  "fromNow": false,
+                                  "interval": 60000,
+                                  "onChange": [Function],
+                                  "titleFormat": "",
+                                  "toNow": false,
+                                  "unit": null,
+                                  "unix": false,
+                                  "utc": false,
+                                  "withTitle": false,
+                                },
+                                "ref": null,
+                                "rendered": 2002,
+                                "type": [Function],
+                              },
+                            ],
+                            "type": "p",
+                          },
+                          "type": "li",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <p>
+                              <strong>
+                                To: 
+                              </strong>
+                              <t
+                                ago={false}
+                                calendar={false}
+                                decimal={false}
+                                element="time"
+                                filter={[Function]}
+                                format="YYYY/MM/DD"
+                                fromNow={false}
+                                interval={60000}
+                                onChange={[Function]}
+                                titleFormat=""
+                                toNow={false}
+                                unit={null}
+                                unix={false}
+                                utc={false}
+                                withTitle={false}
+                              >
+                                2003
+                              </t>
+                            </p>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": Array [
+                                <strong>
+                                  To: 
+                                </strong>,
+                                <t
+                                  ago={false}
+                                  calendar={false}
+                                  decimal={false}
+                                  element="time"
+                                  filter={[Function]}
+                                  format="YYYY/MM/DD"
+                                  fromNow={false}
+                                  interval={60000}
+                                  onChange={[Function]}
+                                  titleFormat=""
+                                  toNow={false}
+                                  unit={null}
+                                  unix={false}
+                                  utc={false}
+                                  withTitle={false}
+                                >
+                                  2003
+                                </t>,
+                              ],
+                            },
+                            "ref": null,
+                            "rendered": Array [
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "host",
+                                "props": Object {
+                                  "children": "To: ",
+                                },
+                                "ref": null,
+                                "rendered": "To: ",
+                                "type": "strong",
+                              },
+                              Object {
+                                "instance": null,
+                                "key": undefined,
+                                "nodeType": "class",
+                                "props": Object {
+                                  "ago": false,
+                                  "calendar": false,
+                                  "children": 2003,
+                                  "decimal": false,
+                                  "element": "time",
+                                  "filter": [Function],
+                                  "format": "YYYY/MM/DD",
+                                  "fromNow": false,
+                                  "interval": 60000,
+                                  "onChange": [Function],
+                                  "titleFormat": "",
+                                  "toNow": false,
+                                  "unit": null,
+                                  "unix": false,
+                                  "utc": false,
+                                  "withTitle": false,
+                                },
+                                "ref": null,
+                                "rendered": 2003,
+                                "type": [Function],
+                              },
+                            ],
+                            "type": "p",
+                          },
+                          "type": "li",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": <p>
+                              best slayer tribute band ever
+                            </p>,
+                          },
+                          "ref": null,
+                          "rendered": Object {
+                            "instance": null,
+                            "key": undefined,
+                            "nodeType": "host",
+                            "props": Object {
+                              "children": "best slayer tribute band ever",
+                            },
+                            "ref": null,
+                            "rendered": "best slayer tribute band ever",
+                            "type": "p",
+                          },
+                          "type": "li",
+                        },
+                      ],
+                      "type": "ul",
+                    },
+                    "type": "div",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": "div",
+            },
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": true,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    Symbol(enzyme.__providerValues__): undefined,
+  },
+  Symbol(enzyme.__providerValues__): Map {},
+}
+`;
