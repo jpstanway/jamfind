@@ -5,163 +5,163 @@ import {
   GET_ERRORS,
   CLEAR_ERRORS,
   IS_LOADING,
-  ADD_NEW_POST
+  ADD_NEW_POST,
 } from "./types";
 
-export const createNewPost = postData => dispatch => {
+export const createNewPost = (postData) => (dispatch) => {
   dispatch(clearErrors());
   axios
     .post("/api/posts", postData)
-    .then(post => {
+    .then((post) => {
       dispatch({
         type: ADD_NEW_POST,
-        payload: post.data
+        payload: post.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err.response.data,
       });
     });
 };
 
-export const addNewReply = (text, postid) => dispatch => {
+export const addNewReply = (text, postid) => (dispatch) => {
   dispatch(clearErrors());
   axios
     .post(`/api/posts/replies/${postid}`, text)
-    .then(post => {
+    .then((post) => {
       dispatch({
         type: GET_CURRENT_POST,
-        payload: post.data
+        payload: post.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err.response.data,
       });
     });
 };
 
-export const getCurrentPost = postid => dispatch => {
+export const getCurrentPost = (postid) => (dispatch) => {
   dispatch(postLoading());
   axios
     .get(`/api/posts/${postid}`)
-    .then(post => {
+    .then((post) => {
       dispatch({
         type: GET_CURRENT_POST,
-        payload: post.data
+        payload: post.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: GET_CURRENT_POST,
-        payload: {}
+        payload: {},
       });
     });
 };
 
-export const getAllPosts = () => dispatch => {
+export const getAllPosts = () => (dispatch) => {
   dispatch(postLoading());
   axios
     .get("/api/posts")
-    .then(posts => {
+    .then((posts) => {
       dispatch({
         type: GET_ALL_POSTS,
-        payload: posts.data
+        payload: posts.data,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       dispatch({
         type: GET_ALL_POSTS,
-        payload: null
+        payload: null,
       });
     });
 };
 
-export const postLoading = () => dispatch => {
+export const postLoading = () => (dispatch) => {
   dispatch({
-    type: IS_LOADING
+    type: IS_LOADING,
   });
 };
 
-export const editPost = (text, postid, history) => dispatch => {
+export const editPost = (text, postid, history) => (dispatch) => {
   dispatch(clearErrors());
   axios
     .put(`/api/posts/edit/${postid}`, text)
-    .then(res => history.push(`/posts/post/${postid}`))
-    .catch(err => {
+    .then((res) => history.push(`/posts/post/${postid}`))
+    .catch((err) => {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err.response.data,
       });
     });
 };
 
-export const editReply = (text, postid, replyid, history) => dispatch => {
+export const editReply = (text, postid, replyid, history) => (dispatch) => {
   dispatch(clearErrors());
   axios
     .put(`/api/posts/replies/edit/${postid}/${replyid}`, text)
-    .then(res => history.push(`/posts/post/${postid}`))
-    .catch(err => {
+    .then((res) => history.push(`/posts/post/${postid}`))
+    .catch((err) => {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err.response.data,
       });
     });
 };
 
-export const likePost = postid => dispatch => {
+export const likePost = (postid) => (dispatch) => {
   axios
     .post(`/api/posts/likes/${postid}`)
-    .then(res => dispatch(getAllPosts()))
-    .catch(err => {
+    .then((res) => dispatch(getAllPosts()))
+    .catch((err) => {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err.response.data,
       });
     });
 };
 
-export const dislikePost = postid => dispatch => {
+export const dislikePost = (postid) => (dispatch) => {
   axios
     .post(`/api/posts/dislikes/${postid}`)
-    .then(res => dispatch(getAllPosts()))
-    .catch(err => {
+    .then((res) => dispatch(getAllPosts()))
+    .catch((err) => {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err.response.data,
       });
     });
 };
 
-export const deletePost = postid => dispatch => {
+export const deletePost = (postid) => (dispatch) => {
   axios
     .delete(`/api/posts/${postid}`)
-    .then(res => dispatch(getAllPosts()))
-    .catch(err => {
+    .then((res) => dispatch(getAllPosts()))
+    .catch((err) => {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err.response.data,
       });
     });
 };
 
-export const deleteReply = (postid, replyid) => dispatch => {
+export const deleteReply = (postid, replyid) => (dispatch) => {
   axios
     .delete(`/api/posts/replies/${postid}/${replyid}`)
-    .then(res => dispatch(getCurrentPost(postid)))
-    .catch(err => {
+    .then((res) => dispatch(getCurrentPost(postid)))
+    .catch((err) => {
       dispatch({
         type: GET_ERRORS,
-        payload: err.response.data
+        payload: err.response.data,
       });
     });
 };
 
-export const clearErrors = () => dispatch => {
+export const clearErrors = () => (dispatch) => {
   dispatch({
-    type: CLEAR_ERRORS
+    type: CLEAR_ERRORS,
   });
 };

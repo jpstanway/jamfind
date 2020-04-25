@@ -22,8 +22,8 @@ router.get("/test", (req, res) => {
 router.get("/", (req, res) => {
   Post.find()
     .sort({ date: -1 })
-    .then(posts => res.json(posts))
-    .catch(err => res.status(404).json({ notfound: "No posts found" }));
+    .then((posts) => res.json(posts))
+    .catch((err) => res.status(404).json({ notfound: "No posts found" }));
 });
 
 // @route   GET /api/posts/:postid
@@ -31,8 +31,8 @@ router.get("/", (req, res) => {
 // @access  Public
 router.get("/:postid", (req, res) => {
   Post.findById(req.params.postid)
-    .then(post => res.json(post))
-    .catch(err => res.status(404).json({ notfound: "Post not found" }));
+    .then((post) => res.json(post))
+    .catch((err) => res.status(404).json({ notfound: "Post not found" }));
 });
 
 // @route   POST /api/posts
@@ -53,11 +53,11 @@ router.post(
       username: req.user.username,
       avatar: req.user.avatar,
       title: req.body.title,
-      text: req.body.text
+      text: req.body.text,
     });
 
     // save post to database
-    newPost.save().then(post => res.json(post));
+    newPost.save().then((post) => res.json(post));
   }
 );
 
@@ -69,15 +69,15 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Post.findById(req.params.postid)
-      .then(post => {
+      .then((post) => {
         // make sure user hasn't already liked the post
         if (
-          post.likes.filter(like => like.userid.toString() === req.user.id)
+          post.likes.filter((like) => like.userid.toString() === req.user.id)
             .length > 0
         ) {
           // remove user's like from array
           const userLikeIndex = post.likes
-            .map(like => like.userid.toString())
+            .map((like) => like.userid.toString())
             .indexOf(req.user.id);
 
           post.likes.splice(userLikeIndex, 1);
@@ -87,9 +87,9 @@ router.post(
         }
 
         // save post
-        post.save().then(post => res.json(post));
+        post.save().then((post) => res.json(post));
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 );
 
@@ -101,16 +101,16 @@ router.post(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Post.findById(req.params.postid)
-      .then(post => {
+      .then((post) => {
         // make sure user hasn't already disliked the post
         if (
           post.dislikes.filter(
-            dislike => dislike.userid.toString() === req.user.id
+            (dislike) => dislike.userid.toString() === req.user.id
           ).length > 0
         ) {
           // remove user's dislike from array
           const userDislikeIndex = post.dislikes
-            .map(dislike => dislike.userid.toString())
+            .map((dislike) => dislike.userid.toString())
             .indexOf(req.user.id);
 
           post.dislikes.splice(userDislikeIndex, 1);
@@ -120,9 +120,9 @@ router.post(
         }
 
         // save post
-        post.save().then(post => res.json(post));
+        post.save().then((post) => res.json(post));
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 );
 
@@ -144,18 +144,18 @@ router.post(
       userid: req.user.id,
       username: req.user.username,
       avatar: req.user.avatar,
-      text: req.body.text
+      text: req.body.text,
     };
 
     Post.findById(req.params.postid)
-      .then(post => {
+      .then((post) => {
         // add reply to replies array
         post.replies.unshift(newReply);
 
         // save post
-        post.save().then(post => res.json(post));
+        post.save().then((post) => res.json(post));
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 );
 
@@ -174,7 +174,7 @@ router.put(
 
     // find the post in the database
     Post.findById(req.params.postid)
-      .then(post => {
+      .then((post) => {
         // make sure user is correct
         if (req.user.id === post.userid.toString()) {
           // overwrite post text value and update date
@@ -182,14 +182,14 @@ router.put(
           post.edited_on = Date.now();
 
           // save post
-          post.save().then(post => res.json(post));
+          post.save().then((post) => res.json(post));
         } else {
           return res.status(401).json({
-            nopermission: "You do not have permission to edit this post"
+            nopermission: "You do not have permission to edit this post",
           });
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 );
 
@@ -208,16 +208,16 @@ router.put(
 
     // Find the post
     Post.findById(req.params.postid)
-      .then(post => {
+      .then((post) => {
         // find reply
         const replyToEditIndex = post.replies
-          .map(reply => reply._id.toString())
+          .map((reply) => reply._id.toString())
           .indexOf(req.params.replyid);
 
         // check if not correct user
         if (post.replies[replyToEditIndex].userid.toString() !== req.user.id) {
           return res.status(401).json({
-            authorization: "You are not authorized to edit this reply"
+            authorization: "You are not authorized to edit this reply",
           });
         }
 
@@ -226,9 +226,9 @@ router.put(
         post.replies[replyToEditIndex].edited_on = Date.now();
 
         // save post
-        post.save().then(post => res.json(post));
+        post.save().then((post) => res.json(post));
       })
-      .catch(err => res.json({ notfound: "Post or reply not found" }));
+      .catch((err) => res.json({ notfound: "Post or reply not found" }));
   }
 );
 
@@ -241,11 +241,11 @@ router.delete(
   (req, res) => {
     // Find the post
     Post.findById(req.params.postid)
-      .then(post => {
+      .then((post) => {
         // confirm user's post
         if (post.userid.toString() !== req.user.id) {
           return res.status(401).json({
-            authorization: "You are not authorized to remove this post"
+            authorization: "You are not authorized to remove this post",
           });
         }
 
@@ -253,7 +253,7 @@ router.delete(
           .remove()
           .then(() => res.json({ success: "Successfully deleted post" }));
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 );
 
@@ -266,16 +266,16 @@ router.delete(
   (req, res) => {
     // Find the post
     Post.findById(req.params.postid)
-      .then(post => {
+      .then((post) => {
         // find reply
         const removeReplyIndex = post.replies
-          .map(reply => reply._id.toString())
+          .map((reply) => reply._id.toString())
           .indexOf(req.params.replyid);
 
         // check if not correct user
         if (post.replies[removeReplyIndex].userid.toString() !== req.user.id) {
           return res.status(401).json({
-            authorization: "You are not authorized to delete this reply"
+            authorization: "You are not authorized to delete this reply",
           });
         }
 
@@ -283,9 +283,9 @@ router.delete(
         post.replies.splice(removeReplyIndex, 1);
 
         // save post
-        post.save().then(post => res.json(post));
+        post.save().then((post) => res.json(post));
       })
-      .catch(err => res.json({ notfound: "Post or reply not found" }));
+      .catch((err) => res.json({ notfound: "Post or reply not found" }));
   }
 );
 

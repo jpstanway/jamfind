@@ -67,7 +67,7 @@ describe("JamFind", () => {
   });
 });
 
-context("adding profile items", () => {
+context("adding and editing profile items", () => {
   before(() => {
     cy.visit("http://localhost:3000");
     cy.contains("Login").click();
@@ -82,7 +82,7 @@ context("adding profile items", () => {
     cy.contains("Welcome test123");
   });
 
-  it("user can add and delete experience", () => {
+  it("can add and delete experience", () => {
     cy.contains("Add Experience").click();
     cy.wait(1000);
     cy.get('[name="typeofexperience"]').type("band");
@@ -98,7 +98,7 @@ context("adding profile items", () => {
     cy.contains("No experience listed");
   });
 
-  it("user can add and delete education", () => {
+  it("can add and delete education", () => {
     cy.contains("Add Education").click();
     cy.wait(1000);
     cy.get('[name="school"]').type("berklee");
@@ -113,5 +113,50 @@ context("adding profile items", () => {
     cy.get(".btn.btn-custom-danger").click();
     cy.wait(1000);
     cy.contains("No education listed");
+  });
+
+  it("can edit profile information", () => {
+    cy.contains("Edit Profile").click();
+    cy.wait(1000);
+    cy.get('[name="bio"]').type("test");
+    cy.get('[type="submit"]').click();
+    cy.wait(1000);
+    cy.contains("Profile successfully updated!");
+    cy.contains("Edit Profile").click();
+    cy.wait(1000);
+    cy.get('[name="bio"]').clear();
+    cy.get('[type="submit"]').click();
+    cy.wait(1000);
+    cy.contains("Profile successfully updated!");
+  });
+});
+
+context("creating posts", () => {
+  before(() => {
+    cy.visit("http://localhost:3000");
+    cy.contains("Login").click();
+    cy.wait(1000);
+    cy.get('[name="email"]')
+      .clear()
+      .type("test@test.com");
+    cy.get('[name="password"]')
+      .clear()
+      .type("123456");
+    cy.get('[type="submit"]').click();
+    cy.contains("Welcome test123");
+    cy.contains("Community").click();
+    cy.wait(1000);
+  });
+
+  it("can create and delete a post", () => {
+    cy.get('[name="title"]').type("this is a test post");
+    cy.get('[name="text"]').type("this is a test post message");
+    cy.get('[type="submit"]').click();
+    cy.wait(1000);
+    cy.contains("test123");
+    cy.contains("this is a test post");
+    cy.get(".btn.btn-custom-danger.btn-sm").click();
+    cy.wait(1000);
+    cy.contains("this is a test post").should("not.exist");
   });
 });

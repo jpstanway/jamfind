@@ -11,7 +11,7 @@ class PostCreate extends Component {
     this.state = {
       title: "",
       text: "",
-      errors: {}
+      errors: {},
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -31,7 +31,7 @@ class PostCreate extends Component {
     if (prevProps.post !== this.props.post) {
       this.setState({
         title: "",
-        text: ""
+        text: "",
       });
     }
   }
@@ -46,7 +46,7 @@ class PostCreate extends Component {
 
     const newPost = {
       title: title,
-      text: text
+      text: text,
     };
 
     this.props.createNewPost(newPost);
@@ -108,13 +108,12 @@ PostCreate.propTypes = {
   getAllPosts: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
   post: state.post,
-  errors: state.errors
+  errors: state.errors,
 });
 
 export default connect(
