@@ -7,7 +7,7 @@ import {
   getAllPosts,
   likePost,
   dislikePost,
-  deletePost
+  deletePost,
 } from "../../actions/postActions";
 import { getAllProfiles } from "../../actions/profileActions";
 import classnames from "classnames";
@@ -41,7 +41,7 @@ class PostFeed extends Component {
 
   findUserLike(likes) {
     if (
-      likes.filter(like => this.props.auth.user.id === like.userid).length > 0
+      likes.filter((like) => this.props.auth.user.id === like.userid).length > 0
     ) {
       return true;
     } else {
@@ -57,17 +57,17 @@ class PostFeed extends Component {
       postFeed = <Loading />;
     } else {
       // collect all user ids from profiles
-      const profileIds = profile.profiles.map(profile =>
+      const profileIds = profile.profiles.map((profile) =>
         profile.userid._id.toString()
       );
 
-      postFeed = post.posts.map(post => (
+      postFeed = post.posts.map((post) => (
         <div key={post._id} className="card p-2 mb-3">
-          <div className="row">
-            <div className="col-md-3 text-center">
+          <div className="row pl-3">
+            <div className="col-xs-3 text-center">
               <img
                 src={post.avatar}
-                className="m-auto img-thumbnail profile-avatar"
+                className="img-thumbnail img-fluid profile-avatar"
                 alt={post.username}
               />
               <p className="display-5">
@@ -96,7 +96,9 @@ class PostFeed extends Component {
                       >
                         <i
                           className={classnames("fas fa-thumbs-up mr-1", {
-                            "text-custom-actions": this.findUserLike(post.likes)
+                            "text-custom-actions": this.findUserLike(
+                              post.likes
+                            ),
                           })}
                         />
                       </button>
@@ -113,7 +115,7 @@ class PostFeed extends Component {
                           className={classnames("fas fa-thumbs-down", {
                             "text-custom-actions": this.findUserLike(
                               post.dislikes
-                            )
+                            ),
                           })}
                         />
                       </button>
@@ -166,13 +168,13 @@ PostFeed.propTypes = {
   getAllProfiles: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
   post: state.post,
-  profile: state.profile
+  profile: state.profile,
 });
 
 export default connect(

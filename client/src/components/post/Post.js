@@ -29,14 +29,14 @@ class Post extends Component {
       postContent = <Loading />;
     } else {
       // store all profile ids
-      const profileIds = profile.profiles.map(profile =>
+      const profileIds = profile.profiles.map((profile) =>
         profile.userid._id.toString()
       );
 
       postContent = (
         <div className="post">
           <div className="row mb-3">
-            <div className="cold-md-12">
+            <div className="col-md-12">
               <Link
                 to="/posts/all"
                 className="btn btn-custom-outline-secondary btn-sm"
@@ -71,13 +71,13 @@ Post.propTypes = {
   getAllProfiles: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired,
-  profile: PropTypes.object.isRequired
+  profile: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth,
   post: state.post,
-  profile: state.profile
+  profile: state.profile,
 });
 
 export default connect(

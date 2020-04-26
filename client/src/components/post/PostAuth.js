@@ -5,7 +5,7 @@ import Marked from "marked";
 import DOMPurify from "dompurify";
 
 Marked.setOptions({
-  breaks: true
+  breaks: true,
 });
 
 class PostAuth extends Component {
@@ -21,7 +21,7 @@ class PostAuth extends Component {
               <div className="col-md-3 text-center">
                 <img
                   src={post.avatar}
-                  className="m-auto img-thumbnail"
+                  className="m-auto img-thumbnail img-fluid"
                   alt={post.username}
                 />
                 <p className="display-5">
