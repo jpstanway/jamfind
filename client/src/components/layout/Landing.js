@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+// ar_1:1,bo_0px_solid_rgb:ffffff,c_fill,g_auto,h_200,r_max,w_200
 
 class Landing extends Component {
   render() {
@@ -143,7 +144,7 @@ class Landing extends Component {
               <div className="col-md-4">
                 <div className="card custom-card">
                   <img
-                    src="https://res.cloudinary.com/mtninja/image/upload/c_scale,h_200,w_200/v1546924700/testimonial-1_joiu2o.jpg"
+                    src="https://res.cloudinary.com/mtninja/image/upload/ar_1:1,bo_0px_solid_rgb:ffffff,c_fill,g_auto,h_200,r_max,w_200/v1587940023/jamfind/testimonial-1_compressed.jpg"
                     className="card-img-top rounded-circle"
                     alt="..."
                   />
@@ -158,7 +159,7 @@ class Landing extends Component {
               <div className="col-md-4">
                 <div className="card custom-card">
                   <img
-                    src="https://res.cloudinary.com/mtninja/image/upload/ar_1:1,bo_0px_solid_rgb:ffffff,c_fill,g_auto,h_200,r_max,w_200/v1546924320/testimonial-3_ny31vk.jpg"
+                    src="https://res.cloudinary.com/mtninja/image/upload/ar_1:1,bo_0px_solid_rgb:ffffff,c_fill,g_auto,h_200,r_max,w_200/v1587940024/jamfind/testimonial-3_compressed.jpg"
                     className="card-img-top rounded-circle"
                     alt="..."
                   />
@@ -173,7 +174,7 @@ class Landing extends Component {
               <div className="col-md-4">
                 <div className="card custom-card">
                   <img
-                    src="https://res.cloudinary.com/mtninja/image/upload/ar_1:1,bo_0px_solid_rgb:ffffff,c_fill,g_auto,h_200,r_max,w_200/v1546924359/testimonial-2_yajc2g.jpg"
+                    src="https://res.cloudinary.com/mtninja/image/upload/ar_1:1,bo_0px_solid_rgb:ffffff,c_fill,g_auto,h_200,r_max,w_200/v1587940025/jamfind/testimonial-2_compressed.jpg"
                     className="card-img-top rounded-circle"
                     alt="..."
                   />
