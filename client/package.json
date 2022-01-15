@@ -7,7 +7,7 @@
     "classnames": "^2.2.6",
     "dompurify": "^1.0.10",
     "jwt-decode": "^2.2.0",
-    "marked": "^0.6.1",
+    "marked": "^4.0.10",
     "moment": "^2.23.0",
     "node-sass": "^4.11.0",
     "react": "^16.7.0",
